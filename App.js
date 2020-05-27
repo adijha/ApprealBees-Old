@@ -1,114 +1,123 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from 'react'
+import { View, Text, StyleSheet,TextInput ,TouchableOpacity } from 'react-native'
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+const App = () => {
+  const [value, onChangeText] = React.useState('Sign In');
+  const [Password, Passwordon] = React.useState('Password');
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+    <View style={styles.container}>
+     <View style={styles.Navbar}>
+      <Text style={styles.Nabartext}> Sign in</Text>
+      <Text style={styles.Nabarskip}>Skip</Text>
+     </View>
+     <View style={styles.signinarea}>
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+       <Text style={{fontSize:60,marginBottom:40,marginTop:20}}>DealMart</Text>
+
+    <TextInput style={styles.Textinput}    onChangeText={text => onChangeText(text)}
+      value={value}/>
+
+    <TextInput style={styles.Textinput} onChangeText={text => Passwordon(text)}
+      value={Password}/>
+
+    <Text style={{fontSize:20,marginBottom:20,marginTop:10}}>Forget your password?</Text>
+
+    <TouchableOpacity style={styles.button}>
+        <Text style={{color:"#ffffff",fontSize:30}}>Sign in</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button1}>
+        <Text style={{color:"red",fontSize:20}}>New to DealMart? SIGNUP</Text>
+      </TouchableOpacity>
+      <Text style={{color:"#000000",fontSize:15, padding:10}}>Do you login with social account?</Text>
+     </View>
+     <View style={styles.Socialbuttonarea}>
+     <TouchableOpacity style={styles.socialbutton}>
+        <Text style={{color:"red",fontSize:15}}>Google</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.socialbutton}>
+        <Text style={{color:"blue",fontSize:15}}>Facebook</Text>
+      </TouchableOpacity>
+     </View>
+    </View>
+  )
+}
+
+
+const styles =StyleSheet.create({
+container:{
+flex:1
+},
+Navbar:{
+ 
+  height:65,
+  backgroundColor:"red",
+  elevation:3,
+  flexDirection:"row",
+  alignItems:"center",
+  paddingLeft:130,
+  justifyContent:'space-between'
+  
+  
+},
+Nabartext:{
+  color:"#ffffff",
+  alignSelf:"center",
+  fontSize:35,
+  fontWeight:"900",
+  
+},
+Nabarskip:{
+  color:"#ffffff",
+  fontSize:20,
+  paddingRight:10,
+},
+Textinput:{
+  height: 40, 
+  borderColor: 'red',
+   borderWidth: 1,
+  width:"70%",
+ 
+  marginTop:30
+},
+signinarea:{
+  alignItems:"center",
+},
+button:{
+  alignItems: "center",
+  backgroundColor: "red",
+ padding:10,
+  width:"70%",
+  height:60,
+},
+button1:{
+  alignItems: "center",
+  backgroundColor: "#ffffff",
+  padding:10,
+ 
+  width:"70%",
+  height:60,
+  borderColor: '#DDDDDD',
+   borderWidth: 1,
+   marginTop:15,
+
+},
+Socialbuttonarea:{
+  flexDirection:"row",
+  alignItems:"center",
+  justifyContent:"space-around",
+},
+socialbutton:{
+  alignItems: "center",
+  backgroundColor: "#ffffff",
+  padding:10,
+  width:"40%",
+  height:40,
+  borderColor: '#DDDDDD',
+   borderWidth: 1,
+}
+
+
 });
 
-export default App;
+export default App
