@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
   social: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
+    width: 90,
   },
   icon: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 49,
+    width: 40,
     borderRightColor: '#b3b6bd',
     borderRightWidth: 1,
   },
