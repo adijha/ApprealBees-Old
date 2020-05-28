@@ -10,9 +10,9 @@ import {
   ScrollView,
   Button,
 } from 'react-native';
-import AuthApi from '../../api/Auth';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import AuthApi from '../../api/Auth';
+import Header from '../../components/Header';
 export default function SignInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,6 +39,17 @@ export default function SignInScreen(props) {
       }
     }
   };
+  props.navigation.setOptions({
+    header: () => (
+      <Header
+        route={props.route}
+        navigation={props.navigation}
+        title="Sign In"
+        noBack
+        rightText="Skip"
+      />
+    ),
+  });
 
   return (
     <ScrollView style={styles.container}>
