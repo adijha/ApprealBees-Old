@@ -64,36 +64,34 @@ export default function SignInScreen(props) {
           <Text style={styles.error}> {errorMessage} </Text>
         ) : null}
       </View>
-      <View style={styles.form}>
-        <View style={styles.emailWrap}>
-          <View style={styles.emailIcon}>
-            <SimpleLineIconsI name="user" size={19} color="#F14436" />
-          </View>
-          <TextInput
-            style={styles.input}
-            autoCapitalize="none"
-            placeholder="Username"
-            onChangeText={value => setEmail(value)}
-          />
+      <View style={styles.emailWrap}>
+        <View style={styles.emailIcon}>
+          <SimpleLineIconsI name="user" size={19} color="#F14436" />
         </View>
-        <View style={styles.passwordWrap}>
-          <View style={styles.passwordIcon}>
-            <EvilIconsI name="lock" size={29} color="#F14436" />
-          </View>
-          <TextInput
-            style={styles.input}
-            secureTextEntry
-            autoCapitalize="none"
-            placeholder="Password"
-            onChangeText={value => setPassword(value)}
-            onFocus={() => setSpace(true)}
-            onSubmitEditing={() => setSpace(false)}
-          />
-        </View>
-        <TouchableOpacity style={styles.forgotPasswordCover}>
-          <Text style={styles.forgetPassword}>Forget your password?</Text>
-        </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          autoCapitalize="none"
+          placeholder="Username"
+          onChangeText={value => setEmail(value)}
+        />
       </View>
+      <View style={styles.passwordWrap}>
+        <View style={styles.passwordIcon}>
+          <EvilIconsI name="lock" size={29} color="#F14436" />
+        </View>
+        <TextInput
+          style={styles.input}
+          secureTextEntry
+          autoCapitalize="none"
+          placeholder="Password"
+          onChangeText={value => setPassword(value)}
+          onFocus={() => setSpace(true)}
+          onSubmitEditing={() => setSpace(false)}
+        />
+      </View>
+      <TouchableOpacity style={styles.forgotPasswordCover}>
+        <Text style={styles.forgetPassword}>Forget your password?</Text>
+      </TouchableOpacity>
       {!loading ? (
         <Button title="Sign In" onPress={onSubmit} />
       ) : (
@@ -106,7 +104,7 @@ export default function SignInScreen(props) {
           props.navigation.navigate('SignUp');
           Keyboard.dismiss();
         }}
-        style={{marginTop: 20}}
+        style={{marginTop: 16}}
       />
       <Text style={styles.or}>Or Login with social account?</Text>
       <View style={styles.flex}>
@@ -126,13 +124,13 @@ const styles = StyleSheet.create({
     height: 30,
   },
   companyLogo: {
-    marginTop: 22,
-    fontSize: 38,
+    marginTop: 14,
+    fontSize: 30,
     fontWeight: '400',
     textAlign: 'center',
   },
   errorMessage: {
-    height: 52,
+    height: 32,
     alignItems: 'center',
     justifyContent: 'center',
     color: 'red',
@@ -142,9 +140,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
-  },
-  form: {
-    marginBottom: 48,
   },
   input: {
     fontSize: 15,
@@ -156,6 +151,7 @@ const styles = StyleSheet.create({
   forgotPasswordCover: {
     marginTop: 10,
     marginLeft: 10,
+    marginVertical: 22,
   },
   forgetPassword: {
     color: 'grey',
