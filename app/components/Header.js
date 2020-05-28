@@ -1,7 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-const Header = ({title, route, navigation, rightText, rightIcon, noBack}) => {
+const Header = ({
+  title,
+  route,
+  navigation,
+  rightText,
+  rightIcon,
+  noBack,
+  rightAction,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.backCover}>
@@ -9,7 +17,11 @@ const Header = ({title, route, navigation, rightText, rightIcon, noBack}) => {
       </View>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.rightCover}>
-        {rightText ? <Text style={styles.rightText}>{rightText}</Text> : null}
+        {rightText ? (
+          <TouchableOpacity onPress={rightAction}>
+            <Text style={styles.rightText}>{rightText}</Text>
+          </TouchableOpacity>
+        ) : null}
       </View>
     </View>
   );

@@ -47,6 +47,7 @@ export default function SignInScreen(props) {
         title="Sign In"
         noBack
         rightText="Skip"
+        rightAction={() => props.navigation.navigate('Home')}
       />
     ),
   });
