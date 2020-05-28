@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Text} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Bag from '../../assets/icons/bag.png';
 export default function LoadingScreen(props) {
@@ -16,6 +16,7 @@ export default function LoadingScreen(props) {
   return (
     <View style={styles.container}>
       <Image source={Bag} />
+      <Text>Splash Screen</Text>
     </View>
   );
 }
@@ -25,5 +26,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#F14435',
   },
 });
