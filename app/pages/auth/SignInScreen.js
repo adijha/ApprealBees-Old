@@ -102,7 +102,7 @@ export default function SignInScreen(props) {
       <Text style={{textAlign: 'center', marginTop: 35, marginBottom: 20}}>
         Or Login with social account?
       </Text>
-      <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <SocialButton google />
         <SocialButton facebook />
       </View>
