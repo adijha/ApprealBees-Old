@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../../components/Header';
+import Button from '../../components/Button';
 
 const HomeScreen = props => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -9,7 +10,7 @@ const HomeScreen = props => {
     checkLogin();
   });
   const checkLogin = async () => {
-    let token = AsyncStorage.getItem('token');
+    let token = await AsyncStorage.getItem('token');
     if (token) {
       setLoggedIn(true);
     }

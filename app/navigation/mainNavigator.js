@@ -26,7 +26,7 @@ export const AuthNavigator = () => (
 );
 
 export const HomeNavigator = () => (
-  <Stack.Navigator screenOptions={{headerShown: false}}>
+  <Stack.Navigator>
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
@@ -34,7 +34,10 @@ export const HomeNavigator = () => (
 const MainContainer = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={() => ({
+          headerShown: false,
+        })}>
         <Stack.Screen
           options={() => ({
             headerShown: false,
