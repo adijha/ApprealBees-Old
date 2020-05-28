@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,32 +8,37 @@ import {
 } from 'react-native';
 
 const App = () => {
-  const [value, onChangeText] = React.useState('Sign In');
-  const [Password, Passwordon] = React.useState('Password');
+  const [email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-      <View style={styles.Navbar}>
-        <Text style={styles.Nabartext}> Sign in</Text>
-        <Text style={styles.Nabarskip}>Skip</Text>
+      <View style={styles.navbar}>
+        <Text style={styles.navbarText}> Sign in</Text>
+        <Text style={styles.navbarSkip}>Skip</Text>
       </View>
-      <View style={styles.signinarea}>
-        <Text style={{fontSize: 50, marginBottom: 40, marginTop: 20}}>
-          ShopName
-        </Text>
+      <View style={styles.signInArea}>
+        <Text style={styles.logo}>ShopName</Text>
 
         <TextInput
-          style={styles.Textinput}
-          onChangeText={text => onChangeText(text)}
-          value={value}
+          style={styles.input}
+          onChangeText={text => setEmail(text)}
+          value={email}
         />
 
         <TextInput
-          style={styles.Textinput}
-          onChangeText={text => Passwordon(text)}
+          style={styles.input}
+          onChangeText={text => setPassword(text)}
           value={Password}
         />
 
-        <Text style={{fontSize: 20, marginBottom: 20, marginTop: 10}}>
+        <Text
+          style={{
+            fontSize: 20,
+            marginBottom: 20,
+            marginTop: 10,
+            color: '#ADADAD',
+            marginLeft:-70
+          }}>
           Forget your password?
         </Text>
 
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  Navbar: {
+  navbar: {
     height: 65,
     backgroundColor: '#F45245',
     elevation: 3,
@@ -75,28 +80,27 @@ const styles = StyleSheet.create({
     paddingLeft: 130,
     justifyContent: 'space-between',
   },
-  Nabartext: {
+  navbarText: {
     color: '#ffffff',
     // alignSelf: 'center',
     // textAlign: 'center',
     fontSize: 25,
     fontWeight: '900',
-    marginLeft:32
+    marginLeft: 32,
   },
-  Nabarskip: {
+  navbarSkip: {
     color: '#ffffff',
     fontSize: 16,
     paddingRight: 10,
   },
-  Textinput: {
+  input: {
     height: 40,
     borderColor: '#F45245',
     borderWidth: 1,
     width: '70%',
-
     marginTop: 30,
   },
-  signinarea: {
+  signInArea: {
     alignItems: 'center',
   },
   button: {
@@ -110,7 +114,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ffffff',
     padding: 10,
-
     width: '70%',
     height: 60,
     borderColor: '#DDDDDD',
@@ -131,6 +134,7 @@ const styles = StyleSheet.create({
     borderColor: '#DDDDDD',
     borderWidth: 1,
   },
+  logo: {fontSize: 50, marginBottom: 40, marginTop: 20},
 });
 
 export default App;
