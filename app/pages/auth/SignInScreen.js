@@ -54,8 +54,8 @@ export default function SignInScreen(props) {
 
   return (
     <ScrollView style={styles.container}>
-      {!space ? <View style={{height: 65}} /> : null}
-      <Text style={styles.greeting}> {'Hello again.\nWelcome back.'} </Text>
+      {!space ? <View style={{height: 35}} /> : null}
+      <Text style={styles.companyLogo}> ShopOnline </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
           <Text style={styles.error}> {errorMessage} </Text>
@@ -156,9 +156,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 39,
   },
-  greeting: {
+  companyLogo: {
     marginTop: 32,
-    fontSize: 18,
+    fontSize: 38,
     fontWeight: '400',
     textAlign: 'center',
   },
