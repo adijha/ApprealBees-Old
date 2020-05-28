@@ -29,19 +29,19 @@ export default function SignInScreen(props) {
     event.preventDefault();
     setSpace(false);
     setLoading(true);
-    if (email.length < 2 || password.length < 2) {
+    if (email.length < 3 || password.length < 3) {
       setErrorMessage('Fill out the form');
       setLoading(false);
     } else {
       try {
-        const response = await AuthApi.post('/signin', {email, password});
+        const response = await AuthApi.post('/signup', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         setLoading(false);
-        props.navigation.navigate('Home');
-      } catch (err) {
+        props.navigation.navigate('Earn');
+      } catch (error) {
         setErrorMessage('Something went wrong');
         setLoading(false);
-        console.log('Error', err);
+        console.log({error});
       }
     }
   };
