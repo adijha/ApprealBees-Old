@@ -1,10 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
-const HomeScreen = () => {
+const HomeScreen = props => {
+  const logOut = async () => {
+    await AsyncStorage.removeItem('token');
+    props.navigation.navigate('Auth');
+  };
+
   return (
     <View>
       <Text>HomeScreen HomeScreen</Text>
+      <Button title="Log Out" onPress={logOut} />
     </View>
   );
 };

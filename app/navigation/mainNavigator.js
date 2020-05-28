@@ -36,7 +36,7 @@ const MainContainer = () => {
           name="Auth"
           component={AuthNavigator}
         />
-        <Stack.Screen name="Earn" component={HomeNavigator} />
+        <Stack.Screen name="Home" component={HomeNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

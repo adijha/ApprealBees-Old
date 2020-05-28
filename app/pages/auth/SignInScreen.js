@@ -31,7 +31,7 @@ export default function SignInScreen(props) {
         const response = await AuthApi.post('/signin', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         setLoading(false);
-        props.navigation.navigate('Earn');
+        props.navigation.navigate('Home');
       } catch (err) {
         setErrorMessage('Something went wrong');
         setLoading(false);
@@ -79,7 +79,7 @@ export default function SignInScreen(props) {
           style={{
             backgroundColor: '#3E69B9',
           }}
-          title="tect"
+          title="Sign In"
           onPress={onSubmit}
         />
       ) : (
@@ -89,9 +89,9 @@ export default function SignInScreen(props) {
             justifyContent: 'center',
             alignSelf: 'center',
             backgroundColor: '#3E69B9',
-          }}>
-          <ActivityIndicator size="large" color="white" />
-        </Button>
+          }}
+          title="Loading"
+        />
       )}
       {loading ? null : (
         <TouchableOpacity
@@ -132,7 +132,6 @@ export default function SignInScreen(props) {
               fontWeight: '500',
               color: '#6CBAD9',
             }}>
-            {' '}
             Sign Up
           </Text>
         </Text>
