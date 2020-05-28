@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import AuthApi from '../../api/Auth';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
+import SocialButton from '../../components/SocialButton';
 export default function SignInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -84,12 +85,11 @@ export default function SignInScreen(props) {
           <Text style={styles.forgetPassword}>Forget your password?</Text>
         </TouchableOpacity>
       </View>
-      {loading ? (
+      {!loading ? (
         <Button title="Sign In" onPress={onSubmit} />
       ) : (
         <Button loading />
       )}
-
       <Button
         outline
         title="New to ShopOnline? Sign Up"
@@ -99,6 +99,13 @@ export default function SignInScreen(props) {
         }}
         style={{marginTop: 20}}
       />
+      <Text style={{textAlign: 'center', marginTop: 35, marginBottom: 20}}>
+        Or Login with social account?
+      </Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        <SocialButton google />
+        <SocialButton facebook />
+      </View>
     </ScrollView>
   );
 }
@@ -109,16 +116,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   space1: {
-    height: 35,
+    height: 30,
   },
   companyLogo: {
-    marginTop: 32,
+    marginTop: 22,
     fontSize: 38,
     fontWeight: '400',
     textAlign: 'center',
   },
   errorMessage: {
-    height: 72,
+    height: 52,
     alignItems: 'center',
     justifyContent: 'center',
     color: 'red',
@@ -140,10 +147,11 @@ const styles = StyleSheet.create({
     color: '#161F3D',
   },
   passwordWrapper: {
-    marginTop: 32,
+    marginTop: 26,
   },
   forgotPasswordCover: {
     marginTop: 10,
+    marginLeft: 10,
   },
   forgetPassword: {
     color: 'grey',
