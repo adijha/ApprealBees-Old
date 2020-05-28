@@ -17,7 +17,7 @@ const Button = ({title, style, onPress, outline, loading}) => {
           backgroundColor: outline ? '#fff' : '#F14436',
           borderColor: '#999999',
           borderWidth: outline ? 1 : 0,
-          minWidth: loading ? 49 : 290,
+          width: loading ? 49 : 290,
           borderRadius: loading ? 50 : 2,
         },
       ]}>
