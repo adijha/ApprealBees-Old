@@ -6,13 +6,12 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
-  ActivityIndicator,
   ScrollView,
-  Button,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import AuthApi from '../../api/Auth';
 import Header from '../../components/Header';
+import Button from '../../components/Button';
 export default function SignInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -54,7 +53,7 @@ export default function SignInScreen(props) {
 
   return (
     <ScrollView style={styles.container}>
-      {!space ? <View style={{height: 35}} /> : null}
+      {!space ? <View style={styles.space1} /> : null}
       <Text style={styles.companyLogo}> ShopOnline </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
@@ -63,91 +62,43 @@ export default function SignInScreen(props) {
       </View>
       <View style={styles.form}>
         <View>
-          <Text style={styles.inputTitle}> Email Address </Text>
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={email => setEmail(email)}
+            placeholder="Username"
+            onChangeText={value => setEmail(value)}
           />
         </View>
-        <View
-          style={{
-            marginTop: 32,
-          }}>
-          <Text style={styles.inputTitle}> Password </Text>
+        <View style={styles.passwordWrapper}>
           <TextInput
             style={styles.input}
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={password => setPassword(password)}
+            placeholder="Password"
+            onChangeText={value => setPassword(value)}
             onFocus={() => setSpace(true)}
             onSubmitEditing={() => setSpace(false)}
           />
         </View>
-      </View>
-
-      {!loading ? (
-        <Button
-          style={{
-            backgroundColor: '#3E69B9',
-          }}
-          title="Sign In"
-          onPress={onSubmit}
-        />
-      ) : (
-        <Button
-          style={{
-            width: 46,
-            justifyContent: 'center',
-            alignSelf: 'center',
-            backgroundColor: '#3E69B9',
-          }}
-          title="Loading"
-        />
-      )}
-      {loading ? null : (
-        <TouchableOpacity
-          style={{
-            // marginHorizontal: 30,
-            marginTop: 12,
-          }}
-          onPress={() => {
-            // props.navigation.navigate('ResetPassword');
-            Keyboard.dismiss();
-          }}>
-          <Text
-            style={{
-              color: '#414959',
-              fontSize: 13,
-            }}>
-            Forgot your password ?
-          </Text>
+        <TouchableOpacity style={styles.forgotPasswordCover}>
+          <Text style={styles.forgetPassword}>Forget your password?</Text>
         </TouchableOpacity>
+      </View>
+      {loading ? (
+        <Button title="Sign In" onPress={onSubmit} />
+      ) : (
+        <Button loading />
       )}
-      <TouchableOpacity
-        style={{
-          alignSelf: 'center',
-          marginTop: 42,
-        }}
+
+      <Button
+        outline
+        title="New to ShopOnline? Sign Up"
         onPress={() => {
           props.navigation.navigate('SignUp');
           Keyboard.dismiss();
-        }}>
-        <Text
-          style={{
-            color: '#414959',
-            fontSize: 13,
-          }}>
-          New to Pubg App?
-          <Text
-            style={{
-              fontWeight: '500',
-              color: '#6CBAD9',
-            }}>
-            Sign Up
-          </Text>
-        </Text>
-      </TouchableOpacity>
+        }}
+        style={{marginTop: 20}}
+      />
     </ScrollView>
   );
 }
@@ -155,6 +106,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 39,
+    backgroundColor: '#ffffff',
+  },
+  space1: {
+    height: 35,
   },
   companyLogo: {
     marginTop: 32,
@@ -167,32 +122,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: 'red',
-    // marginHorizontal: 30,
   },
   error: {
-    color: '#6CBAD9',
+    color: 'red',
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
   },
   form: {
     marginBottom: 48,
-    // marginHorizontal: 30,
-  },
-  inputTitle: {
-    color: '#8A8F9E',
-    fontSize: 10,
-    textTransform: 'uppercase',
   },
   input: {
-    borderBottomColor: '#8A8F9E',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    height: 40,
+    borderColor: '#FABBB5',
+    borderWidth: 2,
+    height: 43,
     fontSize: 15,
     color: '#161F3D',
   },
+  passwordWrapper: {
+    marginTop: 32,
+  },
+  forgotPasswordCover: {
+    marginTop: 10,
+  },
+  forgetPassword: {
+    color: 'grey',
+  },
   button: {
-    // marginHorizontal: 30,
     backgroundColor: '#6CBAD9',
     borderRadius: 4,
     height: 52,
