@@ -8,6 +8,9 @@ import {
   Keyboard,
   ScrollView,
 } from 'react-native';
+import EvilIconsI from 'react-native-vector-icons/EvilIcons';
+import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
+
 import AsyncStorage from '@react-native-community/async-storage';
 import AuthApi from '../../api/Auth';
 import Header from '../../components/Header';
@@ -62,7 +65,10 @@ export default function SignInScreen(props) {
         ) : null}
       </View>
       <View style={styles.form}>
-        <View>
+        <View style={styles.emailWrap}>
+          <View style={styles.emailIcon}>
+            <SimpleLineIconsI name="user" size={19} color="#F14436" />
+          </View>
           <TextInput
             style={styles.input}
             autoCapitalize="none"
@@ -70,7 +76,10 @@ export default function SignInScreen(props) {
             onChangeText={value => setEmail(value)}
           />
         </View>
-        <View style={styles.passwordWrapper}>
+        <View style={styles.passwordWrap}>
+          <View style={styles.passwordIcon}>
+            <EvilIconsI name="lock" size={29} color="#F14436" />
+          </View>
           <TextInput
             style={styles.input}
             secureTextEntry
@@ -99,10 +108,8 @@ export default function SignInScreen(props) {
         }}
         style={{marginTop: 20}}
       />
-      <Text style={{textAlign: 'center', marginTop: 35, marginBottom: 20}}>
-        Or Login with social account?
-      </Text>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <Text style={styles.or}>Or Login with social account?</Text>
+      <View style={styles.flex}>
         <SocialButton google />
         <SocialButton facebook />
       </View>
@@ -140,9 +147,6 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   input: {
-    borderColor: '#FABBB5',
-    borderWidth: 2,
-    height: 43,
     fontSize: 15,
     color: '#161F3D',
   },
@@ -156,11 +160,39 @@ const styles = StyleSheet.create({
   forgetPassword: {
     color: 'grey',
   },
-  button: {
-    backgroundColor: '#6CBAD9',
+  emailWrap: {
+    borderColor: '#FABBB5',
+    borderWidth: 2,
+    height: 43,
+    flexDirection: 'row',
     borderRadius: 4,
-    height: 52,
-    alignItems: 'center',
+  },
+  emailIcon: {
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 12,
+    paddingRight: 7,
+  },
+  passwordWrap: {
+    borderColor: '#FABBB5',
+    borderWidth: 2,
+    height: 43,
+    flexDirection: 'row',
+    marginTop: 20,
+    borderRadius: 4,
+  },
+  passwordIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 8,
+  },
+  or: {
+    textAlign: 'center',
+    marginTop: 35,
+    marginBottom: 20,
+  },
+  flex: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
