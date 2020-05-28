@@ -6,201 +6,200 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
-  ActivityIndicator,
   ScrollView,
-  Button,
 } from 'react-native';
-import AuthApi from '../../api/Auth';
-import AsyncStorage from '@react-native-community/async-storage';
+import EvilIconsI from 'react-native-vector-icons/EvilIcons';
+import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
+import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function SignUpScreen(props) {
+import AsyncStorage from '@react-native-community/async-storage';
+import AuthApi from '../../api/Auth';
+import Header from '../../components/Header';
+import Button from '../../components/Button';
+import SocialButton from '../../components/SocialButton';
+export default function SignInScreen(props) {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [mobile, setMobile] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [space, setSpace] = useState(false);
-  const [moreSpace, setMoreSpace] = useState(false);
   const onSubmit = async event => {
     event.preventDefault();
     setSpace(false);
-    setMoreSpace(false);
     setLoading(true);
-    if ((email.length < 6 || password.length < 6, name.length < 4)) {
+    if (email.length < 2 || password.length < 2) {
       setErrorMessage('Fill out the form');
       setLoading(false);
     } else {
       try {
-        const response = await AuthApi.post('/signup', {email, password});
+        const response = await AuthApi.post('/signin', {email, password});
         await AsyncStorage.setItem('token', response.data.token);
         setLoading(false);
-        props.navigation.navigate('Earn');
-      } catch (error) {
+        props.navigation.navigate('Home');
+      } catch (err) {
         setErrorMessage('Something went wrong');
         setLoading(false);
-        console.log({error});
+        console.log('Error', err);
       }
     }
   };
+  props.navigation.setOptions({
+    header: () => (
+      <Header
+        route={props.route}
+        navigation={props.navigation}
+        title="Sign Up"
+        noBack
+        rightText="Skip"
+        rightAction={() => props.navigation.navigate('Home')}
+      />
+    ),
+  });
 
   return (
     <ScrollView style={styles.container}>
-      {!space ? <View style={{height: 65}} /> : null}
-      {!moreSpace ? (
-        <Text style={styles.greeting}> {'Hello,\nWelcome'} </Text>
-      ) : null}
+      {!space ? <View style={styles.space1} /> : null}
+      <Text style={styles.companyLogo}> ShopOnline </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
           <Text style={styles.error}> {errorMessage} </Text>
         ) : null}
       </View>
       <View style={styles.form}>
-        <View>
-          <Text style={styles.inputTitle}> Full Name </Text>
+        <View style={styles.emailWrap}>
+          <View style={styles.emailIcon}>
+            <SimpleLineIconsI name="user" size={25} color="#F14436" />
+          </View>
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={name => setName(name)}
+            placeholder="User Name"
+            onChangeText={value => setUsername(value)}
           />
         </View>
-        <View
-          style={{
-            marginTop: 32,
-          }}>
-          <Text style={styles.inputTitle}> Email Address </Text>
+        <View style={styles.passwordWrap}>
+          <View style={styles.emailIcon}>
+            <SimpleLineIconsI name="envelope" size={25} color="#F14436" />
+          </View>
           <TextInput
             style={styles.input}
             autoCapitalize="none"
-            onChangeText={email => setEmail(email)}
-            onFocus={() => setSpace(true)}
-            onSubmitEditing={() => setSpace(false)}
+            placeholder="Email"
+            onChangeText={value => setEmail(value)}
           />
         </View>
-        <View
-          style={{
-            marginTop: 32,
-          }}>
-          <Text style={styles.inputTitle}> Password </Text>
+        <View style={styles.passwordWrap}>
+          <View style={[styles.emailIcon, {marginLeft: -3}]}>
+            <MaterialCommunityIconsI
+              name="cellphone-iphone"
+              size={26}
+              color="#F18999"
+            />
+          </View>
+          <TextInput
+            style={styles.input}
+            autoCapitalize="none"
+            placeholder="Mobile Number"
+            onChangeText={value => setMobile(value)}
+          />
+        </View>
+        <View style={styles.passwordWrap}>
+          <View style={styles.passwordIcon}>
+            <EvilIconsI name="lock" size={45} color="#F14436" />
+          </View>
           <TextInput
             style={styles.input}
             secureTextEntry
             autoCapitalize="none"
-            onChangeText={password => setPassword(password)}
-            onFocus={() => {
-              setSpace(true), setMoreSpace(true);
-            }}
-            onSubmitEditing={() => {
-              setSpace(false), setMoreSpace(false);
-            }}
+            placeholder="Password"
+            onChangeText={value => setPassword(value)}
+            onFocus={() => setSpace(true)}
+            onSubmitEditing={() => setSpace(false)}
           />
         </View>
-
-        {!loading ? (
-          <Button
-            full
-            rounded
-            info
-            style={{
-              backgroundColor: '#3E69B9',
-              marginTop: 27,
-            }}
-            onPress={onSubmit}>
-            <Text
-              style={{
-                color: '#FFF',
-                fontWeight: '500',
-              }}>
-              Sign up
-            </Text>
-          </Button>
-        ) : (
-          <Button
-            rounded
-            info
-            style={{
-              width: 46,
-              justifyContent: 'center',
-              alignSelf: 'center',
-              backgroundColor: '#3E69B9',
-              marginTop: 27,
-            }}>
-            <ActivityIndicator size="large" color="white" />
-          </Button>
-        )}
       </View>
-
-      <TouchableOpacity
-        style={{
-          alignSelf: 'center',
-        }}
-        onPress={() => {
-          props.navigation.navigate('SignIn');
-          Keyboard.dismiss();
-        }}>
-        <Text
-          style={{
-            color: '#414959',
-            fontSize: 13,
-          }}>
-          Already have an account ?
-          <Text
-            style={{
-              fontWeight: '500',
-              color: '#6CBAD9',
-            }}>
-            {' '}
-            Sign In
-          </Text>
-        </Text>
-      </TouchableOpacity>
+      {!loading ? (
+        <Button title="REGISTER" onPress={onSubmit} style={{borderRadius: 5}} />
+      ) : (
+        <Button loading />
+      )}
+      <Text style={styles.or}>Or SignUp with social account?</Text>
+      <View style={styles.flex}>
+        <SocialButton google />
+        <SocialButton facebook />
+      </View>
     </ScrollView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 39,
+    paddingHorizontal: 30,
+    backgroundColor: '#ffffff',
   },
-  greeting: {
-    marginTop: 32,
-    fontSize: 18,
+  space1: {
+    height: 15,
+  },
+  companyLogo: {
+    marginTop: 22,
+    fontSize: 38,
     fontWeight: '400',
     textAlign: 'center',
   },
   errorMessage: {
-    height: 72,
+    height: 52,
     alignItems: 'center',
     justifyContent: 'center',
-    // marginHorizontal: 30,
+    color: 'red',
   },
   error: {
-    color: '#6CBAD9',
+    color: 'red',
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
   },
   form: {
     marginBottom: 48,
-    // marginHorizontal: 30,
-  },
-  inputTitle: {
-    color: '#8A8F9E',
-    fontSize: 10,
-    textTransform: 'uppercase',
   },
   input: {
-    borderBottomColor: '#8A8F9E',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    height: 40,
     fontSize: 15,
     color: '#161F3D',
+    borderColor: '#FABBB5',
+    borderBottomWidth: 2,
+    width: 300,
   },
-  button: {
-    // marginHorizontal: 30,
-    backgroundColor: '#6CBAD9',
+  emailWrap: {
+    height: 43,
+    flexDirection: 'row',
     borderRadius: 4,
-    height: 52,
-    alignItems: 'center',
+  },
+  emailIcon: {
     justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 11,
+    marginBottom: -12,
+  },
+  passwordWrap: {
+    height: 43,
+    flexDirection: 'row',
+    marginTop: 20,
+    borderRadius: 4,
+  },
+  passwordIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: -10,
+    marginBottom: -5,
+  },
+  or: {
+    textAlign: 'center',
+    marginTop: 25,
+    marginBottom: 10,
+  },
+  flex: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
