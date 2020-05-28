@@ -12,8 +12,14 @@ import HomeScreen from '../pages/home/HomeScreen';
 const Stack = createStackNavigator();
 
 export const AuthNavigator = () => (
-  <Stack.Navigator screenOptions={{headerShown: false}}>
-    <Stack.Screen name="Loading" component={LoadingScreen} />
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Loading"
+      component={LoadingScreen}
+      options={() => ({
+        headerShown: false,
+      })}
+    />
     <Stack.Screen name="SignIn" component={SignInScreen} />
     <Stack.Screen name="SignUp" component={SignUpScreen} />
   </Stack.Navigator>
