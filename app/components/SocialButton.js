@@ -4,11 +4,17 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 const SocialButton = ({google, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.buttonWrap}>
-      <View />
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 49,
+          borderRightColor: '#999',
+          borderRightWidth: 1,
+        }}>
+        <Text style={{}}>F</Text>
+      </View>
 
-      <Text style={{width: 49, borderRightColor: '#999', borderRightWidth: 1}}>
-        F
-      </Text>
       <View
         style={{justifyContent: 'center', alignItems: 'center', width: 100}}>
         <Text style={styles.title}>{google ? 'Google' : 'Facebook'}</Text>
