@@ -67,58 +67,56 @@ export default function SignInScreen(props) {
           <Text style={styles.error}> {errorMessage} </Text>
         ) : null}
       </View>
-      <View style={styles.form}>
-        <View style={styles.emailWrap}>
-          <View style={styles.emailIcon}>
-            <SimpleLineIconsI name="user" size={25} color="#F14436" />
-          </View>
-          <TextInput
-            style={styles.input}
-            autoCapitalize="none"
-            placeholder="User Name"
-            onChangeText={value => setUsername(value)}
+      <View style={styles.emailWrap}>
+        <View style={styles.emailIcon}>
+          <SimpleLineIconsI name="user" size={25} color="#F14436" />
+        </View>
+        <TextInput
+          style={styles.input}
+          autoCapitalize="none"
+          placeholder="User Name"
+          onChangeText={value => setUsername(value)}
+        />
+      </View>
+      <View style={styles.passwordWrap}>
+        <View style={styles.emailIcon}>
+          <SimpleLineIconsI name="envelope" size={25} color="#F14436" />
+        </View>
+        <TextInput
+          style={styles.input}
+          autoCapitalize="none"
+          placeholder="Email"
+          onChangeText={value => setEmail(value)}
+        />
+      </View>
+      <View style={styles.passwordWrap}>
+        <View style={[styles.emailIcon, {marginLeft: -3}]}>
+          <MaterialCommunityIconsI
+            name="cellphone-iphone"
+            size={26}
+            color="#F18999"
           />
         </View>
-        <View style={styles.passwordWrap}>
-          <View style={styles.emailIcon}>
-            <SimpleLineIconsI name="envelope" size={25} color="#F14436" />
-          </View>
-          <TextInput
-            style={styles.input}
-            autoCapitalize="none"
-            placeholder="Email"
-            onChangeText={value => setEmail(value)}
-          />
+        <TextInput
+          style={styles.input}
+          autoCapitalize="none"
+          placeholder="Mobile Number"
+          onChangeText={value => setMobile(value)}
+        />
+      </View>
+      <View style={[styles.passwordWrap, {marginBottom: 20}]}>
+        <View style={styles.passwordIcon}>
+          <EvilIconsI name="lock" size={45} color="#F14436" />
         </View>
-        <View style={styles.passwordWrap}>
-          <View style={[styles.emailIcon, {marginLeft: -3}]}>
-            <MaterialCommunityIconsI
-              name="cellphone-iphone"
-              size={26}
-              color="#F18999"
-            />
-          </View>
-          <TextInput
-            style={styles.input}
-            autoCapitalize="none"
-            placeholder="Mobile Number"
-            onChangeText={value => setMobile(value)}
-          />
-        </View>
-        <View style={styles.passwordWrap}>
-          <View style={styles.passwordIcon}>
-            <EvilIconsI name="lock" size={45} color="#F14436" />
-          </View>
-          <TextInput
-            style={styles.input}
-            secureTextEntry
-            autoCapitalize="none"
-            placeholder="Password"
-            onChangeText={value => setPassword(value)}
-            onFocus={() => setSpace(true)}
-            onSubmitEditing={() => setSpace(false)}
-          />
-        </View>
+        <TextInput
+          style={styles.input}
+          secureTextEntry
+          autoCapitalize="none"
+          placeholder="Password"
+          onChangeText={value => setPassword(value)}
+          onFocus={() => setSpace(true)}
+          onSubmitEditing={() => setSpace(false)}
+        />
       </View>
       {!loading ? (
         <Button title="REGISTER" onPress={onSubmit} style={{borderRadius: 5}} />
@@ -143,13 +141,13 @@ const styles = StyleSheet.create({
     height: 15,
   },
   companyLogo: {
-    marginTop: 22,
-    fontSize: 38,
+    marginTop: 16,
+    fontSize: 30,
     fontWeight: '400',
     textAlign: 'center',
   },
   errorMessage: {
-    height: 52,
+    height: 26,
     alignItems: 'center',
     justifyContent: 'center',
     color: 'red',
@@ -159,9 +157,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
-  },
-  form: {
-    marginBottom: 48,
   },
   input: {
     fontSize: 15,
