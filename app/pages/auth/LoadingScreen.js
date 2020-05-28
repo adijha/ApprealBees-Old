@@ -6,7 +6,7 @@ export default function LoadingScreen(props) {
   const tryLogin = useCallback(async () => {
     setTimeout(async () => {
       const token = await AsyncStorage.getItem('token');
-      // props.navigation.navigate(token ? 'Home' : 'SignIn');
+      props.navigation.navigate(token ? 'Home' : 'SignIn');
     }, 1500);
   }, [props.navigation]);
   useEffect(() => {
