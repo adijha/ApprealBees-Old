@@ -15,9 +15,8 @@ const Button = ({title, style, onPress, outline, loading}) => {
         style,
         {
           backgroundColor: outline ? '#fff' : '#F14436',
-          borderColor: '#999999',
           borderWidth: outline ? 1 : 0,
-          width: loading ? 49 : 290,
+          width: loading ? 49 : 260,
           borderRadius: loading ? 50 : 2,
         },
       ]}>
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
+    borderColor: '#999999',
   },
   title: {
     fontSize: 17,
