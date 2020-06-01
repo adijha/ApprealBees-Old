@@ -46,16 +46,9 @@ const Header = ({
           ) : null}
         </View>
       </View>
-      <View
-        style={{
-          backgroundColor: '#fff',
-          marginTop: 15,
-          marginHorizontal: 19,
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
+      <View style={styles.search}>
         <TextInput
-          style={{flex: 1, fontSize: 16, paddingLeft: 20}}
+          style={styles.input}
           autoCapitalize="none"
           placeholder="Search for Products, Brands and More"
         />
@@ -102,5 +95,13 @@ const styles = StyleSheet.create({
   },
   rightIconCover: {
     marginTop: 16,
+  },
+  input: {flex: 1, fontSize: 16, paddingLeft: 20},
+  search: {
+    backgroundColor: '#fff',
+    marginTop: 15,
+    marginHorizontal: 19,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
