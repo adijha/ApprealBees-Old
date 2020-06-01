@@ -13,9 +13,7 @@ import OffersScreen from '../Categories/OffersScreen';
 //icons
 import IoniconsI from 'react-native-vector-icons/Ionicons';
 import EntypoI from 'react-native-vector-icons/Entypo';
-import FontistoI from 'react-native-vector-icons/Fontisto';
 import FontAwesome5I from 'react-native-vector-icons/FontAwesome5';
-import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 const Tab = createMaterialTopTabNavigator();
 
