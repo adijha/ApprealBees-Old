@@ -62,7 +62,10 @@ function MyTabs(props) {
         route={props.route}
         navigation={props.navigation}
         title="Shop"
-        noBack
+        rightAction={() => props.navigation.navigate('Cart')}
+        leftIcon
+        leftAction={() => props.navigation.openDrawer()}
+        rightIcon
       />
     ),
   });

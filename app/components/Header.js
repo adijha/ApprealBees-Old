@@ -1,5 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+//icons
+import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
+import FeatherI from 'react-native-vector-icons/Feather';
 
 const Header = ({
   title,
@@ -9,17 +12,26 @@ const Header = ({
   rightIcon,
   noBack,
   rightAction,
+  leftAction,
 }) => {
   return (
     <View style={styles.container}>
       <View style={styles.backCover}>
-        {!noBack ? <Text style={styles.rightText}>{rightText}</Text> : null}
+        {!noBack ? (
+          <TouchableOpacity style={styles.leftText} onPress={leftAction}>
+            <FeatherI name="menu" size={25} color="#fff" />
+          </TouchableOpacity>
+        ) : null}
       </View>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.rightCover}>
         {rightText ? (
           <TouchableOpacity onPress={rightAction}>
             <Text style={styles.rightText}>{rightText}</Text>
+          </TouchableOpacity>
+        ) : rightIcon ? (
+          <TouchableOpacity onPress={rightAction} style={styles.rightIconCover}>
+            <FontAwesomeI name="shopping-cart" size={25} color="#fff" />
           </TouchableOpacity>
         ) : null}
       </View>
@@ -53,5 +65,12 @@ const styles = StyleSheet.create({
   },
   backCover: {
     width: 50,
+  },
+  leftText: {
+    marginTop: 16,
+    marginLeft: 19,
+  },
+  rightIconCover: {
+    marginTop: 16,
   },
 });

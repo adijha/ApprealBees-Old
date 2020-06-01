@@ -33,16 +33,13 @@ export const AuthNavigator = () => (
 );
 
 export const HomeNavigator = () => (
-  <Stack.Navigator
-    screenOptions={() => ({
-      // headerShown: false,
-    })}>
+  <Stack.Navigator>
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
 
 const DrawerScreen = () => (
-  <Drawer.Navigator initialRouteName="Profile">
+  <Drawer.Navigator initialRouteName="Home">
     <Drawer.Screen name="Home" component={HomeNavigator} />
     <Drawer.Screen name="Profile" component={ProfileScreen} />
     <Drawer.Screen name="Product" component={ProductScreen} />
