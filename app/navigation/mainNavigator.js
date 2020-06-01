@@ -42,7 +42,7 @@ export const HomeNavigator = () => (
 );
 
 const DrawerScreen = () => (
-  <Drawer.Navigator initialRouteName="Home">
+  <Drawer.Navigator initialRouteName="Profile">
     <Drawer.Screen name="Home" component={HomeNavigator} />
     <Drawer.Screen name="Profile" component={ProfileScreen} />
     <Drawer.Screen name="Product" component={ProductScreen} />

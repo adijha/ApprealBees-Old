@@ -53,28 +53,38 @@ const HomeScreen = props => {
   );
 };
 
-function MyTabs() {
+function MyTabs(props) {
+  props.navigation.setOptions({
+    header: () => (
+      <Header
+        route={props.route}
+        navigation={props.navigation}
+        title="Shop"
+        noBack
+      />
+    ),
+  });
   return (
     <Tab.Navigator
       initialRouteName="Offers"
       tabBarOptions={{
-        activeTintColor: '#e91e63',
+        activeTintColor: '#fff',
         labelStyle: {fontSize: 12},
         showIcon: true,
-        // style: {backgroundColor: 'powderblue'},
+        style: {backgroundColor: '#F45245'},
       }}
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
           let iconName;
           if (route.name === 'Offers') {
             iconName = 'ios-home';
-            return <IoniconsI name={iconName} size={size} color={color} />;
+            return <IoniconsI name={iconName} size={25} color={color} />;
           } else if (route.name === 'Men' || route.name === 'AddFunds') {
             iconName = 'arrow-swap';
-            return <FontistoI name={iconName} size={size} color={color} />;
+            return <FontistoI name={iconName} size={25} color={color} />;
           } else if (route.name === 'Kitchen') {
             iconName = 'user';
-            return <FontAwesomeI name={iconName} size={size} color={color} />;
+            return <FontAwesomeI name={iconName} size={25} color={color} />;
           }
         },
       })}>
