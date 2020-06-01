@@ -17,6 +17,7 @@ import DetailsScreen from '../pages/home/DetailsScreen';
 import AboutScreen from '../pages/home/AboutScreen';
 // initialize navigator
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export const AuthNavigator = () => (
   <Stack.Navigator>
@@ -37,12 +38,15 @@ export const HomeNavigator = () => (
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
-const Drawer = createDrawerNavigator();
 
 const DrawerScreen = () => (
   <Drawer.Navigator initialRouteName="Home">
     <Drawer.Screen name="Home" component={HomeNavigator} />
     <Drawer.Screen name="Profile" component={ProfileScreen} />
+    <Drawer.Screen name="Product" component={ProductScreen} />
+    <Drawer.Screen name="About" component={AboutScreen} />
+    <Drawer.Screen name="Details" component={DetailsScreen} />
+    <Drawer.Screen name="Cart" component={CartScreen} />
   </Drawer.Navigator>
 );
 
