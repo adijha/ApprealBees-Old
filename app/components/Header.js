@@ -9,6 +9,7 @@ import {
 //icons
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 import FeatherI from 'react-native-vector-icons/Feather';
+import AntDesignI from 'react-native-vector-icons/AntDesign';
 
 const Header = ({
   title,
@@ -54,13 +55,12 @@ const Header = ({
           alignItems: 'center',
         }}>
         <TextInput
-          style={{flex: 1}}
-          secureTextEntry
+          style={{flex: 1, fontSize: 16, paddingLeft: 20}}
           autoCapitalize="none"
           placeholder="Search for Products, Brands and More"
         />
         <TouchableOpacity style={{marginRight: 15}}>
-          <FontAwesomeI name="shopping-cart" size={25} color="#000" />
+          <AntDesignI name="search1" size={20} color="#000" />
         </TouchableOpacity>
       </View>
     </View>
