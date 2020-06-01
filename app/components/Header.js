@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 //icons
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 import FeatherI from 'react-native-vector-icons/Feather';
@@ -16,24 +22,46 @@ const Header = ({
 }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.backCover}>
-        {!noBack ? (
-          <TouchableOpacity style={styles.leftText} onPress={leftAction}>
-            <FeatherI name="menu" size={25} color="#fff" />
-          </TouchableOpacity>
-        ) : null}
+      <View style={styles.flex}>
+        <View style={styles.backCover}>
+          {!noBack ? (
+            <TouchableOpacity style={styles.leftText} onPress={leftAction}>
+              <FeatherI name="menu" size={25} color="#fff" />
+            </TouchableOpacity>
+          ) : null}
+        </View>
+        <Text style={styles.title}>{title}</Text>
+        <View style={styles.rightCover}>
+          {rightText ? (
+            <TouchableOpacity onPress={rightAction}>
+              <Text style={styles.rightText}>{rightText}</Text>
+            </TouchableOpacity>
+          ) : rightIcon ? (
+            <TouchableOpacity
+              onPress={rightAction}
+              style={styles.rightIconCover}>
+              <FontAwesomeI name="shopping-cart" size={25} color="#fff" />
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </View>
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.rightCover}>
-        {rightText ? (
-          <TouchableOpacity onPress={rightAction}>
-            <Text style={styles.rightText}>{rightText}</Text>
-          </TouchableOpacity>
-        ) : rightIcon ? (
-          <TouchableOpacity onPress={rightAction} style={styles.rightIconCover}>
-            <FontAwesomeI name="shopping-cart" size={25} color="#fff" />
-          </TouchableOpacity>
-        ) : null}
+      <View
+        style={{
+          backgroundColor: '#fff',
+          marginTop: 15,
+          marginHorizontal: 19,
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <TextInput
+          style={{flex: 1}}
+          secureTextEntry
+          autoCapitalize="none"
+          placeholder="Search for Products, Brands and More"
+        />
+        <TouchableOpacity style={{marginRight: 15}}>
+          <FontAwesomeI name="shopping-cart" size={25} color="#000" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -44,7 +72,9 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F45245',
-    height: 60,
+    height: 110,
+  },
+  flex: {
     flexDirection: 'row',
   },
   title: {
