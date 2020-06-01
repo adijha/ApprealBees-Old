@@ -92,7 +92,7 @@ function MyTabs(props) {
               <MaterialCommunityIconsI name="lamp" size={25} color={color} />
             );
           } else if (route.name === 'More') {
-            return <IoniconsI name="md-apps" size={29} color={color} />;
+            return <IoniconsI name="md-apps" size={30} color={color} />;
           }
         },
       })}>
