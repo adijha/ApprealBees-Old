@@ -1,13 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
-const Card = ({img, text, onPress, title, btn}) => {
+const Card = ({img, price, onPress, text}) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Image source={{uri: img}} style={styles.image} />
+      <View style={{padding: 15}}>
+        <Image source={{uri: img}} style={styles.image} />
+      </View>
       <View style={styles.base}>
         <View>
-          <Text style={styles.title}>{title}</Text>
           <Text style={styles.text}>{text}</Text>
+          <Text style={styles.price}>{price}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -20,8 +22,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     marginBottom: 15,
-    marginLeft: '3%',
-    width: '94%',
+    margin: '3%',
+    width: '44%',
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowRadius: 1,
@@ -31,24 +33,19 @@ const styles = StyleSheet.create({
     },
   },
   text: {
-    paddingBottom: 15,
-    fontSize: 14,
-    color: 'grey',
-  },
-  title: {
-    paddingTop: 10,
-    fontSize: 17,
-    color: 'black',
+    paddingBottom: 3,
+    fontSize: 16,
+    textAlign: 'center',
   },
   image: {
     width: '100%',
     resizeMode: 'cover',
     height: 200,
   },
-  base: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 7,
+  price: {
+    textAlign: 'center',
+    color: 'grey',
+    fontSize: 16,
+    paddingBottom: 4,
   },
-  btn: {width: 100},
 });

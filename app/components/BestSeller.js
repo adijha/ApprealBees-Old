@@ -1,12 +1,27 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Hr from './Hr';
+import ProductCard from './ProductCard';
 const Card = ({img, text, onPress, title, btn}) => {
   return (
     <View style={styles.container} onPress={onPress}>
       <Hr />
       <Text style={styles.title}>BEST SELLERS</Text>
       <Hr />
+      <View style={styles.product}>
+        <ProductCard
+          img="https://source.unsplash.com/weekly?pink%20girl"
+          text="Pink Shirt"
+          price="49"
+          position="right"
+        />
+        <ProductCard
+          img="https://source.unsplash.com/weekly?camera"
+          text="Canon Camera"
+          price="4900"
+          position="left"
+        />
+      </View>
     </View>
   );
 };
@@ -42,4 +57,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
   },
   btn: {width: 100},
+  product: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
 });
