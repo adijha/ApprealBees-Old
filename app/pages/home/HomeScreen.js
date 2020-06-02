@@ -17,44 +17,6 @@ import FontAwesome5I from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
 const Tab = createMaterialTopTabNavigator();
 
-const HomeScreen = props => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  useEffect(() => {
-    checkLogin();
-  });
-  const checkLogin = async () => {
-    let token = await AsyncStorage.getItem('token');
-    if (token) {
-      setLoggedIn(true);
-    }
-  };
-
-  props.navigation.setOptions({
-    header: () => (
-      <Header
-        route={props.route}
-        navigation={props.navigation}
-        title="Shop"
-        noBack
-      />
-    ),
-  });
-
-  const logOut = async () => {
-    await AsyncStorage.removeItem('token');
-    props.navigation.navigate('Auth');
-  };
-
-  return (
-    <View>
-      <Text style={{textAlign: 'center', marginVertical: 50, fontSize: 20}}>
-        This is home Screen
-      </Text>
-      {loggedIn ? <Button title="Log Out" onPress={logOut} /> : null}
-    </View>
-  );
-};
-
 function MyTabs(props) {
   props.navigation.setOptions({
     header: () => (
@@ -74,6 +36,8 @@ function MyTabs(props) {
       initialRouteName="Offers"
       tabBarOptions={{
         activeTintColor: '#fff',
+        inactiveTintColor: '#fafafa',
+        indicatorStyle: {backgroundColor: '#F45245'},
         labelStyle: {fontSize: 12},
         showIcon: true,
         style: {backgroundColor: '#F45245', height: 78},

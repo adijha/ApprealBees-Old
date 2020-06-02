@@ -10,7 +10,7 @@ import SignUpScreen from '../pages/auth/SignUpScreen';
 //Home
 import HomeScreen from '../pages/home/HomeScreen';
 import CartScreen from '../pages/home/CartScreen';
-import ProductScreen from '../pages/home/ProductScreen';
+import SettingsScreen from '../pages/home/SettingsScreen';
 import ProfileScreen from '../pages/home/ProfileScreen';
 import DetailsScreen from '../pages/home/DetailsScreen';
 import AboutScreen from '../pages/home/AboutScreen';
@@ -42,7 +42,7 @@ const DrawerScreen = () => (
   <Drawer.Navigator initialRouteName="Home">
     <Drawer.Screen name="Home" component={HomeNavigator} />
     <Drawer.Screen name="Profile" component={ProfileScreen} />
-    <Drawer.Screen name="Product" component={ProductScreen} />
+    <Drawer.Screen name="Setting" component={SettingsScreen} />
     <Drawer.Screen name="About" component={AboutScreen} />
     <Drawer.Screen name="Details" component={DetailsScreen} />
     <Drawer.Screen name="Cart" component={CartScreen} />
