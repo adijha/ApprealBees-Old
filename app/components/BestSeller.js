@@ -1,10 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import Hr from './Hr';
 const Card = ({img, text, onPress, title, btn}) => {
   return (
-    <View style={styles.card} onPress={onPress}>
-      
+    <View style={styles.container} onPress={onPress}>
+      <Hr />
       <Text style={styles.title}>BEST SELLERS</Text>
+      <Hr />
     </View>
   );
 };
@@ -12,18 +14,11 @@ const Card = ({img, text, onPress, title, btn}) => {
 export default Card;
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#fff',
+  container: {
     marginBottom: 15,
     marginLeft: '3%',
     width: '94%',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 1,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    },
+    marginTop: 10,
   },
   text: {
     paddingBottom: 15,
@@ -31,7 +26,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   title: {
-    paddingTop: 10,
+    padding: 10,
     textAlign: 'center',
     fontSize: 17,
     color: 'black',
