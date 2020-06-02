@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../../components/Header';
-import Button from '../../components/Button';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 //categories
 import ElectronicsScreen from '../Categories/ElectronicsScreen';
