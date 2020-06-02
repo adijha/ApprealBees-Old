@@ -26,7 +26,7 @@ export default class Profile extends Component {
               style={styles.buttonContainer}
               onPress={async () => {
                 await AsyncStorage.removeItem('token');
-                this.props.navigation.navigate('SignIn');
+                this.props.navigation.navigate('Auth');
               }}>
               <Text>LogOut</Text>
             </TouchableOpacity>
