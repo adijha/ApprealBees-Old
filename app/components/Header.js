@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+
 //icons
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 import FeatherI from 'react-native-vector-icons/Feather';
@@ -13,7 +14,6 @@ import AntDesignI from 'react-native-vector-icons/AntDesign';
 
 const Header = ({
   title,
-  route,
   navigation,
   rightText,
   rightIcon,

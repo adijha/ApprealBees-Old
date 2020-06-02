@@ -8,13 +8,13 @@ import {
   Keyboard,
   ScrollView,
 } from 'react-native';
-import EvilIconsI from 'react-native-vector-icons/EvilIcons';
+import FontistoI from 'react-native-vector-icons/Fontisto';
 import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import SocialButton from '../../components/SocialButton';
 export default function ResetPasswordScreen(props) {
-  const [password1, setPassword1] = useState('');
+  const [password1, setEmail] = useState('');
   const [password2, setPassword2] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,6 @@ export default function ResetPasswordScreen(props) {
         route={props.route}
         navigation={props.navigation}
         title="Reset Password"
-        // noBack
         rightAction={() => props.navigation.navigate('Home')}
       />
     ),
@@ -46,7 +45,7 @@ export default function ResetPasswordScreen(props) {
   return (
     <ScrollView style={styles.container}>
       {!space ? <View style={styles.space1} /> : null}
-      <Text style={styles.companyLogo}> ShopOnline </Text>
+      <Text style={styles.companyLogo}> Enter your email </Text>
       <View style={styles.errorMessage}>
         {errorMessage ? (
           <Text style={styles.error}> {errorMessage} </Text>
@@ -54,51 +53,21 @@ export default function ResetPasswordScreen(props) {
       </View>
       <View style={styles.emailWrap}>
         <View style={styles.emailIcon}>
-          <SimpleLineIconsI name="user" size={19} color="#F14436" />
+          <FontistoI name="email" size={19} color="#F14436" />
         </View>
         <TextInput
           style={styles.input}
           autoCapitalize="none"
-          placeholder="Username"
-          onChangeText={value => setPassword1(value)}
+          placeholder="Email"
+          onChangeText={value => setEmail(value)}
         />
       </View>
-      <View style={styles.passwordWrap}>
-        <View style={styles.passwordIcon}>
-          <EvilIconsI name="lock" size={29} color="#F14436" />
-        </View>
-        <TextInput
-          style={styles.input}
-          secureTextEntry
-          autoCapitalize="none"
-          placeholder="Password"
-          onChangeText={value => setPassword2(value)}
-          onFocus={() => setSpace(true)}
-          onSubmitEditing={() => setSpace(false)}
-        />
-      </View>
-      <TouchableOpacity style={styles.forgotPasswordCover}>
-        <Text style={styles.forgetPassword}>Forget your password?</Text>
-      </TouchableOpacity>
+      <TouchableOpacity style={styles.forgotPasswordCover} />
       {!loading ? (
-        <Button title="Sign In" onPress={onSubmit} />
+        <Button title="Submit" onPress={onSubmit} />
       ) : (
         <Button loading />
       )}
-      <Button
-        outline
-        title="New to ShopOnline? Sign Up"
-        onPress={() => {
-          props.navigation.navigate('SignUp');
-          Keyboard.dismiss();
-        }}
-        style={{marginTop: 16}}
-      />
-      <Text style={styles.or}>Or Login with social account?</Text>
-      <View style={styles.flex}>
-        <SocialButton google />
-        <SocialButton facebook />
-      </View>
     </ScrollView>
   );
 }
@@ -113,7 +82,7 @@ const styles = StyleSheet.create({
   },
   companyLogo: {
     marginTop: 14,
-    fontSize: 30,
+    fontSize: 17,
     fontWeight: '400',
     textAlign: 'center',
   },
