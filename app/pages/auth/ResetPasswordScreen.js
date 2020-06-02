@@ -1,21 +1,11 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Keyboard,
-  ScrollView,
-} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
 import FontistoI from 'react-native-vector-icons/Fontisto';
-import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import SocialButton from '../../components/SocialButton';
 export default function ResetPasswordScreen(props) {
-  const [password1, setEmail] = useState('');
-  const [password2, setPassword2] = useState('');
+  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [space, setSpace] = useState(false);
@@ -36,7 +26,7 @@ export default function ResetPasswordScreen(props) {
       <Header
         route={props.route}
         navigation={props.navigation}
-        title="Reset Password"
+        title="Forget Password"
         rightAction={() => props.navigation.navigate('Home')}
       />
     ),
@@ -62,7 +52,6 @@ export default function ResetPasswordScreen(props) {
           onChangeText={value => setEmail(value)}
         />
       </View>
-      <TouchableOpacity style={styles.forgotPasswordCover} />
       {!loading ? (
         <Button title="Submit" onPress={onSubmit} />
       ) : (
@@ -119,6 +108,7 @@ const styles = StyleSheet.create({
     height: 43,
     flexDirection: 'row',
     borderRadius: 4,
+    marginBottom: 30,
   },
   emailIcon: {
     justifyContent: 'center',
