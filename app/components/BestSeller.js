@@ -8,18 +8,28 @@ const Card = ({img, text, onPress, title, btn}) => {
       <Hr />
       <Text style={styles.title}>BEST SELLERS</Text>
       <Hr />
-      <View style={styles.product}>
+      <View style={[styles.product, {marginTop: 10}]}>
         <ProductCard
           img="https://source.unsplash.com/weekly?pink%20girl"
           text="Pink Shirt"
           price="49"
-          position="right"
         />
         <ProductCard
           img="https://source.unsplash.com/weekly?camera"
           text="Canon Camera"
           price="4900"
-          position="left"
+        />
+      </View>
+      <View style={styles.product}>
+        <ProductCard
+          img="https://source.unsplash.com/weekly?app"
+          text="Realme XT (6gb)"
+          price="10,000"
+        />
+        <ProductCard
+          img="https://source.unsplash.com/weekly?beard"
+          text="Mi trimmer"
+          price="900"
         />
       </View>
     </View>

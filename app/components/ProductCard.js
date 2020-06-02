@@ -9,7 +9,7 @@ const Card = ({img, price, onPress, text}) => {
       <View style={styles.base}>
         <View>
           <Text style={styles.text}>{text}</Text>
-          <Text style={styles.price}>{price}</Text>
+          <Text style={styles.price}>Rs. {price}</Text>
         </View>
       </View>
     </TouchableOpacity>
