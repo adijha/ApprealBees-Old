@@ -36,13 +36,11 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     fontSize: 14,
     color: 'grey',
-    // alignSelf: 'center',
   },
   title: {
     paddingTop: 10,
     fontSize: 17,
     color: 'black',
-    // alignSelf: 'center',
   },
   image: {
     width: '100%',
