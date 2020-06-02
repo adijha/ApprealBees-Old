@@ -3,10 +3,12 @@ import {StyleSheet, ScrollView} from 'react-native';
 import ShopCard from '../../components/ShopCard';
 import StoryCard from '../../components/StoryCard';
 import Card from '../../components/Card';
+import BestSeller from '../../components/BestSeller';
 import TagCard from '../../components/TagCard';
 const OffersScreen = () => {
   return (
     <ScrollView style={styles.container}>
+      <BestSeller /> 
       <TagCard
         icon="tag"
         title="Offers only for you"
