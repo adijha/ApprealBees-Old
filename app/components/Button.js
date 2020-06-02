@@ -12,13 +12,14 @@ const Button = ({title, style, onPress, outline, loading}) => {
       onPress={onPress}
       style={[
         styles.buttonWrap,
-        style,
+
         {
           backgroundColor: outline ? '#fff' : '#F14436',
           borderWidth: outline ? 1 : 0,
           width: loading ? 49 : 260,
           borderRadius: loading ? 50 : 2,
         },
+        style,
       ]}>
       {loading ? (
         <ActivityIndicator size="large" color="white" />

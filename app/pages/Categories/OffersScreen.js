@@ -1,10 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-
+import Card from '../../components/Card';
 const OffersScreen = () => {
   return (
     <View>
-      <Text>OffersScreen OffersScreen</Text>
+      <Card
+        img="https://source.unsplash.com/weekly?mobile"
+        title="New Arrival"
+        text="Summer's 16 Collection"
+        btn="Shop Now"
+      />
     </View>
   );
 };
