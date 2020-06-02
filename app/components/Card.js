@@ -5,17 +5,12 @@ const Card = ({img, text, onPress, title, btn}) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={{uri: img}} style={styles.image} />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingHorizontal: 7,
-        }}>
+      <View style={styles.base}>
         <View>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.text}>{text}</Text>
         </View>
-        <Button style={{width: 100}} title={btn} />
+        <Button style={styles.btn} title={btn} />
       </View>
     </TouchableOpacity>
   );
@@ -54,8 +49,10 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     height: 200,
   },
-  btn: {
-    width: 120,
-    backgroundColor: '#F14436',
+  base: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 7,
   },
+  btn: {width: 100},
 });
