@@ -7,6 +7,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import LoadingScreen from '../pages/auth/LoadingScreen';
 import SignInScreen from '../pages/auth/SignInScreen';
 import SignUpScreen from '../pages/auth/SignUpScreen';
+import ResetPasswordScreen from '../pages/auth/ResetPasswordScreen';
 //Home
 import HomeScreen from '../pages/home/HomeScreen';
 import CartScreen from '../pages/home/CartScreen';
@@ -29,6 +30,7 @@ export const AuthNavigator = () => (
     />
     <Stack.Screen name="SignIn" component={SignInScreen} />
     <Stack.Screen name="SignUp" component={SignUpScreen} />
+    <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
   </Stack.Navigator>
 );
 

@@ -20,12 +20,20 @@ const Header = ({
   noBack,
   rightAction,
   leftAction,
+  searchBar,
+  ham,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height: searchBar ? 110 : 60}]}>
       <View style={styles.flex}>
         <View style={styles.backCover}>
           {!noBack ? (
+            <TouchableOpacity
+              style={styles.leftText}
+              onPress={() => navigation.goBack()}>
+              <FeatherI name="chevron-left" size={25} color="#fff" />
+            </TouchableOpacity>
+          ) : ham ? (
             <TouchableOpacity style={styles.leftText} onPress={leftAction}>
               <FeatherI name="menu" size={25} color="#fff" />
             </TouchableOpacity>
@@ -46,16 +54,18 @@ const Header = ({
           ) : null}
         </View>
       </View>
-      <View style={styles.search}>
-        <TextInput
-          style={styles.input}
-          autoCapitalize="none"
-          placeholder="Search for Products, Brands and More"
-        />
-        <TouchableOpacity style={{marginRight: 15}}>
-          <AntDesignI name="search1" size={20} color="#000" />
-        </TouchableOpacity>
-      </View>
+      {searchBar ? (
+        <View style={styles.search}>
+          <TextInput
+            style={styles.input}
+            autoCapitalize="none"
+            placeholder="Search for Products, Brands and More"
+          />
+          <TouchableOpacity style={{marginRight: 15}}>
+            <AntDesignI name="search1" size={20} color="#000" />
+          </TouchableOpacity>
+        </View>
+      ) : null}
     </View>
   );
 };

@@ -10,45 +10,34 @@ import {
 } from 'react-native';
 import EvilIconsI from 'react-native-vector-icons/EvilIcons';
 import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
-import AsyncStorage from '@react-native-community/async-storage';
-import AuthApi from '../../api/Auth';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import SocialButton from '../../components/SocialButton';
 export default function ResetPasswordScreen(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password1, setPassword1] = useState('');
+  const [password2, setPassword2] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [space, setSpace] = useState(false);
+
   const onSubmit = async event => {
     event.preventDefault();
     setSpace(false);
     setLoading(true);
-    if (email.length < 2 || password.length < 2) {
-      setErrorMessage('Fill out the form');
+    setTimeout(() => {
       setLoading(false);
-    } else {
-      try {
-        const response = await AuthApi.post('/signin', {email, password});
-        await AsyncStorage.setItem('token', response.data.token);
-        setLoading(false);
-        props.navigation.navigate('Home');
-      } catch (err) {
-        setErrorMessage('Something went wrong');
-        setLoading(false);
-        console.log('Error', err);
-      }
-    }
+      setLoading(false);
+      props.navigation.navigate('SignIn');
+      setLoading(false);
+    }, 2000);
   };
   props.navigation.setOptions({
     header: () => (
       <Header
         route={props.route}
         navigation={props.navigation}
-        title="Sign In"
-        noBack
-        rightText="Skip"
+        title="Reset Password"
+        // noBack
         rightAction={() => props.navigation.navigate('Home')}
       />
     ),
@@ -71,7 +60,7 @@ export default function ResetPasswordScreen(props) {
           style={styles.input}
           autoCapitalize="none"
           placeholder="Username"
-          onChangeText={value => setEmail(value)}
+          onChangeText={value => setPassword1(value)}
         />
       </View>
       <View style={styles.passwordWrap}>
@@ -83,7 +72,7 @@ export default function ResetPasswordScreen(props) {
           secureTextEntry
           autoCapitalize="none"
           placeholder="Password"
-          onChangeText={value => setPassword(value)}
+          onChangeText={value => setPassword2(value)}
           onFocus={() => setSpace(true)}
           onSubmitEditing={() => setSpace(false)}
         />

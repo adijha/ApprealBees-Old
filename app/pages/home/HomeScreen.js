@@ -26,6 +26,8 @@ function MyTabs(props) {
         leftIcon
         leftAction={() => props.navigation.openDrawer()}
         rightIcon
+        searchBar
+        ham
       />
     ),
   });

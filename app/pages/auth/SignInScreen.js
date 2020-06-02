@@ -89,7 +89,9 @@ export default function SignInScreen(props) {
           onSubmitEditing={() => setSpace(false)}
         />
       </View>
-      <TouchableOpacity style={styles.forgotPasswordCover}>
+      <TouchableOpacity
+        style={styles.forgotPasswordCover}
+        onPress={() => props.navigation.navigate('ResetPassword')}>
         <Text style={styles.forgetPassword}>Forget your password?</Text>
       </TouchableOpacity>
       {!loading ? (
