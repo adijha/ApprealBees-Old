@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Hr from './Hr';
 import ProductCard from './ProductCard';
-const Card = ({img, text, onPress, title, btn}) => {
+const Card = ({}) => {
   return (
-    <View style={styles.container} onPress={onPress}>
+    <View style={styles.container}>
       <Hr />
       <Text style={styles.title}>BEST SELLERS</Text>
       <Hr />

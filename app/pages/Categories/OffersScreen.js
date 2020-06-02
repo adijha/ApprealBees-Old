@@ -8,12 +8,6 @@ import TagCard from '../../components/TagCard';
 const OffersScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      <BestSeller /> 
-      <TagCard
-        icon="tag"
-        title="Offers only for you"
-        text="We have selected some products only for you"
-      />
       <StoryCard
         img1="https://source.unsplash.com/weekly?electronics"
         img2="https://source.unsplash.com/weekly?home"
@@ -30,6 +24,12 @@ const OffersScreen = () => {
         text="Summer's 16 Collection"
         btn="Shop Now"
       />
+      <TagCard
+        icon="tag"
+        title="Offers only for you"
+        text="We have selected some products only for you"
+      />
+      <BestSeller />
     </ScrollView>
   );
 };
