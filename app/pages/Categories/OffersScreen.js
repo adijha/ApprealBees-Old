@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
 import ShopCard from '../../components/ShopCard';
 import StoryCard from '../../components/StoryCard';
-import Card from '../../components/Card';
 import BestSeller from '../../components/BestSeller';
 import TagCard from '../../components/TagCard';
 const OffersScreen = () => {
@@ -29,7 +28,7 @@ const OffersScreen = () => {
         title="Offers only for you"
         text="We have selected some products only for you"
       />
-      <BestSeller />
+      <BestSeller title="BEST SELLER" />
     </ScrollView>
   );
 };

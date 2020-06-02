@@ -2,11 +2,11 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Hr from './Hr';
 import ProductCard from './ProductCard';
-const Card = ({}) => {
+const Card = ({title}) => {
   return (
     <View style={styles.container}>
       <Hr />
-      <Text style={styles.title}>BEST SELLERS</Text>
+      <Text style={styles.title}>{title}</Text>
       <Hr />
       <View style={[styles.product, {marginTop: 10}]}>
         <ProductCard

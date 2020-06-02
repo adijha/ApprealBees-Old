@@ -27,7 +27,7 @@ const Header = ({
     <View style={[styles.container, {height: searchBar ? 110 : 60}]}>
       <View style={styles.flex}>
         <View style={styles.backCover}>
-          {!noBack ? (
+          {!noBack && !ham ? (
             <TouchableOpacity
               style={styles.leftText}
               onPress={() => navigation.goBack()}>

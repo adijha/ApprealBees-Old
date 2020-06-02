@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import EvilIconsI from 'react-native-vector-icons/EvilIcons';
 import SimpleLineIconsI from 'react-native-vector-icons/SimpleLineIcons';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import AuthApi from '../../api/Auth';
 import Header from '../../components/Header';

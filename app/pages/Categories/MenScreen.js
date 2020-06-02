@@ -1,14 +1,33 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
+import Card from '../../components/Card';
+import BestSeller from '../../components/BestSeller';
 
-const MenScreen = () => {
+import TagCard from '../../components/TagCard';
+const OffersScreen = () => {
   return (
-    <View>
-      <Text>MenScreen MenScreen</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <Card
+        img="https://source.unsplash.com/weekly?men"
+        title="New Arrival"
+        text="Winter collection"
+        btn="Shop Now"
+      />
+
+      <BestSeller title="Latest Product" />
+      <TagCard
+        icon="tag"
+        title="Offers only for you"
+        text="We have selected some products only for you"
+      />
+    </ScrollView>
   );
 };
 
-export default MenScreen;
+export default OffersScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 13,
+  },
+});
