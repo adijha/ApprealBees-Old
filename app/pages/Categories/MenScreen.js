@@ -2,9 +2,10 @@ import React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
 import Card from '../../components/Card';
 import BestSeller from '../../components/BestSeller';
+import Header from '../../components/Header';
 
 import TagCard from '../../components/TagCard';
-const OffersScreen = () => {
+const OffersScreen = props => {
   return (
     <ScrollView style={styles.container}>
       <Card
