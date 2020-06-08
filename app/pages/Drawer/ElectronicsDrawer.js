@@ -9,7 +9,7 @@ const Screen = props => {
       <Header
         route={props.route}
         navigation={props.navigation}
-        title="Women"
+        title={props.route.name}
         leftIcon
         leftAction={() => props.navigation.openDrawer()}
         ham
