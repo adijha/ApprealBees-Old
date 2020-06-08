@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import {useNavigation} from '@react-navigation/native';
 const Screen = props => {
   const navigation = useNavigation();
-  console.log(props.route.params.img);
   return (
     <>
       <Header
