@@ -2,17 +2,21 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Hr from './Hr';
 import ProductCard from './ProductCard';
-const Card = ({title}) => {
+
+import {useNavigation} from '@react-navigation/native';
+const Card = props => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Hr />
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{props.title}</Text>
       <Hr />
       <View style={[styles.product, {marginTop: 10}]}>
         <ProductCard
           img="https://source.unsplash.com/weekly?pink%20girl"
           text="Pink Shirt"
           price="49"
+          onPress={() => navigation.push('Product')}
         />
         <ProductCard
           img="https://source.unsplash.com/weekly?camera"

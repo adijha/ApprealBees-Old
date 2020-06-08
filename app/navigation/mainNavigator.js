@@ -5,18 +5,9 @@ import {StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import IoniconsI from 'react-native-vector-icons/Ionicons';
-import EntypoI from 'react-native-vector-icons/Entypo';
 import FontAwesome5I from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import Animated from 'react-native-reanimated';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 //auth
 import LoadingScreen from '../pages/auth/LoadingScreen';
 import SignInScreen from '../pages/auth/SignInScreen';
@@ -24,10 +15,7 @@ import SignUpScreen from '../pages/auth/SignUpScreen';
 import ResetPasswordScreen from '../pages/auth/ResetPasswordScreen';
 //Home
 import HomeScreen from '../pages/home/HomeScreen';
-import CartScreen from '../pages/home/CartScreen';
-import SettingsScreen from '../pages/home/SettingsScreen';
 import ProfileScreen from '../pages/home/ProfileScreen';
-import DetailsScreen from '../pages/home/DetailsScreen';
 import AboutScreen from '../pages/home/AboutScreen';
 //drawer categories
 import WomenDrawer from '../pages/Drawer/WomenDrawer';
@@ -44,10 +32,8 @@ import OrdersDrawer from '../pages/Drawer/OrdersDrawer';
 import PrivacyDrawer from '../pages/Drawer/PrivacyPolicyDrawer';
 import WalletDrawer from '../pages/Drawer/WalletDrawer';
 import WishlistDrawer from '../pages/Drawer/WishListDrawer';
-
-import KitchenScreen from '../pages/Categories/KitchenScreen';
-import MoreCategoriesScreen from '../pages/Categories/MoreCategoriesScreen';
-import OffersScreen from '../pages/Categories/OffersScreen';
+//product
+import ProductScreen from '../pages/ProductScreen';
 // initialize navigator
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -121,15 +107,7 @@ const DrawerScreen = () => (
       name="Electronics"
       component={ElectronicsDrawer}
     />
-    <Drawer.Screen
-      options={{
-        drawerIcon: () => (
-          <MaterialCommunityIconsI name="cart" size={23} color="#e91e63" />
-        ),
-      }}
-      name="Cart"
-      component={CartDrawer}
-    />
+
     <Drawer.Screen
       options={{
         drawerIcon: () => (
@@ -183,10 +161,28 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
+          <MaterialCommunityIconsI name="account" size={23} color="#e91e63" />
+        ),
+      }}
+      name="My Accounts"
+      component={ProfileScreen}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="cart" size={23} color="#e91e63" />
+        ),
+      }}
+      name="My Cart"
+      component={CartDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
           <MaterialCommunityIconsI name="basket" size={23} color="#e91e63" />
         ),
       }}
-      name="Orders"
+      name="My Orders"
       component={OrdersDrawer}
     />
 
@@ -233,6 +229,7 @@ const MainContainer = () => {
           component={AuthNavigator}
         />
         <Stack.Screen name="Home" component={DrawerScreen} />
+        <Stack.Screen name="Product" component={ProductScreen}  />
       </Stack.Navigator>
     </NavigationContainer>
   );

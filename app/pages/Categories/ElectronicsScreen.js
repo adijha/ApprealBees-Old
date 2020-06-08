@@ -4,7 +4,7 @@ import Card from '../../components/Card';
 import BestSeller from '../../components/BestSeller';
 
 import TagCard from '../../components/TagCard';
-const OffersScreen = () => {
+const OffersScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Card
@@ -14,7 +14,7 @@ const OffersScreen = () => {
         btn="Shop Now"
       />
 
-      <BestSeller title="Latest Product" />
+      <BestSeller title="Latest Product" navigation={navigation} />
       <TagCard
         icon="tag"
         title="Offers only for you"
