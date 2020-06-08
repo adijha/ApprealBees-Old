@@ -28,6 +28,13 @@ const Card = props => {
           img="https://source.unsplash.com/weekly?camera"
           text="Canon Camera"
           price="4900"
+          onPress={() =>
+            navigation.push('Product', {
+              title: 'Canon Camera',
+              img: 'https://source.unsplash.com/weekly?camera',
+              price: '4900',
+            })
+          }
         />
       </View>
       <View style={styles.product}>
@@ -35,11 +42,25 @@ const Card = props => {
           img="https://source.unsplash.com/weekly?app"
           text="Realme XT (6gb)"
           price="10,000"
+          onPress={() =>
+            navigation.push('Product', {
+              title: 'Realme XT (6gb)',
+              img: 'https://source.unsplash.com/weekly?app',
+              price: '10,000',
+            })
+          }
         />
         <ProductCard
           img="https://source.unsplash.com/weekly?beard"
           text="Mi trimmer"
           price="900"
+          onPress={() =>
+            navigation.push('Product', {
+              title: 'Mi trimmer',
+              img: 'https://source.unsplash.com/weekly?beard',
+              price: '900',
+            })
+          }
         />
       </View>
     </View>
