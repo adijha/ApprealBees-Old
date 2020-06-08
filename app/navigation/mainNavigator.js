@@ -30,8 +30,21 @@ import ProfileScreen from '../pages/home/ProfileScreen';
 import DetailsScreen from '../pages/home/DetailsScreen';
 import AboutScreen from '../pages/home/AboutScreen';
 //drawer categories
-import ElectronicsScreen from '../pages/Categories/ElectronicsScreen';
+import WomenDrawer from '../pages/Drawer/WomenDrawer';
 import MenScreen from '../pages/Drawer/MenDrawer';
+import ElectronicsDrawer from '../pages/Drawer/ElectronicsDrawer';
+import CartDrawer from '../pages/Drawer/CartDrawer';
+import ComboDrawer from '../pages/Drawer/ComboDrawer';
+import HelpDrawer from '../pages/Drawer/HelpCenter';
+import HerbalDrawer from '../pages/Drawer/HerbalDrawer';
+import KitchenDrawer from '../pages/Drawer/KitchenDrawer';
+import KidsDrawer from '../pages/Drawer/KidsDrawer';
+import NotificationDrawer from '../pages/Drawer/NotificationDrawer';
+import OrdersDrawer from '../pages/Drawer/OrdersDrawer';
+import PrivacyDrawer from '../pages/Drawer/PrivacyPolicyDrawer';
+import WalletDrawer from '../pages/Drawer/WalletDrawer';
+import WishlistDrawer from '../pages/Drawer/WishListDrawer';
+
 import KitchenScreen from '../pages/Categories/KitchenScreen';
 import MoreCategoriesScreen from '../pages/Categories/MoreCategoriesScreen';
 import OffersScreen from '../pages/Categories/OffersScreen';
@@ -60,31 +73,31 @@ export const HomeNavigator = () => (
   </Stack.Navigator>
 );
 
-function CustomDrawerContent({progress, ...rest}) {
-  const translateX = Animated.interpolate(progress, {
-    inputRange: [0, 1],
-    outputRange: [-100, 0],
-  });
+// function CustomDrawerContent({progress, ...rest}) {
+//   const translateX = Animated.interpolate(progress, {
+//     inputRange: [0, 1],
+//     outputRange: [-100, 0],
+//   });
 
-  return (
-    <DrawerContentScrollView {...rest}>
-      <Animated.View
-        style={{
-          transform: [
-            {
-              translateX,
-            },
-          ],
-        }}>
-        <DrawerItem label="Home" onPress={() => alert('Link to help')} />
-        <DrawerItemList {...rest} />
-        <View>
-          <Text>Hello</Text>
-        </View>
-      </Animated.View>
-    </DrawerContentScrollView>
-  );
-}
+//   return (
+//     <DrawerContentScrollView {...rest}>
+//       <Animated.View
+//         style={{
+//           transform: [
+//             {
+//               translateX,
+//             },
+//           ],
+//         }}>
+//         <DrawerItem label="Home" onPress={() => alert('Link to help')} />
+//         <DrawerItemList {...rest} />
+//         <View>
+//           <Text>Hello</Text>
+//         </View>
+//       </Animated.View>
+//     </DrawerContentScrollView>
+//   );
+// }
 
 const DrawerScreen = () => (
   <Drawer.Navigator
@@ -117,84 +130,119 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+        ),
+      }}
+      name="Women"
+      component={WomenDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
       name="Electronics"
-      component={ElectronicsScreen}
+      component={ElectronicsDrawer}
     />
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+        ),
+      }}
+      name="Cart"
+      component={CartDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+        ),
+      }}
+      name="Combo"
+      component={ComboDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+        ),
+      }}
+      name="Help"
+      component={HelpDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+        ),
+      }}
+      name="Herbal"
+      component={HerbalDrawer}
+    />
+    <Drawer.Screen
+      options={{
+        drawerIcon: () => (
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
       name="Kitchen"
-      component={KitchenScreen}
+      component={KitchenDrawer}
     />
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
-      name="Offers"
-      component={OffersScreen}
+      name="Kids"
+      component={KidsDrawer}
     />
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
-      name="More Categories"
-      component={MoreCategoriesScreen}
-    />
-
-    <Drawer.Screen
-      name="Profile"
-      component={ProfileScreen}
-      options={{
-        drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
-        ),
-      }}
+      name="Notification"
+      component={NotificationDrawer}
     />
     <Drawer.Screen
-      name="Setting"
-      component={SettingsScreen}
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
+      name="Orders"
+      component={OrdersDrawer}
     />
     <Drawer.Screen
-      name="About"
-      component={AboutScreen}
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
+      name="Privacy"
+      component={PrivacyDrawer}
     />
     <Drawer.Screen
-      name="Details"
-      component={DetailsScreen}
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
+      name="Wallet"
+      component={WalletDrawer}
     />
     <Drawer.Screen
-      name="Cart"
-      component={CartScreen}
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
         ),
       }}
+      name="Wishlist"
+      component={WishlistDrawer}
     />
   </Drawer.Navigator>
 );
