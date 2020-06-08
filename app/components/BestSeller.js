@@ -16,7 +16,13 @@ const Card = props => {
           img="https://source.unsplash.com/weekly?pink%20girl"
           text="Pink Shirt"
           price="49"
-          onPress={() => navigation.push('Product')}
+          onPress={() =>
+            navigation.push('Product', {
+              title: 'Pink Shirt',
+              img: 'https://source.unsplash.com/weekly?pink%20girl',
+              price: '49',
+            })
+          }
         />
         <ProductCard
           img="https://source.unsplash.com/weekly?camera"
