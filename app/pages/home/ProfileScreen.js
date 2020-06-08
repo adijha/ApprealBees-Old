@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Header from '../../components/Header';
 
 export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header
+          route={this.props.route}
+          navigation={this.props.navigation}
+          title="Profile"
+          rightAction={() => this.props.navigation.navigate('Cart')}
+          leftIcon
+          leftAction={() => this.props.navigation.openDrawer()}
+          ham
+        />
         <View style={styles.header} />
         <Image
           style={styles.avatar}
@@ -40,7 +50,7 @@ export default class Profile extends Component {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#F14436',
-    height: 150,
+    height: 110,
   },
   avatar: {
     width: 130,
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 85,
+    marginTop: 105,
   },
   body: {
     marginTop: 40,
