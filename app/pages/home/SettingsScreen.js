@@ -16,17 +16,6 @@ const SettingsScreen = props => {
     }
   };
 
-  props.navigation.setOptions({
-    header: () => (
-      <Header
-        route={props.route}
-        navigation={props.navigation}
-        title="Settings"
-        noBack
-      />
-    ),
-  });
-
   const logOut = async () => {
     await AsyncStorage.removeItem('token');
     props.navigation.navigate('Auth');
@@ -34,6 +23,14 @@ const SettingsScreen = props => {
 
   return (
     <View>
+      <Header
+        route={props.route}
+        navigation={props.navigation}
+        title="Settings"
+        leftIcon
+        leftAction={() => props.navigation.openDrawer()}
+        ham
+      />
       <Text style={{textAlign: 'center', marginVertical: 50, fontSize: 20}}>
         This is Settings Screen
       </Text>
