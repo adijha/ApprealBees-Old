@@ -17,6 +17,7 @@ import ResetPasswordScreen from '../pages/auth/ResetPasswordScreen';
 import HomeScreen from '../pages/home/HomeScreen';
 import ProfileScreen from '../pages/home/ProfileScreen';
 import AboutScreen from '../pages/home/AboutScreen';
+import CartScreen from '../pages/home/CartScreen';
 //drawer categories
 import WomenDrawer from '../pages/Drawer/WomenDrawer';
 import MenScreen from '../pages/Drawer/MenDrawer';
@@ -229,7 +230,8 @@ const MainContainer = () => {
           component={AuthNavigator}
         />
         <Stack.Screen name="Home" component={DrawerScreen} />
-        <Stack.Screen name="Product" component={ProductScreen}  />
+        <Stack.Screen name="Product" component={ProductScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
