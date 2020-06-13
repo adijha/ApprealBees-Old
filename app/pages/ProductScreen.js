@@ -94,7 +94,7 @@ const Screen = props => {
         <View
           style={{
             backgroundColor: '#fff',
-            marginTop: 14,
+            marginTop: 9,
             paddingBottom: 10,
           }}>
           <Text style={styles.title}>{props.route.params.title}</Text>
@@ -219,6 +219,91 @@ const Screen = props => {
               <Text style={{marginLeft: 15, color: '#939393'}}>Wishlist</Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            marginTop: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 30,
+          }}>
+          <Text style={{marginBottom: 10, color: '#999999'}}>Size :</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              // justifyContent: 'space-between',
+            }}>
+            <TouchableOpacity
+              style={{
+                padding: 2,
+                backgroundColor: '#f8f8f8',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+              }}>
+              <Text style={{fontSize: 16, color: '#757575'}}>S</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 2,
+                backgroundColor: '#f8f8f8',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+              }}>
+              <Text style={{fontSize: 16, color: '#757575'}}>M</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 2,
+                backgroundColor: '#f8f8f8',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+              }}>
+              <Text style={{fontSize: 16, color: '#757575'}}>L</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 2,
+                backgroundColor: '#f8f8f8',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+              }}>
+              <Text style={{fontSize: 16, color: '#757575'}}>XL</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{flexDirection: 'row', marginTop: 5}}>
+          <TouchableOpacity
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingVertical: 20,
+              flex: 1,
+              backgroundColor: '#fff',
+            }}>
+            <Text style={{fontSize: 20}}>GO TO CART</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingVertical: 20,
+              flex: 1,
+              backgroundColor: '#00ACEC',
+            }}>
+            <Text style={{fontSize: 20, color: 'white'}}>BUY NOW</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </>
