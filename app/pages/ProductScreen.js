@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  ScrillView,
 } from 'react-native';
 import Header from '../components/Header';
 import FastImage from 'react-native-fast-image';
@@ -13,6 +14,7 @@ import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 const Screen = props => {
   const navigation = useNavigation();
   const [imgShow, setImgShow] = useState(props.route.params.img);
+  const [size, setSize] = useState('S');
   return (
     <>
       <Header
@@ -195,18 +197,7 @@ const Screen = props => {
               <FontAwesomeI name="share" size={16} color="#939393" />
               <Text style={{marginLeft: 15, color: '#939393'}}>Share</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                borderRightColor: '#E8E8E8',
-                borderRightWidth: 1,
-                flex: 1,
-                justifyContent: 'center',
-                padding: 7,
-              }}>
-              <FontAwesomeI name="clone" size={16} color="#939393" />
-              <Text style={{marginLeft: 15, color: '#939393'}}>Similar</Text>
-            </TouchableOpacity>
+
             <TouchableOpacity
               style={{
                 flexDirection: 'row',
@@ -227,13 +218,13 @@ const Screen = props => {
             paddingVertical: 10,
             paddingHorizontal: 30,
           }}>
-          <Text style={{marginBottom: 10, color: '#999999'}}>Size :</Text>
+          <Text style={{marginBottom: 10, color: '#444'}}>Select Size :</Text>
           <View
             style={{
               flexDirection: 'row',
-              // justifyContent: 'space-between',
             }}>
             <TouchableOpacity
+              onPress={() => setSize('S')}
               style={{
                 padding: 2,
                 backgroundColor: '#f8f8f8',
@@ -242,10 +233,14 @@ const Screen = props => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginRight: 10,
+                borderColor: size === 'S' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
               }}>
               <Text style={{fontSize: 16, color: '#757575'}}>S</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => setSize('M')}
               style={{
                 padding: 2,
                 backgroundColor: '#f8f8f8',
@@ -254,10 +249,14 @@ const Screen = props => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginRight: 10,
+                borderColor: size === 'M' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
               }}>
               <Text style={{fontSize: 16, color: '#757575'}}>M</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => setSize('L')}
               style={{
                 padding: 2,
                 backgroundColor: '#f8f8f8',
@@ -266,10 +265,14 @@ const Screen = props => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginRight: 10,
+                borderColor: size === 'L' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
               }}>
               <Text style={{fontSize: 16, color: '#757575'}}>L</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => setSize('XL')}
               style={{
                 padding: 2,
                 backgroundColor: '#f8f8f8',
@@ -278,34 +281,27 @@ const Screen = props => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginRight: 10,
+                borderColor: size === 'XL' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
               }}>
               <Text style={{fontSize: 16, color: '#757575'}}>XL</Text>
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{flexDirection: 'row', marginTop: 5}}>
-          <TouchableOpacity
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              paddingVertical: 20,
-              flex: 1,
-              backgroundColor: '#fff',
-            }}>
-            <Text style={{fontSize: 20}}>GO TO CART</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              paddingVertical: 20,
-              flex: 1,
-              backgroundColor: '#00ACEC',
-            }}>
-            <Text style={{fontSize: 20, color: 'white'}}>BUY NOW</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
+      <View style={{flexDirection: 'row', marginTop: 5}}>
+        <TouchableOpacity
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingVertical: 20,
+            flex: 1,
+            backgroundColor: '#00ACEC',
+          }}>
+          <Text style={{fontSize: 20, color: 'white'}}>BUY NOW</Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
@@ -313,9 +309,6 @@ const Screen = props => {
 export default Screen;
 
 const styles = StyleSheet.create({
-  // container: {
-  //   paddingHorizontal: 30,
-  // },
   image: {
     width: '100%',
     resizeMode: 'cover',

@@ -27,12 +27,12 @@ const CartScreen = props => {
         <View style={{margin: 10}}>
           <Text style={{fontSize: 20, margin: 2}}>Blue Top</Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Seller:ABC
+            Seller: ABC
           </Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Size:S Color:Blue
+            Size: S Color: Blue
           </Text>
-          <Text style={{fontSize: 24, color: '#217EEA'}}>$20</Text>
+          <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
         </View>
 
         <View
@@ -47,12 +47,14 @@ const CartScreen = props => {
             style={{
               height: 40,
               width: 40,
-              backgroundColor: '#EFF6FF',
+              backgroundColor: '#fafafa',
+              borderWidth: 1,
+              borderColor: '#F8F8F8',
               borderRadius: 10,
               alignItems: 'center',
               margin: 10,
             }}>
-            <Text style={{fontSize: 25, margin: 2, color: '#217EEA'}}>2</Text>
+            <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
           </View>
           <FeatherI name="minus" size={25} color="#D0D0D0" />
         </View>
@@ -72,12 +74,12 @@ const CartScreen = props => {
         <View style={{margin: 10}}>
           <Text style={{fontSize: 20, margin: 2}}>Green Top</Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Seller:ABC
+            Seller: ABC
           </Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Size:S Color:Green
+            Size: S Color: Green
           </Text>
-          <Text style={{fontSize: 24, color: '#217EEA'}}>$20</Text>
+          <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
         </View>
 
         <View
@@ -92,12 +94,14 @@ const CartScreen = props => {
             style={{
               height: 40,
               width: 40,
-              backgroundColor: '#EFF6FF',
+              backgroundColor: '#fafafa',
+              borderWidth: 1,
+              borderColor: '#F8F8F8',
               borderRadius: 10,
               alignItems: 'center',
               margin: 10,
             }}>
-            <Text style={{fontSize: 25, margin: 2, color: '#217EEA'}}>2</Text>
+            <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
           </View>
           <FeatherI name="minus" size={25} color="#D0D0D0" />
         </View>
@@ -117,12 +121,12 @@ const CartScreen = props => {
         <View style={{margin: 10}}>
           <Text style={{fontSize: 20, margin: 2}}>Red Top</Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Seller:ABC
+            Seller: ABC
           </Text>
           <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-            Size:S Color:Red
+            Size: S Color:Red
           </Text>
-          <Text style={{fontSize: 24, color: '#217EEA'}}>$20</Text>
+          <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
         </View>
 
         <View
@@ -137,12 +141,14 @@ const CartScreen = props => {
             style={{
               height: 40,
               width: 40,
-              backgroundColor: '#EFF6FF',
+              backgroundColor: '#fafafa',
+              borderWidth: 1,
+              borderColor: '#F8F8F8',
               borderRadius: 10,
               alignItems: 'center',
               margin: 10,
             }}>
-            <Text style={{fontSize: 25, margin: 2, color: '#217EEA'}}>2</Text>
+            <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
           </View>
           <FeatherI name="minus" size={25} color="#D0D0D0" />
         </View>
@@ -166,23 +172,25 @@ const CartScreen = props => {
         </View>
       </View>
       <View style={styles.continue}>
-        <Text style={{fontSize: 26, margin: 20}}>60$</Text>
+        <View>
+          <Text style={{fontSize: 26, margin: 20}}>₹ 12,495</Text>
+          <Text style={{fontSize: 26, margin: 20}}>View price details</Text>
+        </View>
 
-        <TouchableOpacity>
-          <View
-            style={{
-              height: 50,
-              width: 170,
-              backgroundColor: '#F45245',
-              borderRadius: 5,
-              margin: 10,
-              alignItems: 'center',
-              flexDirection: 'row',
-            }}>
-            <Text style={{color: '#ffffff', fontSize: 20, margin: 10}}>
-              Continue
-            </Text>
-          </View>
+        <TouchableOpacity
+          style={{
+            height: 50,
+            width: 170,
+            backgroundColor: '#F45245',
+            borderRadius: 5,
+            margin: 10,
+            alignItems: 'center',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}>
+          <Text style={{color: '#ffffff', fontSize: 20, margin: 10}}>
+            Continue
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
