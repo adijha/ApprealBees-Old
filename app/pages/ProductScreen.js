@@ -5,7 +5,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ScrillView,
 } from 'react-native';
 import Header from '../components/Header';
 import FastImage from 'react-native-fast-image';
@@ -15,6 +14,7 @@ const Screen = props => {
   const navigation = useNavigation();
   const [imgShow, setImgShow] = useState(props.route.params.img);
   const [size, setSize] = useState('S');
+  const [color, setColor] = useState('green');
   return (
     <>
       <Header
@@ -287,6 +287,154 @@ const Screen = props => {
               }}>
               <Text style={{fontSize: 16, color: '#757575'}}>XL</Text>
             </TouchableOpacity>
+          </View>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            marginTop: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 30,
+          }}>
+          <Text style={{marginBottom: 10, color: '#444'}}>Select Color :</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            <TouchableOpacity
+              onPress={() => setColor('green')}
+              style={{
+                padding: 2,
+                backgroundColor: '#04BF9D',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'green' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('brown')}
+              style={{
+                padding: 2,
+                backgroundColor: '#BF7E04',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'brown' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('grey')}
+              style={{
+                padding: 2,
+                backgroundColor: '#733702',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'grey' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('pink')}
+              style={{
+                padding: 2,
+                backgroundColor: '#B84BFF',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'pink' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+          </View>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            marginTop: 10,
+            paddingVertical: 10,
+            paddingHorizontal: 30,
+          }}>
+          <Text style={{marginBottom: 10, color: '#444'}}>Select Color :</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            <TouchableOpacity
+              onPress={() => setColor('green')}
+              style={{
+                padding: 2,
+                backgroundColor: '#04BF9D',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'green' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('brown')}
+              style={{
+                padding: 2,
+                backgroundColor: '#BF7E04',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'brown' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('grey')}
+              style={{
+                padding: 2,
+                backgroundColor: '#733702',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'grey' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => setColor('pink')}
+              style={{
+                padding: 2,
+                backgroundColor: '#B84BFF',
+                height: 40,
+                width: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 10,
+                borderColor: color === 'pink' ? 'red' : 'grey',
+                borderWidth: 1,
+                borderRadious: 3,
+              }}
+            />
           </View>
         </View>
       </ScrollView>
