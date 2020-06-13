@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, ScrollView, Image, Text, View} from 'react-native';
 import Header from '../components/Header';
-
+import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 const Screen = props => {
@@ -19,64 +19,71 @@ const Screen = props => {
         rightIcon
       />
       <ScrollView style={styles.container}>
-        <Image source={{uri: imgShow}} style={styles.image} />
-        <View style={styles.imageContainer}>
-          <TouchableOpacity
-            onPress={() => setImgShow(props.route.params.img)}
-            style={[
-              styles.imageClick,
-              {
-                borderColor:
-                  imgShow === props.route.params.img ? '#F14436' : '#000',
-              },
-            ]}>
-            <Image
-              source={{uri: props.route.params.img}}
-              style={styles.smallImage}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setImgShow(props.route.params.img1)}
-            style={[
-              styles.imageClick,
-              {
-                borderColor:
-                  imgShow === props.route.params.img1 ? '#F14436' : '#000',
-              },
-            ]}>
-            <Image
-              source={{uri: props.route.params.img1}}
-              style={styles.smallImage}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setImgShow(props.route.params.img2)}
-            style={[
-              styles.imageClick,
-              {
-                borderColor:
-                  imgShow === props.route.params.img2 ? '#F14436' : '#000',
-              },
-            ]}>
-            <Image
-              source={{uri: props.route.params.img2}}
-              style={styles.smallImage}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => setImgShow(props.route.params.img3)}
-            style={[
-              styles.imageClick,
-              {
-                borderColor:
-                  imgShow === props.route.params.img3 ? '#F14436' : '#000',
-              },
-            ]}>
-            <Image
-              source={{uri: props.route.params.img3}}
-              style={styles.smallImage}
-            />
-          </TouchableOpacity>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            paddingHorizontal: 30,
+            paddingBottom: 20,
+          }}>
+          <FastImage source={{uri: imgShow}} style={styles.image} />
+          <View style={styles.imageContainer}>
+            <TouchableOpacity
+              onPress={() => setImgShow(props.route.params.img)}
+              style={[
+                styles.imageClick,
+                {
+                  borderColor:
+                    imgShow === props.route.params.img ? '#F14436' : '#000',
+                },
+              ]}>
+              <FastImage
+                source={{uri: props.route.params.img}}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setImgShow(props.route.params.img1)}
+              style={[
+                styles.imageClick,
+                {
+                  borderColor:
+                    imgShow === props.route.params.img1 ? '#F14436' : '#000',
+                },
+              ]}>
+              <FastImage
+                source={{uri: props.route.params.img1}}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setImgShow(props.route.params.img2)}
+              style={[
+                styles.imageClick,
+                {
+                  borderColor:
+                    imgShow === props.route.params.img2 ? '#F14436' : '#000',
+                },
+              ]}>
+              <FastImage
+                source={{uri: props.route.params.img2}}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setImgShow(props.route.params.img3)}
+              style={[
+                styles.imageClick,
+                {
+                  borderColor:
+                    imgShow === props.route.params.img3 ? '#F14436' : '#000',
+                },
+              ]}>
+              <FastImage
+                source={{uri: props.route.params.img3}}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <Text style={styles.title}>{props.route.params.title}</Text>
         <Text style={styles.price}>₹ {props.route.params.price}</Text>
@@ -88,14 +95,13 @@ const Screen = props => {
 export default Screen;
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-    backgroundColor: '#fff',
-  },
+  // container: {
+  //   paddingHorizontal: 30,
+  // },
   image: {
     width: '100%',
     resizeMode: 'cover',
-    height: 350,
+    height: 310,
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -118,6 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '70%',
     alignSelf: 'center',
+    marginTop: -20,
   },
   imageClick: {
     borderWidth: 1,

@@ -28,16 +28,16 @@ const Card = props => {
           }
         />
         <ProductCard
-          img="https://source.unsplash.com/weekly?camera"
-          text="Canon Camera"
+          img="https://source.unsplash.com/weekly?hammer"
+          text="Canon Hammer"
           price="4900"
           onPress={() =>
             navigation.push('Product', {
-              title: 'Canon Camera',
-              img: 'https://source.unsplash.com/weekly?camera',
-              img1: 'https://source.unsplash.com/weekly?cam',
-              img2: 'https://source.unsplash.com/weekly?lens',
-              img3: 'https://source.unsplash.com/weekly?canon',
+              title: 'Canon Hammer',
+              img: 'https://source.unsplash.com/weekly?hammer',
+              img1: 'https://source.unsplash.com/weekly?wood',
+              img2: 'https://source.unsplash.com/weekly?pin',
+              img3: 'https://source.unsplash.com/weekly?axe',
               price: '4900',
             })
           }
