@@ -13,6 +13,8 @@ const Screen = props => {
         title={props.route.params.title}
         leftIcon
         leftAction={() => navigation.goBack()}
+        rightAction={() => props.navigation.navigate('Cart')}
+        rightIcon
       />
       <ScrollView style={styles.container}>
         <Image source={{uri: props.route.params.img}} style={styles.image} />

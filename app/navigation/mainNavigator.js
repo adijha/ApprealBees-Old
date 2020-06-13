@@ -31,7 +31,6 @@ import KidsDrawer from '../pages/Drawer/KidsDrawer';
 import NotificationDrawer from '../pages/Drawer/NotificationDrawer';
 import OrdersDrawer from '../pages/Drawer/OrdersDrawer';
 import PrivacyDrawer from '../pages/Drawer/PrivacyPolicyDrawer';
-import WalletDrawer from '../pages/Drawer/WalletDrawer';
 import WishlistDrawer from '../pages/Drawer/WishListDrawer';
 //product
 import ProductScreen from '../pages/ProductScreen';
@@ -185,20 +184,6 @@ const DrawerScreen = () => (
       }}
       name="My Orders"
       component={OrdersDrawer}
-    />
-
-    <Drawer.Screen
-      options={{
-        drawerIcon: () => (
-          <MaterialCommunityIconsI
-            name="wallet-outline"
-            size={23}
-            color="#e91e63"
-          />
-        ),
-      }}
-      name="My Wallet"
-      component={WalletDrawer}
     />
     <Drawer.Screen
       options={{
