@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
-import FeatherI from 'react-native-vector-icons/Feather';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../../components/Header';
-import FastImage from 'react-native-fast-image';
+import CartProduct from '../../components/CartProduct';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const CartScreen = props => {
   return (
@@ -13,139 +13,33 @@ const CartScreen = props => {
         title="My Cart"
         rightAction={() => props.navigation.navigate('My Cart')}
       />
-      <View style={[styles.container, {marginHorizontal: 10}]}>
-        <View style={styles.itemarea}>
-          <View style={{margin: 10}}>
-            <FastImage
-              source={{
-                uri:
-                  'https://cdn.shopify.com/s/files/1/2360/8505/products/Fancy_Sea_Blue_Women_s_Top_1100x.jpg?v=1532429592',
-              }}
-              style={{width: 100, height: 100}}
-            />
-          </View>
-
-          <View style={{margin: 10}}>
-            <Text style={{fontSize: 20, margin: 2}}>Green Top</Text>
-
-            <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-              Size: S Color: Green
-            </Text>
-            <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
-          </View>
-          <View
-            style={{
-              margin: 10,
-              justifyContent: 'center',
-              marginLeft: 50,
-              alignItems: 'center',
-            }}>
-            <FeatherI name="plus" size={25} color="#D0D0D0" />
-            <View
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#fafafa',
-                borderWidth: 1,
-                borderColor: '#F8F8F8',
-                borderRadius: 10,
-                alignItems: 'center',
-                margin: 10,
-              }}>
-              <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
-            </View>
-            <FeatherI name="minus" size={25} color="#D0D0D0" />
-          </View>
-        </View>
-
-        <View style={styles.itemarea}>
-          <View style={{margin: 10}}>
-            <FastImage
-              source={{
-                uri:
-                  'https://rukminim1.flixcart.com/image/714/857/jkcwakw0/top/y/t/h/m-parrotgreen-gmi-original-imaf7qfr7jd8ybhc.jpeg?q=50',
-              }}
-              style={{width: 100, height: 100}}
-            />
-          </View>
-
-          <View style={{margin: 10}}>
-            <Text style={{fontSize: 20, margin: 2}}>Green Top</Text>
-
-            <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-              Size: S Color: Green
-            </Text>
-            <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
-          </View>
-          <View
-            style={{
-              margin: 10,
-              justifyContent: 'center',
-              marginLeft: 50,
-              alignItems: 'center',
-            }}>
-            <FeatherI name="plus" size={25} color="#D0D0D0" />
-            <View
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#fafafa',
-                borderWidth: 1,
-                borderColor: '#F8F8F8',
-                borderRadius: 10,
-                alignItems: 'center',
-                margin: 10,
-              }}>
-              <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
-            </View>
-            <FeatherI name="minus" size={25} color="#D0D0D0" />
-          </View>
-        </View>
-
-        <View style={styles.itemarea}>
-          <View style={{margin: 10}}>
-            <FastImage
-              source={{
-                uri:
-                  'https://images-na.ssl-images-amazon.com/images/I/61wUPBHzY3L._UX522_.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-          </View>
-
-          <View style={{margin: 10}}>
-            <Text style={{fontSize: 20, margin: 2}}>Green Top</Text>
-
-            <Text style={{fontSize: 14, margin: 2, color: '#819088'}}>
-              Size: S Color: Green
-            </Text>
-            <Text style={{fontSize: 24, color: '#1FB5EE'}}>$20</Text>
-          </View>
-
-          <View
-            style={{
-              margin: 10,
-              justifyContent: 'center',
-              marginLeft: 50,
-              alignItems: 'center',
-            }}>
-            <FeatherI name="plus" size={25} color="#D0D0D0" />
-            <View
-              style={{
-                height: 40,
-                width: 40,
-                backgroundColor: '#fafafa',
-                borderWidth: 1,
-                borderColor: '#F8F8F8',
-                borderRadius: 10,
-                alignItems: 'center',
-                margin: 10,
-              }}>
-              <Text style={{fontSize: 25, margin: 2, color: '#1FB5EE'}}>2</Text>
-            </View>
-            <FeatherI name="minus" size={25} color="#D0D0D0" />
-          </View>
-        </View>
+      <View style={{backgroundColor: '#fff'}}>
+        <ScrollView>
+          <CartProduct
+            product="Green Top"
+            size="S"
+            color="Green"
+            quantity={2}
+            price={2220}
+            img="https://source.unsplash.com/weekly?pink%20girl"
+          />
+          <CartProduct
+            product="Red Pant"
+            size="L"
+            color="Grey"
+            quantity={1}
+            price={2100}
+            img="https://source.unsplash.com/weekly?red%20girl"
+          />
+          <CartProduct
+            product="Yellow Pant"
+            size="XL"
+            color="Yellow"
+            quantity={3}
+            price={2100}
+            img="https://source.unsplash.com/weekly?yellow%20girl"
+          />
+        </ScrollView>
 
         <View style={styles.pricebar}>
           <View>
@@ -154,10 +48,9 @@ const CartScreen = props => {
               Delivery
             </Text>
             <Text style={{fontSize: 15, marginBottom: 5, color: '#819088'}}>
-              Total Amount{' '}
+              Total Amount
             </Text>
           </View>
-
           <View style={{marginRight: 10}}>
             <Text style={{fontSize: 14, marginBottom: 5}}>60$</Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#25E786'}}>
@@ -168,11 +61,15 @@ const CartScreen = props => {
             </Text>
           </View>
         </View>
-        <View style={styles.continue}>
-          <View>
-            <Text style={{fontSize: 26, margin: 20}}>₹ 12,495</Text>
-          </View>
-
+        <View
+          style={{
+            paddingBottom: 20,
+            marginTop: 10,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginHorizontal: 8,
+          }}>
+          <Text style={{fontSize: 26, margin: 20}}>₹ 12,495</Text>
           <TouchableOpacity
             style={{
               height: 50,
@@ -199,7 +96,7 @@ export default CartScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EDF1F6',
+    backgroundColor: '#fff',
     justifyContent: 'space-between',
   },
   Navbar: {
@@ -227,8 +124,6 @@ const styles = StyleSheet.create({
   continue: {
     backgroundColor: '#ffffff',
     height: '10%',
-    // width: '100%',
-
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
