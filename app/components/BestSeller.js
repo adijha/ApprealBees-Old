@@ -20,6 +20,9 @@ const Card = props => {
             navigation.push('Product', {
               title: 'Pink Shirt',
               img: 'https://source.unsplash.com/weekly?pink%20girl',
+              img1: 'https://source.unsplash.com/weekly?pink%20baby',
+              img2: 'https://source.unsplash.com/weekly?pink%20child',
+              img3: 'https://source.unsplash.com/weekly?pink%20lady',
               price: '49',
             })
           }
@@ -32,6 +35,9 @@ const Card = props => {
             navigation.push('Product', {
               title: 'Canon Camera',
               img: 'https://source.unsplash.com/weekly?camera',
+              img1: 'https://source.unsplash.com/weekly?cam',
+              img2: 'https://source.unsplash.com/weekly?lens',
+              img3: 'https://source.unsplash.com/weekly?canon',
               price: '4900',
             })
           }
@@ -46,6 +52,9 @@ const Card = props => {
             navigation.push('Product', {
               title: 'Realme XT (6gb)',
               img: 'https://source.unsplash.com/weekly?app',
+              img1: 'https://source.unsplash.com/weekly?phone',
+              img2: 'https://source.unsplash.com/weekly?mobile',
+              img3: 'https://source.unsplash.com/weekly?android',
               price: '10,000',
             })
           }
@@ -58,6 +67,9 @@ const Card = props => {
             navigation.push('Product', {
               title: 'Mi trimmer',
               img: 'https://source.unsplash.com/weekly?beard',
+              img1: 'https://source.unsplash.com/weekly?trimmer',
+              img2: 'https://source.unsplash.com/weekly?sissor',
+              img3: 'https://source.unsplash.com/weekly?trim',
               price: '900',
             })
           }
