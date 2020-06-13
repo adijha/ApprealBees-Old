@@ -79,7 +79,7 @@ const CartScreen = props => {
           />
         </ScrollView>
 
-        <View style={styles.pricebar}>
+        <View style={styles.bar}>
           <View>
             <Text style={{fontSize: 14, marginBottom: 5}}>Items: </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
@@ -104,34 +104,15 @@ const CartScreen = props => {
             </Text>
           </View>
         </View>
-        <View
-          style={{
-            paddingBottom: 20,
-            marginTop: 10,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginHorizontal: 8,
-          }}>
+        <View style={styles.price}>
           <Text style={{fontSize: 26, margin: 20}}>
             ₹{' '}
             {price1 * firstQuantity +
               price2 * secondQuantity +
               price3 * thirdQuantity}
           </Text>
-          <TouchableOpacity
-            style={{
-              height: 50,
-              width: 170,
-              backgroundColor: '#F45245',
-              borderRadius: 5,
-              margin: 10,
-              alignItems: 'center',
-              flexDirection: 'row',
-              justifyContent: 'center',
-            }}>
-            <Text style={{color: '#ffffff', fontSize: 20, margin: 10}}>
-              Continue
-            </Text>
+          <TouchableOpacity style={styles.btn}>
+            <Text style={styles.btnText}>Continue</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -147,34 +128,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'space-between',
   },
-  Navbar: {
-    height: 65,
+  bar: {
+    backgroundColor: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+    paddingHorizontal: 28,
+  },
+  btn: {
+    height: 50,
+    width: 170,
     backgroundColor: '#F45245',
-    flexDirection: 'row',
+    borderRadius: 5,
+    margin: 10,
     alignItems: 'center',
-    alignContent: 'center',
-    padding: 10,
-    justifyContent: 'flex-start',
-  },
-  itemarea: {
-    backgroundColor: '#ffffff',
-    margin: 5,
     flexDirection: 'row',
+    justifyContent: 'center',
   },
-  pricebar: {
-    backgroundColor: '#ffffff',
-    margin: 2,
+  btnText: {color: '#ffffff', fontSize: 20, margin: 10},
+  price: {
+    paddingBottom: 20,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
-    paddingHorizontal: 20,
-  },
-  continue: {
-    backgroundColor: '#ffffff',
-    height: '10%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    alignContent: 'center',
+    marginHorizontal: 8,
   },
 });
