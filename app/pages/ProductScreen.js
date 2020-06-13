@@ -370,71 +370,167 @@ const Screen = props => {
             paddingVertical: 10,
             paddingHorizontal: 30,
           }}>
-          <Text style={{marginBottom: 10, color: '#444'}}>Select Color :</Text>
+          <Text style={{marginBottom: 10, color: '#444'}}>
+            Product Details :
+          </Text>
           <View
             style={{
               flexDirection: 'row',
+              alignItems: 'center',
             }}>
-            <TouchableOpacity
-              onPress={() => setColor('green')}
+            <Text
               style={{
-                padding: 2,
-                backgroundColor: '#04BF9D',
-                height: 40,
-                width: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
+                fontSize: 16,
+                width: 10,
+                height: 10,
+                backgroundColor: 'grey',
+                borderRadius: 40,
                 marginRight: 10,
-                borderColor: color === 'green' ? 'red' : 'grey',
-                borderWidth: 1,
-                borderRadious: 3,
               }}
             />
-            <TouchableOpacity
-              onPress={() => setColor('brown')}
+            <Text>Sleeve Type: Half</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
               style={{
-                padding: 2,
-                backgroundColor: '#BF7E04',
-                height: 40,
-                width: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
+                fontSize: 16,
+                width: 10,
+                height: 10,
+                backgroundColor: 'grey',
+                borderRadius: 40,
                 marginRight: 10,
-                borderColor: color === 'brown' ? 'red' : 'grey',
-                borderWidth: 1,
-                borderRadious: 3,
               }}
             />
-            <TouchableOpacity
-              onPress={() => setColor('grey')}
+            <Text>Material: Cotton</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
               style={{
-                padding: 2,
-                backgroundColor: '#733702',
-                height: 40,
-                width: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
+                fontSize: 16,
+                width: 10,
+                height: 10,
+                backgroundColor: 'grey',
+                borderRadius: 40,
                 marginRight: 10,
-                borderColor: color === 'grey' ? 'red' : 'grey',
-                borderWidth: 1,
-                borderRadious: 3,
               }}
             />
-            <TouchableOpacity
-              onPress={() => setColor('pink')}
+            <Text>Pattern: Striped</Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: '#fff',
+            marginTop: 10,
+            paddingVertical: 10,
+          }}>
+          <Text
+            style={{
+              marginBottom: 10,
+              color: '#444',
+
+              paddingHorizontal: 30,
+            }}>
+            Customer Reviews :
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingHorizontal: 30,
+            }}>
+            <View
               style={{
+                flexDirection: 'row',
+                backgroundColor: '#00A650',
                 padding: 2,
-                backgroundColor: '#B84BFF',
-                height: 40,
-                width: 40,
-                justifyContent: 'center',
+                paddingHorizontal: 10,
                 alignItems: 'center',
-                marginRight: 10,
-                borderColor: color === 'pink' ? 'red' : 'grey',
-                borderWidth: 1,
-                borderRadious: 3,
-              }}
-            />
+                justifyContent: 'space-between',
+                marginTop: 5,
+              }}>
+              <Text style={{color: '#fff', marginRight: 10, fontSize: 13}}>
+                5
+              </Text>
+              <FontAwesomeI name="star" size={10} color="#fff" />
+            </View>
+            <Text style={{marginLeft: 20, marginTop: 5}}>Brillient</Text>
+          </View>
+          <Text
+            style={{
+              marginTop: 10,
+
+              paddingHorizontal: 30,
+            }}>
+            I love this Product
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+
+              paddingHorizontal: 30,
+            }}>
+            <Text style={{marginTop: 10, color: 'grey'}}>Brijesh</Text>
+            <Text style={{marginTop: 10, color: 'grey', marginLeft: 40}}>
+              23, May, 2020
+            </Text>
+          </View>
+          <View
+            style={{
+              borderBottomColor: '#fafafa',
+              borderBottomWidth: 1,
+              marginVertical: 15,
+            }}
+          />
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingHorizontal: 30,
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: '#00A650',
+                padding: 2,
+                paddingHorizontal: 10,
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: 5,
+              }}>
+              <Text style={{color: '#fff', marginRight: 10, fontSize: 13}}>
+                4
+              </Text>
+              <FontAwesomeI name="star" size={10} color="#fff" />
+            </View>
+            <Text style={{marginLeft: 20, marginTop: 5}}>Brillient</Text>
+          </View>
+          <Text
+            style={{
+              marginTop: 10,
+
+              paddingHorizontal: 30,
+            }}>
+            Good Product
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+
+              paddingHorizontal: 30,
+            }}>
+            <Text style={{marginTop: 10, color: 'grey'}}>Ramesh</Text>
+            <Text style={{marginTop: 10, color: 'grey', marginLeft: 40}}>
+              23, June, 2020
+            </Text>
           </View>
         </View>
       </ScrollView>
