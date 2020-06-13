@@ -5,34 +5,42 @@ import FastImage from 'react-native-fast-image';
 
 const CartProduct = props => {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <View style={styles.img}>
-          <FastImage
-            source={{
-              uri: props.img,
-            }}
-            style={styles.image}
-          />
-        </View>
-        <View>
-          <Text style={{fontSize: 20}}>{props.product}</Text>
-          <Text style={{fontSize: 14, color: '#819088'}}>
-            Size: {props.size} Color: {props.color}
-          </Text>
-          <Text style={{fontSize: 23, color: '#1FB5EE'}}>₹ 20</Text>
-        </View>
-        <View style={styles.row}>
-          <FeatherI name="plus" size={25} color="#D0D0D0" />
-          <View style={styles.quantity}>
-            <Text style={{fontSize: 25, color: '#1FB5EE'}}>
-              {props.quantity}
+    <View>
+      {props.quantity > 0 ? (
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.img}>
+            <FastImage
+              source={{
+                uri: props.img,
+              }}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={{fontSize: 20}}>{props.product}</Text>
+            <Text style={{fontSize: 14, color: '#819088'}}>
+              Size: {props.size} Color: {props.color}
             </Text>
+            <Text style={{fontSize: 23, color: '#1FB5EE'}}>
+              ₹ {props.price}
+            </Text>
+          </TouchableOpacity>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={props.plusPress}>
+              <FeatherI name="plus" size={25} color="#D0D0D0" />
+            </TouchableOpacity>
+            <View style={styles.quantity}>
+              <Text style={{fontSize: 25, color: '#1FB5EE'}}>
+                {props.quantity}
+              </Text>
+            </View>
+            <TouchableOpacity onPress={props.minusPress}>
+              <FeatherI name="minus" size={25} color="#D0D0D0" />
+            </TouchableOpacity>
           </View>
-          <FeatherI name="minus" size={25} color="#D0D0D0" />
         </View>
-      </View>
-    </TouchableOpacity>
+      ) : null}
+    </View>
   );
 };
 

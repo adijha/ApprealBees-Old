@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 import {ScrollView} from 'react-native-gesture-handler';
 
 const CartScreen = props => {
+  const [firstQuantity, setFirstQuantity] = useState(3);
+  const [secondQuantity, setsecondQuantity] = useState(3);
+  const [thirdQuantity, setthirdQuantity] = useState(3);
+  const [price1, setprice1] = useState(200);
+  const [price2, setprice2] = useState(200);
+  const [price3, setprice3] = useState(200);
+  const [totalPrice, setTotalPrice] = useState(600);
+
   return (
     <>
       <Header
@@ -19,31 +27,61 @@ const CartScreen = props => {
             product="Green Top"
             size="S"
             color="Green"
-            quantity={2}
-            price={2220}
+            quantity={firstQuantity}
+            price={price1 * firstQuantity}
             img="https://source.unsplash.com/weekly?pink%20girl"
+            plusPress={() => {
+              if (firstQuantity > 0) {
+                setFirstQuantity(firstQuantity + 1);
+              }
+            }}
+            minusPress={() => {
+              if (firstQuantity > 0) {
+                setFirstQuantity(firstQuantity - 1);
+              }
+            }}
           />
           <CartProduct
             product="Red Pant"
             size="L"
             color="Grey"
-            quantity={1}
-            price={2100}
+            quantity={secondQuantity}
+            price={price2 * secondQuantity}
             img="https://source.unsplash.com/weekly?red%20girl"
+            plusPress={() => {
+              if (secondQuantity > 0) {
+                setsecondQuantity(secondQuantity + 1);
+              }
+            }}
+            minusPress={() => {
+              if (secondQuantity > 0) {
+                setsecondQuantity(secondQuantity - 1);
+              }
+            }}
           />
           <CartProduct
             product="Yellow Pant"
             size="XL"
             color="Yellow"
-            quantity={3}
-            price={2100}
+            quantity={thirdQuantity}
+            price={price3 * thirdQuantity}
             img="https://source.unsplash.com/weekly?yellow%20girl"
+            plusPress={() => {
+              if (thirdQuantity > 0) {
+                setthirdQuantity(thirdQuantity + 1);
+              }
+            }}
+            minusPress={() => {
+              if (thirdQuantity > 0) {
+                setthirdQuantity(thirdQuantity - 1);
+              }
+            }}
           />
         </ScrollView>
 
         <View style={styles.pricebar}>
           <View>
-            <Text style={{fontSize: 14, marginBottom: 5}}>Price (6 items)</Text>
+            <Text style={{fontSize: 14, marginBottom: 5}}>Items: </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
               Delivery
             </Text>
@@ -52,12 +90,17 @@ const CartScreen = props => {
             </Text>
           </View>
           <View style={{marginRight: 10}}>
-            <Text style={{fontSize: 14, marginBottom: 5}}>60$</Text>
+            <Text style={{fontSize: 14, marginBottom: 5}}>
+              ₹ {firstQuantity + secondQuantity + thirdQuantity}
+            </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#25E786'}}>
               Free
             </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
-              60$
+              ₹{' '}
+              {price1 * firstQuantity +
+                price2 * secondQuantity +
+                price3 * thirdQuantity}
             </Text>
           </View>
         </View>
@@ -69,7 +112,12 @@ const CartScreen = props => {
             justifyContent: 'space-between',
             marginHorizontal: 8,
           }}>
-          <Text style={{fontSize: 26, margin: 20}}>₹ 12,495</Text>
+          <Text style={{fontSize: 26, margin: 20}}>
+            ₹{' '}
+            {price1 * firstQuantity +
+              price2 * secondQuantity +
+              price3 * thirdQuantity}
+          </Text>
           <TouchableOpacity
             style={{
               height: 50,
