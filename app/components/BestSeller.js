@@ -60,16 +60,16 @@ const Card = props => {
           }
         />
         <ProductCard
-          img="https://source.unsplash.com/weekly?beard"
+          img="https://source.unsplash.com/weekly?red%20shirt"
           text="Mi trimmer"
           price="900"
           onPress={() =>
             navigation.push('Product', {
               title: 'Mi trimmer',
-              img: 'https://source.unsplash.com/weekly?beard',
-              img1: 'https://source.unsplash.com/weekly?trimmer',
-              img2: 'https://source.unsplash.com/weekly?sissor',
-              img3: 'https://source.unsplash.com/weekly?trim',
+              img: 'https://source.unsplash.com/weekly?red%20shirt',
+              img1: 'https://source.unsplash.com/weekly?red%20vest',
+              img2: 'https://source.unsplash.com/weekly?red%20wear',
+              img3: 'https://source.unsplash.com/weekly?red%20dress',
               price: '900',
             })
           }

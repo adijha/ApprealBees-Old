@@ -539,7 +539,7 @@ const Screen = props => {
           style={{
             justifyContent: 'center',
             alignItems: 'center',
-            paddingVertical: 20,
+            paddingVertical: 17,
             flex: 1,
             backgroundColor: '#00ACEC',
           }}>
@@ -580,8 +580,9 @@ const styles = StyleSheet.create({
   imageContainer: {
     flexDirection: 'row',
     width: '70%',
-    alignSelf: 'center',
+    // alignSelf: 'center',
     marginTop: -20,
+    marginHorizontal: '9%',
   },
   imageClick: {
     borderWidth: 1,
