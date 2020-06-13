@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
-import {StyleSheet, ScrollView, Image, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import Header from '../components/Header';
 import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 const Screen = props => {
   const navigation = useNavigation();
   const [imgShow, setImgShow] = useState(props.route.params.img);
@@ -85,8 +91,83 @@ const Screen = props => {
             </TouchableOpacity>
           </View>
         </View>
-        <Text style={styles.title}>{props.route.params.title}</Text>
-        <Text style={styles.price}>₹ {props.route.params.price}</Text>
+        <View
+          style={{
+            paddingHorizontal: 30,
+            backgroundColor: '#fff',
+            marginTop: 14,
+            paddingBottom: 10,
+          }}>
+          <Text style={styles.title}>{props.route.params.title}</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text
+              style={{
+                fontSize: 22,
+                marginTop: 5,
+                color: 'red',
+                marginRight: 15,
+              }}>
+              ₹ {props.route.params.price}
+            </Text>
+            <Text
+              style={{
+                color: 'grey',
+                marginRight: 15,
+                marginTop: 7,
+                textDecorationLine: 'line-through',
+              }}>
+              ₹ 4999
+            </Text>
+            <Text
+              style={{
+                color: '#00A650',
+                fontSize: 14,
+                marginTop: 7,
+                fontWeight: '100',
+              }}>
+              56% off
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 10,
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: '#00A650',
+                padding: 2,
+                paddingHorizontal: 10,
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginTop: 5,
+              }}>
+              <Text style={{color: '#fff', marginRight: 10, fontSize: 13}}>
+                4.3
+              </Text>
+              <FontAwesomeI name="star" size={10} color="#fff" />
+            </View>
+            <Text
+              style={{
+                color: 'grey',
+                fontSize: 14,
+                marginTop: 3,
+                fontWeight: '100',
+                marginLeft: 10,
+              }}>
+              43 ratings & 7 reviews
+            </Text>
+          </View>
+          <View style={{flexDirection: 'row', marginTop: 7}}>
+            <Text style={{color: '#696969'}}>Avalibality: </Text>
+            <Text style={{color: 'green'}}>In stock</Text>
+          </View>
+          <View style={{flexDirection: 'row', marginTop: 7}}>
+            <TouchableOpacity />
+          </View>
+        </View>
       </ScrollView>
     </>
   );
@@ -107,11 +188,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 19,
-    marginTop: 20,
+    marginTop: 10,
   },
   price: {
     fontSize: 19,
-    marginTop: 20,
+    marginTop: 7,
     color: 'red',
   },
   smallImage: {

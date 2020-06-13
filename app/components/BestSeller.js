@@ -23,7 +23,7 @@ const Card = props => {
               img1: 'https://source.unsplash.com/weekly?pink%20baby',
               img2: 'https://source.unsplash.com/weekly?pink%20child',
               img3: 'https://source.unsplash.com/weekly?pink%20lady',
-              price: '49',
+              price: '4900',
             })
           }
         />
