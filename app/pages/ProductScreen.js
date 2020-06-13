@@ -93,13 +93,18 @@ const Screen = props => {
         </View>
         <View
           style={{
-            paddingHorizontal: 30,
             backgroundColor: '#fff',
             marginTop: 14,
             paddingBottom: 10,
           }}>
           <Text style={styles.title}>{props.route.params.title}</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+
+              paddingHorizontal: 30,
+            }}>
             <Text
               style={{
                 fontSize: 22,
@@ -133,6 +138,7 @@ const Screen = props => {
               flexDirection: 'row',
               alignItems: 'center',
               marginTop: 10,
+              paddingHorizontal: 30,
             }}>
             <View
               style={{
@@ -160,12 +166,58 @@ const Screen = props => {
               43 ratings & 7 reviews
             </Text>
           </View>
-          <View style={{flexDirection: 'row', marginTop: 7}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: 7,
+              paddingHorizontal: 30,
+            }}>
             <Text style={{color: '#696969'}}>Avalibality: </Text>
             <Text style={{color: 'green'}}>In stock</Text>
           </View>
-          <View style={{flexDirection: 'row', marginTop: 7}}>
-            <TouchableOpacity />
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: 7,
+              justifyContent: 'space-between',
+              borderWidth: 1,
+              borderColor: '#E8E8E8',
+            }}>
+            <TouchableOpacity
+              style={{
+                flexDirection: 'row',
+                borderRightColor: '#E8E8E8',
+                borderRightWidth: 1,
+                flex: 1,
+                justifyContent: 'center',
+                padding: 7,
+              }}>
+              <FontAwesomeI name="share" size={16} color="#939393" />
+              <Text style={{marginLeft: 15, color: '#939393'}}>Share</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flexDirection: 'row',
+                borderRightColor: '#E8E8E8',
+                borderRightWidth: 1,
+                flex: 1,
+                justifyContent: 'center',
+                padding: 7,
+              }}>
+              <FontAwesomeI name="clone" size={16} color="#939393" />
+              <Text style={{marginLeft: 15, color: '#939393'}}>Similar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flexDirection: 'row',
+                borderRightColor: '#E8E8E8',
+                flex: 1,
+                justifyContent: 'center',
+                padding: 7,
+              }}>
+              <FontAwesomeI name="heart" size={16} color="#939393" />
+              <Text style={{marginLeft: 15, color: '#939393'}}>Wishlist</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -189,11 +241,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 19,
     marginTop: 10,
+    paddingHorizontal: 30,
   },
   price: {
     fontSize: 19,
     marginTop: 7,
     color: 'red',
+    paddingHorizontal: 30,
   },
   smallImage: {
     width: 50,
