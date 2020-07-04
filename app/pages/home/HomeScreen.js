@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Header from '../../components/Header';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 //categories
 import ElectronicsScreen from '../Categories/ElectronicsScreen';
 import KitchenScreen from '../Categories/KitchenScreen';
@@ -22,7 +22,7 @@ function MyTabs(props) {
         route={props.route}
         navigation={props.navigation}
         title="Shop"
-        rightAction={() => props.navigation.navigate('Cart')}
+        rightAction={() => props.navigation.navigate('CartDrawer')}
         leftIcon
         leftAction={() => props.navigation.openDrawer()}
         rightIcon

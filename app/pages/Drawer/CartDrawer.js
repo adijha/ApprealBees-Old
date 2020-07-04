@@ -111,7 +111,9 @@ const CartScreen = props => {
               price2 * secondQuantity +
               price3 * thirdQuantity}
           </Text>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => props.navigation.navigate('Checkout')}>
             <Text style={styles.btnText}>Continue</Text>
           </TouchableOpacity>
         </View>

@@ -11,7 +11,7 @@ export default class Profile extends Component {
           route={this.props.route}
           navigation={this.props.navigation}
           title="Profile"
-          rightAction={() => this.props.navigation.navigate('Cart')}
+          rightAction={() => this.props.navigation.navigate('CartDrawer')}
           leftIcon
           leftAction={() => this.props.navigation.openDrawer()}
           ham

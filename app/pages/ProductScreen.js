@@ -23,7 +23,7 @@ const Screen = props => {
         title={props.route.params.title}
         leftIcon
         leftAction={() => navigation.goBack()}
-        rightAction={() => props.navigation.navigate('Cart')}
+        rightAction={() => props.navigation.navigate('CartDrawer')}
         rightIcon
       />
       <ScrollView style={styles.container}>
@@ -296,7 +296,9 @@ const Screen = props => {
             paddingVertical: 10,
             paddingHorizontal: 30,
           }}>
-          <Text style={{marginBottom: 10, color: '#444'}}>Select Color :</Text>
+          <Text style={{marginBottom: 10, color: '#444'}}>
+            Select Color :
+          </Text>
           <View
             style={{
               flexDirection: 'row',

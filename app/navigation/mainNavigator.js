@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
 
 //navigation imports
 import {NavigationContainer} from '@react-navigation/native';
@@ -31,8 +30,10 @@ import NotificationDrawer from '../pages/Drawer/NotificationDrawer';
 import OrdersDrawer from '../pages/Drawer/OrdersDrawer';
 import PrivacyDrawer from '../pages/Drawer/PrivacyPolicyDrawer';
 import WishlistDrawer from '../pages/Drawer/WishListDrawer';
+import CheckoutScreen from '../pages/Drawer/CheckoutScreen';
 //product
 import ProductScreen from '../pages/ProductScreen';
+import CartScreen from '../pages/Drawer/CartDrawer';
 // initialize navigator
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -57,6 +58,16 @@ export const HomeNavigator = () => (
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
+export const CartNavigator = () => (
+         <Stack.Navigator
+           screenOptions={() => ({
+             headerShown: false,
+           })}>
+           <Stack.Screen name="Cart" component={CartScreen} />
+           <Stack.Screen name="Checkout" component={CheckoutScreen} />
+         </Stack.Navigator>
+       );
+
 const DrawerScreen = () => (
   <Drawer.Navigator
     initialRouteName="Home"
@@ -173,7 +184,7 @@ const DrawerScreen = () => (
         ),
       }}
       name="My Cart"
-      component={CartDrawer}
+      component={CartNavigator}
     />
     <Drawer.Screen
       options={{
@@ -215,7 +226,7 @@ const MainContainer = () => {
         />
         <Stack.Screen name="Home" component={DrawerScreen} />
         <Stack.Screen name="Product" component={ProductScreen} />
-        <Stack.Screen name="Cart" component={CartDrawer} />
+        <Stack.Screen name="CartDrawer" component={CartNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
