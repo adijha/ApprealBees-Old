@@ -28,8 +28,8 @@ const Checkout = props => {
           style: {backgroundColor: '#F45245'},
         }}>
         <Tab.Screen name="Shipping" component={Shipping} />
-        <Tab.Screen name="Confirmation" component={Confirmation} />
         <Tab.Screen name="Payments" component={Payments} />
+        <Tab.Screen name="Confirmation" component={Confirmation} />
       </Tab.Navigator>
     </>
   );
