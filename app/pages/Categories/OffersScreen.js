@@ -42,13 +42,6 @@ const OffersScreen = () => {
   }
   return (
     <ScrollView style={styles.container}>
-      <SaleCard
-        subTitle="50% OR MORE OFF"
-        onPress=""
-        title="CIBER SALE"
-        btn="SHOP NOW"
-        text="ON SUMMER COLLECTION"
-      />
       <Carousel
         data={carouselItem}
         sliderWidth={Dimensions.get('window').width}
@@ -92,6 +85,13 @@ const OffersScreen = () => {
         btnName="SHOP NOW"
         img="http://frontend.big-skins.com/goodwin-html-demo/images/home-fashion/banner-1.jpg"
       />
+      <SaleCard
+        subTitle="50% OR MORE OFF"
+        onPress=""
+        title="CIBER SALE"
+        btn="SHOP NOW"
+        text="ON SUMMER COLLECTION"
+      />
     </ScrollView>
   );
 };
@@ -101,6 +101,7 @@ export default OffersScreen;
 const styles = StyleSheet.create({
   container: {
     paddingTop: 13,
+    paddingBottom: 20,
   },
   slide: {
     width: itemWidth,
