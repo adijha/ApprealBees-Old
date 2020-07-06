@@ -7,6 +7,7 @@ import StoryCard from '../../components/StoryCard';
 import BestSeller from '../../components/BestSeller';
 import TagCard from '../../components/TagCard';
 import GenderCard from '../../components/GenderCard';
+import SaleCard from '../../components/SaleCard';
 const horizontalMargin = 100;
 const slideWidth = 220;
 const itemWidth = slideWidth + horizontalMargin * 2;
@@ -41,6 +42,13 @@ const OffersScreen = () => {
   }
   return (
     <ScrollView style={styles.container}>
+      <SaleCard
+        subTitle="50% OR MORE OFF"
+        onPress=""
+        title="CIBER SALE"
+        btn="SHOP NOW"
+        text="ON SUMMER COLLECTION"
+      />
       <Carousel
         data={carouselItem}
         sliderWidth={Dimensions.get('window').width}
