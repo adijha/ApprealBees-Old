@@ -12,7 +12,7 @@ const Card = ({img, text, onPress, title, btnName, align}) => {
         }}>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 13,
             color: '#fff',
 
             alignSelf: 'center',
@@ -28,7 +28,7 @@ const Card = ({img, text, onPress, title, btnName, align}) => {
           }}>
           {title}
         </Text>
-        <View style={{}}>
+        <View style={{margin: 0, padding: 0}}>
           <Text
             style={{
               fontSize: 20,
