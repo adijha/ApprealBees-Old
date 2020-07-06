@@ -8,43 +8,35 @@ import BestSeller from '../../components/BestSeller';
 import TagCard from '../../components/TagCard';
 const horizontalMargin = 100;
 const slideWidth = 220;
-const sliderWidth = Dimensions.get('window').width;
 const itemWidth = slideWidth + horizontalMargin * 2;
 const itemHeight = 200;
 const OffersScreen = () => {
   const [carouselItem, setCarouselItem] = useState([
     {
       title: 'Item 1',
-      text: 'Text 1',
+      text: 'pen',
     },
     {
       title: 'Item 2',
-      text: 'Text 2',
+      text: 'radio',
     },
     {
       title: 'Item 3',
-      text: 'Text 3',
+      text: 'cup',
     },
     {
       title: 'Item 4',
-      text: 'Text 4',
+      text: 'pen',
     },
     {
       title: 'Item 5',
-      text: 'Text 5',
+      text: 'paper',
     },
   ]);
   const [activeIndex, setActiveIndex] = useState(0);
 
   function _renderItem({item, index}) {
-    return (
-      <Card
-        img="https://source.unsplash.com/weekly?mobile"
-        title="New Arrival"
-        text="Summer's 16 Collection"
-        btn="Shop Now"
-      />
-    );
+    return <Card img={`https://source.unsplash.com/weekly?${item.text}`} />;
   }
   return (
     <ScrollView style={styles.container}>
@@ -52,9 +44,8 @@ const OffersScreen = () => {
         // layout={'stack'}
         // ref={ref => (this.carousel = ref)}
         data={carouselItem}
-        // sliderWidth={Dimensions.get('window').width}
+        sliderWidth={Dimensions.get('window').width}
         // itemWidth={300}
-        sliderWidth={sliderWidth}
         itemWidth={itemWidth}
         renderItem={_renderItem}
         onSnapToItem={index => setActiveIndex(index)}
