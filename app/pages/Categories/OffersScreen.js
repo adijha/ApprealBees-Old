@@ -6,6 +6,7 @@ import Card from '../../components/Card';
 import StoryCard from '../../components/StoryCard';
 import BestSeller from '../../components/BestSeller';
 import TagCard from '../../components/TagCard';
+import GenderCard from '../../components/GenderCard';
 const horizontalMargin = 100;
 const slideWidth = 220;
 const itemWidth = slideWidth + horizontalMargin * 2;
@@ -40,12 +41,16 @@ const OffersScreen = () => {
   }
   return (
     <ScrollView style={styles.container}>
+      <GenderCard
+        align="right"
+        text="NEW ARRIVAlS"
+        title="MEN'S"
+        btnName="SHOP NOW"
+        img="http://frontend.big-skins.com/goodwin-html-demo/images/home-fashion/banner-1.jpg"
+      />
       <Carousel
-        // layout={'stack'}
-        // ref={ref => (this.carousel = ref)}
         data={carouselItem}
         sliderWidth={Dimensions.get('window').width}
-        // itemWidth={300}
         itemWidth={itemWidth}
         renderItem={_renderItem}
         onSnapToItem={index => setActiveIndex(index)}
@@ -60,16 +65,16 @@ const OffersScreen = () => {
         text3="Kids"
         text4="Fashion"
       />
+      <TagCard
+        icon="tag"
+        title="Offers only for you"
+        text="We have selected some products only for you"
+      />
       <ShopCard
         img="https://source.unsplash.com/weekly?mobile"
         title="New Arrival"
         text="Summer's 16 Collection"
         btn="Shop Now"
-      />
-      <TagCard
-        icon="tag"
-        title="Offers only for you"
-        text="We have selected some products only for you"
       />
       <BestSeller title="BEST SELLER" />
     </ScrollView>
