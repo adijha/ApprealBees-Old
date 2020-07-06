@@ -34,6 +34,8 @@ import CheckoutScreen from '../pages/Drawer/CheckoutScreen';
 //product
 import ProductScreen from '../pages/ProductScreen';
 import CartScreen from '../pages/Drawer/CartDrawer';
+//color
+import {COLORS} from '../assets/colors'
 // initialize navigator
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -72,13 +74,13 @@ const DrawerScreen = () => (
   <Drawer.Navigator
     initialRouteName="Home"
     drawerContentOptions={{
-      activeTintColor: '#e91e63',
+      activeTintColor: COLORS.primary,
       labelStyle: {marginVertical: -10},
     }}>
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color="#e91e63" />
+          <FontAwesome5I name="home" size={20} color={ COLORS.primary} />
         ),
       }}
       name="Home"
@@ -88,7 +90,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="tshirt" size={20} color="#e91e63" />
+          <FontAwesome5I name="tshirt" size={20} color={ COLORS.primary} />
         ),
       }}
       name="Men"
@@ -98,7 +100,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="shoe-heel" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="shoe-heel" size={23} color={ COLORS.primary} />
         ),
       }}
       name="Women"
@@ -110,7 +112,7 @@ const DrawerScreen = () => (
           <MaterialCommunityIconsI
             name="cellphone-iphone"
             size={23}
-            color="#e91e63"
+            color={ COLORS.primary}
           />
         ),
       }}
@@ -121,7 +123,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="apps" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="apps" size={23} color={ COLORS.primary} />
         ),
       }}
       name="Combo"
@@ -131,7 +133,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="leaf" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="leaf" size={23} color={ COLORS.primary} />
         ),
       }}
       name="Herbal"
@@ -140,7 +142,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="lamp" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="lamp" size={23} color={ COLORS.primary} />
         ),
       }}
       name="Home & Kitchen"
@@ -152,7 +154,7 @@ const DrawerScreen = () => (
           <MaterialCommunityIconsI
             name="record-player"
             size={23}
-            color="#e91e63"
+            color={ COLORS.primary}
           />
         ),
       }}
@@ -162,7 +164,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="bell-ring" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="bell-ring" size={23} color={ COLORS.primary} />
         ),
       }}
       name="Notification"
@@ -171,7 +173,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="account" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="account" size={23} color={ COLORS.primary} />
         ),
       }}
       name="My Accounts"
@@ -180,7 +182,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="cart" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="cart" size={23} color={ COLORS.primary} />
         ),
       }}
       name="My Cart"
@@ -189,7 +191,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="basket" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="basket" size={23} color={ COLORS.primary} />
         ),
       }}
       name="My Orders"
@@ -198,7 +200,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="heart" size={23} color="#e91e63" />
+          <MaterialCommunityIconsI name="heart" size={23} color={ COLORS.primary} />
         ),
       }}
       name="My Wishlist"

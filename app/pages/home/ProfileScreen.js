@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../../components/Header';
-
+import {COLORS} from '../../assets/colors'
 export default class Profile extends Component {
   render() {
     return (
@@ -49,7 +49,7 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#F14436',
+    backgroundColor: COLORS.primary,
     height: 110,
   },
   avatar: {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   info: {
     fontSize: 16,
-    color: '#F14436',
+    color: COLORS.primary,
     marginTop: 10,
   },
   description: {
@@ -96,6 +96,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: '#F14436',
+    backgroundColor: COLORS.primary,
   },
 });
