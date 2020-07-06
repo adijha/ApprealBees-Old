@@ -92,6 +92,7 @@ const OffersScreen = () => {
         btn="SHOP NOW"
         text="ON SUMMER COLLECTION"
       />
+      <View style={{height:10}}></View>
     </ScrollView>
   );
 };

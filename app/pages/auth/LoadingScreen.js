@@ -1,12 +1,16 @@
 import React, {useEffect, useCallback} from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
+import {COLORS} from '../../assets/colors'
 import AsyncStorage from '@react-native-community/async-storage';
 import Bag from '../../assets/icons/bag.png';
 export default function LoadingScreen(props) {
   const tryLogin = async () => {
     // const token = await AsyncStorage.getItem('token');
     // props.navigation.navigate(token ? 'Home' : 'SignIn');
-    props.navigation.navigate('Home');
+    setTimeout(() => {
+      
+      props.navigation.navigate('Home');
+    }, 2000);
   };
   useEffect(() => {
     tryLogin();
@@ -35,6 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F14435',
+    backgroundColor: COLORS.primary,
   },
 });
