@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
-import Button from './Button';
 const Card = ({img, text, onPress, title, btn}) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
@@ -15,8 +14,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     marginBottom: 15,
-    marginLeft: '3%',
-    // width: '94%',
+    marginLeft: '2%',
+    width: '94%',
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowRadius: 1,
