@@ -3,18 +3,17 @@ import {StyleSheet, Text, TouchableOpacity, Image, View} from 'react-native';
 import {COLORS} from '../assets/colors';
 const Card = ({img, text, onPress, title, btnName, align}) => {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <View style={styles.card} onPress={onPress}>
       <Image source={{uri: img}} style={styles.image} />
       <View
         style={{
-          marginLeft: align === 'right' ? '-39%' : '0',
+          marginLeft: align === 'right' ? '-39%' : '-89%',
           alignSelf: 'center',
         }}>
         <Text
           style={{
             fontSize: 13,
             color: '#fff',
-
             alignSelf: 'center',
           }}>
           {text}
@@ -28,7 +27,7 @@ const Card = ({img, text, onPress, title, btnName, align}) => {
           }}>
           {title}
         </Text>
-        <View style={{margin: 0, padding: 0}}>
+        <TouchableOpacity style={{margin: 0, padding: 0}}>
           <Text
             style={{
               fontSize: 20,
@@ -46,9 +45,9 @@ const Card = ({img, text, onPress, title, btnName, align}) => {
               borderColor: COLORS.primary,
             }}
           />
-        </View>
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

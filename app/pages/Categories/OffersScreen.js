@@ -41,13 +41,6 @@ const OffersScreen = () => {
   }
   return (
     <ScrollView style={styles.container}>
-      <GenderCard
-        align="right"
-        text="NEW ARRIVAlS"
-        title="MEN'S"
-        btnName="SHOP NOW"
-        img="http://frontend.big-skins.com/goodwin-html-demo/images/home-fashion/banner-1.jpg"
-      />
       <Carousel
         data={carouselItem}
         sliderWidth={Dimensions.get('window').width}
@@ -77,6 +70,20 @@ const OffersScreen = () => {
         btn="Shop Now"
       />
       <BestSeller title="BEST SELLER" />
+      <GenderCard
+        align="left"
+        text="NEW ARRIVAlS"
+        title="WOMEN'S"
+        btnName="SHOP NOW"
+        img="http://frontend.big-skins.com/goodwin-html-demo/images/home-fashion/banner-2.jpg"
+      />
+      <GenderCard
+        align="right"
+        text="NEW ARRIVAlS"
+        title="MEN'S"
+        btnName="SHOP NOW"
+        img="http://frontend.big-skins.com/goodwin-html-demo/images/home-fashion/banner-1.jpg"
+      />
     </ScrollView>
   );
 };
