@@ -5,13 +5,6 @@ const Card = ({img, text, onPress, title, btn}) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={{uri: img}} style={styles.image} />
-      <View style={styles.base}>
-        <View>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.text}>{text}</Text>
-        </View>
-        <Button style={styles.btn} title={btn} />
-      </View>
     </TouchableOpacity>
   );
 };
@@ -23,7 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginBottom: 15,
     marginLeft: '3%',
-    width: '94%',
+    // width: '94%',
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowRadius: 1,
