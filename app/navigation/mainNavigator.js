@@ -222,7 +222,7 @@ const MainContainer = () => {
             headerShown: false,
           })}
           name="Auth"
-          component={AuthNavigator}
+          component={LoadingScreen}
         />
         <Stack.Screen name="Home" component={DrawerScreen} />
         <Stack.Screen name="Product" component={ProductScreen} />

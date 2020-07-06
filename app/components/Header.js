@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-
+import {COLORS} from '../assets/colors.js';
 //icons
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 import FeatherI from 'react-native-vector-icons/Feather';
@@ -74,7 +74,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F45245',
+    backgroundColor: COLORS.primary,
     height: 110,
   },
   flex: {
