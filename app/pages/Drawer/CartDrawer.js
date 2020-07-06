@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 import {ScrollView} from 'react-native-gesture-handler';
+import {COLORS} from '../../assets/colors';
 
 const CartScreen = props => {
   const [firstQuantity, setFirstQuantity] = useState(3);
@@ -93,7 +94,7 @@ const CartScreen = props => {
             <Text style={{fontSize: 14, marginBottom: 5}}>
               ₹ {firstQuantity + secondQuantity + thirdQuantity}
             </Text>
-            <Text style={{fontSize: 14, marginBottom: 5, color: '#25E786'}}>
+            <Text style={{fontSize: 14, marginBottom: 5, color: COLORS.green}}>
               Free
             </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
@@ -140,14 +141,18 @@ const styles = StyleSheet.create({
   btn: {
     height: 50,
     width: 170,
-    backgroundColor: '#F45245',
+    backgroundColor: COLORS.primary,
     borderRadius: 5,
     margin: 10,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  btnText: {color: '#ffffff', fontSize: 20, margin: 10},
+  btnText: {
+    color: '#ffffff',
+    fontSize: 20,
+    margin: 10,
+  },
   price: {
     paddingBottom: 20,
     marginTop: 10,

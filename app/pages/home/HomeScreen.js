@@ -1,18 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Header from '../../components/Header';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+//icons
+import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
+import IoniconsI from 'react-native-vector-icons/Ionicons';
+import EntypoI from 'react-native-vector-icons/Entypo';
+import FontAwesome5I from 'react-native-vector-icons/FontAwesome5';
 //categories
 import ElectronicsScreen from '../Categories/ElectronicsScreen';
 import KitchenScreen from '../Categories/KitchenScreen';
 import MenScreen from '../Categories/MenScreen';
 import MoreCategoriesScreen from '../Categories/MoreCategoriesScreen';
 import OffersScreen from '../Categories/OffersScreen';
-//icons
-import IoniconsI from 'react-native-vector-icons/Ionicons';
-import EntypoI from 'react-native-vector-icons/Entypo';
-import FontAwesome5I from 'react-native-vector-icons/FontAwesome5';
-import MaterialCommunityIconsI from 'react-native-vector-icons/MaterialCommunityIcons';
+//color
+import {COLORS} from '../../assets/colors';
+
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs(props) {
@@ -37,10 +40,10 @@ function MyTabs(props) {
       tabBarOptions={{
         activeTintColor: '#fff',
         inactiveTintColor: '#fafafa',
-        indicatorStyle: {backgroundColor: '#F45245'},
+        indicatorStyle: {backgroundColor: COLORS.primary},
         labelStyle: {fontSize: 12},
         showIcon: true,
-        style: {backgroundColor: '#F45245', height: 78},
+        style: {backgroundColor: COLORS.primary, height: 78},
       }}
       screenOptions={({route}) => ({
         tabBarIcon: ({color}) => {

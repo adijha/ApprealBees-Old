@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
+import {COLORS} from '../assets/colors';
 
 const Button = ({title, style, onPress, outline, loading}) => {
   return (
@@ -14,7 +15,7 @@ const Button = ({title, style, onPress, outline, loading}) => {
         styles.buttonWrap,
 
         {
-          backgroundColor: outline ? '#fff' : '#F14436',
+          backgroundColor: outline ? '#fff' : COLORS.primary,
           borderWidth: outline ? 1 : 0,
           width: loading ? 49 : 260,
           borderRadius: loading ? 50 : 2,
@@ -24,7 +25,8 @@ const Button = ({title, style, onPress, outline, loading}) => {
       {loading ? (
         <ActivityIndicator size="large" color="white" />
       ) : (
-        <Text style={[styles.title, {color: outline ? '#F14436' : '#ffffff'}]}>
+        <Text
+          style={[styles.title, {color: outline ? COLORS.primary : '#ffffff'}]}>
           {title}
         </Text>
       )}
@@ -36,7 +38,7 @@ export default Button;
 
 const styles = StyleSheet.create({
   buttonWrap: {
-    backgroundColor: '#F14436',
+    backgroundColor: COLORS.primary,
     height: 49,
     justifyContent: 'center',
     alignItems: 'center',

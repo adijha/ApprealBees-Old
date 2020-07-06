@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-
+import {COLORS} from '../../assets/colors';
 const CartScreen = props => {
   return (
     <View style={styles.container}>
@@ -17,7 +17,7 @@ const CartScreen = props => {
             margin: 30,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            borderColor: '#F45245',
+            borderColor: COLORS.primary,
             borderRadius: 4,
           }}>
           <TouchableOpacity
@@ -34,7 +34,7 @@ const CartScreen = props => {
               alignItems: 'center',
               padding: 15,
               flex: 1,
-              backgroundColor: '#F45245',
+              backgroundColor: COLORS.primary,
             }}>
             <Text style={{color: '#fff', fontSize: 15}}>Saved address</Text>
           </TouchableOpacity>
@@ -49,9 +49,7 @@ const CartScreen = props => {
           <Text style={{color: '#9B9B9B', fontSize: 16}}>
             1099 Blogh, Hulas Nagar
           </Text>
-          <Text style={{color: '#9B9B9B', fontSize: 16}}>
-            Bihar, Jharkhand
-          </Text>
+          <Text style={{color: '#9B9B9B', fontSize: 16}}>Bihar, Jharkhand</Text>
         </View>
         <View
           style={{
@@ -63,9 +61,7 @@ const CartScreen = props => {
           <Text style={{color: '#9B9B9B', fontSize: 16}}>
             1099 Blogh, Hulas Nagar
           </Text>
-          <Text style={{color: '#9B9B9B', fontSize: 16}}>
-            Bihar, Jharkhand
-          </Text>
+          <Text style={{color: '#9B9B9B', fontSize: 16}}>Bihar, Jharkhand</Text>
         </View>
         <View
           style={{
@@ -77,9 +73,7 @@ const CartScreen = props => {
           <Text style={{color: '#9B9B9B', fontSize: 16}}>
             1099 Blogh, Hulas Nagar
           </Text>
-          <Text style={{color: '#9B9B9B', fontSize: 16}}>
-            Bihar, Jharkhand
-          </Text>
+          <Text style={{color: '#9B9B9B', fontSize: 16}}>Bihar, Jharkhand</Text>
         </View>
 
         <View style={{backgroundColor: '#F1F1F1', padding: 20}}>
@@ -95,13 +89,13 @@ const CartScreen = props => {
               justifyContent: 'center',
               marginTop: 10,
             }}>
-            <Text style={{color: 'green', fontSize: 17}}>Free</Text>
-            <Text style={{color: '#21B6EE', fontSize: 14}}>Standard</Text>
+            <Text style={{color:COLORS.green, fontSize: 17}}>Free</Text>
+            <Text style={{color:COLORS.primary, fontSize: 14}}>Standard</Text>
           </View>
         </View>
       </ScrollView>
       <TouchableOpacity style={styles.btn}>
-        <Text style={{color: 'white'}}>CONTINUE TO PAYMENT</Text>
+        <Text style={{color: COLORS.white}}>CONTINUE TO PAYMENT</Text>
       </TouchableOpacity>
     </View>
   );
@@ -123,7 +117,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     height: 50,
-    backgroundColor: '#00ACEC',
+    backgroundColor:COLORS.primary,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',

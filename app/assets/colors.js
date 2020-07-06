@@ -8,4 +8,5 @@ export const COLORS = {
   green: '#15C979',
   disabledBlack: '#8C8B8B',
   black: '#000000',
+  darkPrimary: '#1095a3',
 };
