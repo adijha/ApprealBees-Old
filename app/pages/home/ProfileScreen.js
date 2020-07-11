@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import Header from '../../components/Header';
-import {COLORS} from '../../assets/colors'
+import {COLORS} from '../../assets/colors';
+import FeatherI from 'react-native-vector-icons/Feather';
+
 export default class Profile extends Component {
   render() {
     return (
@@ -11,37 +19,52 @@ export default class Profile extends Component {
           route={this.props.route}
           navigation={this.props.navigation}
           title="Profile"
+          rightIcon
           rightAction={() => this.props.navigation.navigate('CartDrawer')}
-          leftIcon
-          leftAction={() => this.props.navigation.openDrawer()}
-          ham
         />
-        <View style={styles.header} />
-        <Image
-          style={styles.avatar}
-          source={{uri: 'https://adijha.com/profile.jpg'}}
-        />
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.info}>Web Develoer / Mobile developer</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-              electram expetendis, omittam deseruisse consequuntur ius an,
-            </Text>
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text>Reset Password</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={async () => {
-                await AsyncStorage.removeItem('token');
-                this.props.navigation.navigate('Auth');
-              }}>
-              <Text>LogOut</Text>
-            </TouchableOpacity>
+        <ScrollView style={{marginBottom: 20}}>
+          <View style={styles.header}>
+            <Image
+              style={styles.avatar}
+              source={{uri: 'https://adijha.com/profile.jpg'}}
+            />
+            <Text style={styles.name}>John Kumar Doe</Text>
+            <Text style={styles.info}>+917821915962</Text>
+            <Text style={[styles.info, {marginBottom: 20}]}>usama@bin.com</Text>
           </View>
-        </View>
+
+          <TouchableOpacity style={styles.card}>
+            <Text style={{fontSize: 18}}>My Orders</Text>
+            <FeatherI name="chevron-right" size={25} color="#222" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
+            <Text style={{fontSize: 18}}>My Wishlists</Text>
+            <FeatherI name="chevron-right" size={25} color="#222" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
+            <Text style={{fontSize: 18}}>My Reviews</Text>
+            <FeatherI name="chevron-right" size={25} color="#222" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.card}>
+            <Text style={{fontSize: 18}}>My Addresses</Text>
+            <FeatherI name="chevron-right" size={25} color="#222" />
+          </TouchableOpacity>
+          <View
+            style={{
+              borderBottomWidth: 0.5,
+              marginVertical: 10,
+              borderColor: '#919191',
+            }}
+          />
+          <TouchableOpacity style={styles.card}>
+            <Text style={{fontSize: 18}}>Account Settings</Text>
+            <FeatherI name="settings" size={25} color="#222" />
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.card, {marginBottom: 60}]}>
+            <Text style={{fontSize: 18}}>Log Out</Text>
+            <FeatherI name="log-out" size={25} color="#222" />
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }
@@ -50,52 +73,48 @@ export default class Profile extends Component {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: COLORS.primary,
-    height: 110,
+    // height: 260,
+    // flex: 1,
+    alignItems: 'center',
+    // padding: 30,
+    marginBottom: 10,
   },
   avatar: {
-    width: 130,
-    height: 130,
+    width: 100,
+    height: 100,
     borderRadius: 63,
     borderWidth: 4,
     borderColor: 'white',
     marginBottom: 10,
     alignSelf: 'center',
-    position: 'absolute',
-    marginTop: 105,
+    // position: 'absolute',
+    marginTop: 20,
   },
-  body: {
-    marginTop: 40,
-  },
-  bodyContent: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 30,
-  },
+
   name: {
     fontSize: 28,
-    color: '#696969',
+    color: '#fff',
     fontWeight: '600',
   },
   info: {
     fontSize: 16,
-    color: COLORS.primary,
+    color: '#fff',
     marginTop: 10,
   },
-  description: {
-    fontSize: 16,
-    color: '#696969',
-    marginTop: 10,
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    marginTop: 10,
-    height: 45,
+  card: {
+    marginHorizontal: 12,
+    marginVertical: 6,
+    padding: 20,
+    backgroundColor: '#fff',
+    // marginBottom: 15,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
-    backgroundColor: COLORS.primary,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    justifyContent: 'space-between',
   },
 });

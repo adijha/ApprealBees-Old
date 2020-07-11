@@ -35,7 +35,7 @@ import CheckoutScreen from '../pages/Drawer/CheckoutScreen';
 import ProductScreen from '../pages/ProductScreen';
 import CartScreen from '../pages/Drawer/CartDrawer';
 //color
-import {COLORS} from '../assets/colors'
+import {COLORS} from '../assets/colors';
 // initialize navigator
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,14 +61,14 @@ export const HomeNavigator = () => (
   </Stack.Navigator>
 );
 export const CartNavigator = () => (
-         <Stack.Navigator
-           screenOptions={() => ({
-             headerShown: false,
-           })}>
-           <Stack.Screen name="Cart" component={CartScreen} />
-           <Stack.Screen name="Checkout" component={CheckoutScreen} />
-         </Stack.Navigator>
-       );
+  <Stack.Navigator
+    screenOptions={() => ({
+      headerShown: false,
+    })}>
+    <Stack.Screen name="Cart" component={CartScreen} />
+    <Stack.Screen name="Checkout" component={CheckoutScreen} />
+  </Stack.Navigator>
+);
 
 const DrawerScreen = () => (
   <Drawer.Navigator
@@ -80,7 +80,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="home" size={20} color={ COLORS.primary} />
+          <FontAwesome5I name="home" size={20} color={COLORS.primary} />
         ),
       }}
       name="Home"
@@ -90,7 +90,7 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <FontAwesome5I name="tshirt" size={20} color={ COLORS.primary} />
+          <FontAwesome5I name="tshirt" size={20} color={COLORS.primary} />
         ),
       }}
       name="Men"
@@ -100,7 +100,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="shoe-heel" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="shoe-heel"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="Women"
@@ -112,7 +116,7 @@ const DrawerScreen = () => (
           <MaterialCommunityIconsI
             name="cellphone-iphone"
             size={23}
-            color={ COLORS.primary}
+            color={COLORS.primary}
           />
         ),
       }}
@@ -123,7 +127,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="apps" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="apps"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="Combo"
@@ -133,7 +141,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="leaf" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="leaf"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="Herbal"
@@ -142,7 +154,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="lamp" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="lamp"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="Home & Kitchen"
@@ -154,7 +170,7 @@ const DrawerScreen = () => (
           <MaterialCommunityIconsI
             name="record-player"
             size={23}
-            color={ COLORS.primary}
+            color={COLORS.primary}
           />
         ),
       }}
@@ -164,7 +180,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="bell-ring" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="bell-ring"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="Notification"
@@ -173,16 +193,24 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="account" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="account"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
-      name="My Accounts"
+      name="My Account"
       component={ProfileScreen}
     />
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="cart" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="cart"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="My Cart"
@@ -191,7 +219,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="basket" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="basket"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="My Orders"
@@ -200,7 +232,11 @@ const DrawerScreen = () => (
     <Drawer.Screen
       options={{
         drawerIcon: () => (
-          <MaterialCommunityIconsI name="heart" size={23} color={ COLORS.primary} />
+          <MaterialCommunityIconsI
+            name="heart"
+            size={23}
+            color={COLORS.primary}
+          />
         ),
       }}
       name="My Wishlist"
