@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
 import Header from '../../components/Header';
-import TagCard from '../../components/TagCard';
-import BestSeller from '../../components/BestSeller';
+import WishlistProduct from '../../components/WishlistProduct';
+
 const Screen = props => {
   return (
     <>
@@ -15,12 +15,24 @@ const Screen = props => {
         ham
       />
       <ScrollView style={styles.container}>
-        <TagCard
-          icon="tag"
-          title="Offers only for you"
-          text="We have selected some products only for you"
+        <WishlistProduct
+          product="OnePlus Bullets Wireless Z Bluetooth Headset"
+          date="17 aug 1990"
+          img="https://source.unsplash.com/weekly?neckband"
+          rating={5}
         />
-        <BestSeller title="Latest Product" />
+        <WishlistProduct
+          product="Lipstick"
+          date="17 aug 1990"
+          img="https://source.unsplash.com/weekly?sexy"
+          rating={3}
+        />
+        <WishlistProduct
+          product="Hilander Tshirt"
+          date="17 aug 1990"
+          img="https://source.unsplash.com/weekly?cloth"
+          rating={3}
+        />
       </ScrollView>
     </>
   );
@@ -30,6 +42,6 @@ export default Screen;
 
 const styles = StyleSheet.create({
   container: {
-    // paddingTop: 7,
+    paddingTop: 17,
   },
 });

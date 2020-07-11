@@ -26,22 +26,28 @@ export default class Profile extends Component {
           <View style={styles.header}>
             <Image
               style={styles.avatar}
-              source={{uri: 'https://adijha.com/profile.jpg'}}
+              source={{uri: 'https://source.unsplash.com/weekly?man'}}
             />
             <Text style={styles.name}>John Kumar Doe</Text>
             <Text style={styles.info}>+917821915962</Text>
             <Text style={[styles.info, {marginBottom: 20}]}>usama@bin.com</Text>
           </View>
 
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => this.props.navigation.navigate('My Orders')}>
             <Text style={{fontSize: 18}}>My Orders</Text>
             <FeatherI name="chevron-right" size={25} color="#222" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => this.props.navigation.navigate('My Wishlist')}>
             <Text style={{fontSize: 18}}>My Wishlists</Text>
             <FeatherI name="chevron-right" size={25} color="#222" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => this.props.navigation.navigate('Product')}>
             <Text style={{fontSize: 18}}>My Reviews</Text>
             <FeatherI name="chevron-right" size={25} color="#222" />
           </TouchableOpacity>
