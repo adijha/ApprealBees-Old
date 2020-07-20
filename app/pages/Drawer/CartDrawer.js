@@ -1,5 +1,12 @@
 import React, {useContext, useState, useEffect} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+} from 'react-native';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -47,97 +54,124 @@ const CartScreen = props => {
         title="My Cart"
         rightAction={() => props.navigation.navigate('My Cart')}
       />
-      <View style={{backgroundColor: '#fff'}}>
-        <ScrollView>
-          {cartProduct
-            ? cartProduct.map((item, index) => (
-                <View key={index}>
-                  {item.quantity && item.title && item.price ? (
-                    <CartProduct
-                      key={index + 1}
-                      product={item.title}
-                      size={item.size}
-                      color={item.color}
-                      quantity={item.quantity}
-                      price={item.price * item.quantity}
-                      img={item.img}
-                      plusPress={() => {
-                        if (item.quantity > 0) {
-                          let newCart = [];
-                          let updatedItem = item;
-                          let index = '';
-                          cartProduct.forEach((itemm, i) => {
-                            if (itemm.title !== item.title) {
-                              newCart.push(itemm);
-                            } else {
-                              index = i;
-                            }
-                          });
-                          updatedItem.quantity++;
-                          newCart.splice(index, 0, updatedItem);
 
-                          setCartProduct(newCart);
-                        }
-                      }}
-                      minusPress={() => {
-                        if (item.quantity > 0) {
-                          let newCart = [];
-                          let updatedItem = item;
-                          let index = '';
-                          cartProduct.forEach((itemm, i) => {
-                            if (itemm.title !== item.title) {
-                              newCart.push(itemm);
-                            } else {
-                              index = i;
-                            }
-                          });
-                          if (Number(updatedItem.quantity) < 2) {
-                            console.log(newCart, 'aaaaa');
-                            setCartProduct(newCart);
-                          } else {
-                            updatedItem.quantity--;
+      <View style={{backgroundColor: '#fff'}}>
+        {cartProduct.length>0 ? (
+          <ScrollView>
+            {cartProduct
+              ? cartProduct.map((item, index) => (
+                  <View key={index}>
+                    {item.quantity && item.title && item.price ? (
+                      <CartProduct
+                        key={index + 1}
+                        product={item.title}
+                        size={item.size}
+                        color={item.color}
+                        quantity={item.quantity}
+                        price={item.price * item.quantity}
+                        img={item.img}
+                        plusPress={() => {
+                          if (item.quantity > 0) {
+                            let newCart = [];
+                            let updatedItem = item;
+                            let index = '';
+                            cartProduct.forEach((itemm, i) => {
+                              if (itemm.title !== item.title) {
+                                newCart.push(itemm);
+                              } else {
+                                index = i;
+                              }
+                            });
+                            updatedItem.quantity++;
                             newCart.splice(index, 0, updatedItem);
+
                             setCartProduct(newCart);
                           }
-                        }
-                      }}
-                    />
-                  ) : null}
-                </View>
-              ))
-            : null}
-        </ScrollView>
+                        }}
+                        minusPress={() => {
+                          if (item.quantity > 0) {
+                            let newCart = [];
+                            let updatedItem = item;
+                            let index = '';
+                            cartProduct.forEach((itemm, i) => {
+                              if (itemm.title !== item.title) {
+                                newCart.push(itemm);
+                              } else {
+                                index = i;
+                              }
+                            });
+                            if (Number(updatedItem.quantity) < 2) {
+                              console.log(newCart, 'aaaaa');
+                              setCartProduct(newCart);
+                            } else {
+                              updatedItem.quantity--;
+                              newCart.splice(index, 0, updatedItem);
+                              setCartProduct(newCart);
+                            }
+                          }
+                        }}
+                      />
+                    ) : null}
+                  </View>
+                ))
+              : null}
 
-        <View style={styles.bar}>
-          <View>
-            <Text style={{fontSize: 14, marginBottom: 5}}>Items: </Text>
-            <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
-              Delivery
+            <View style={styles.bar}>
+              <View>
+                <Text style={{fontSize: 14, marginBottom: 5}}>Items: </Text>
+                <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
+                  Delivery
+                </Text>
+                <Text style={{fontSize: 15, marginBottom: 5, color: '#819088'}}>
+                  Total Amount
+                </Text>
+              </View>
+              <View style={{marginRight: 10}}>
+                <Text style={{fontSize: 14, marginBottom: 5}}>
+                  {getQuantity()}
+                </Text>
+                <Text
+                  style={{fontSize: 14, marginBottom: 5, color: COLORS.green}}>
+                  Free
+                </Text>
+                <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
+                  ₹ {getPrice()}
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.price}>
+              <Text style={{fontSize: 26, margin: 20}}>₹ {getPrice()}</Text>
+              <TouchableOpacity
+                style={styles.btn}
+                onPress={() => setUpdate(true)}
+                // onPress={() => props.navigation.navigate('Checkout')}
+              >
+                <Text style={styles.btnText}>Continue</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        ) : (
+          <View
+            style={{
+              alignItems: 'center',
+              height: Dimensions.get('screen').height,
+              paddingTop: 50,
+            }}>
+            <Image
+              source={require('../../assets/images/emptyCart.png')}
+              style={{width: 200, height: 200}}
+            />
+            <Text style={{fontSize: 16, marginVertical: 40}}>
+              No Product in cart
             </Text>
-            <Text style={{fontSize: 15, marginBottom: 5, color: '#819088'}}>
-              Total Amount
-            </Text>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={() => props.navigation.navigate('Home')}>
+              <Text style={styles.btnText}>Start Shopping</Text>
+            </TouchableOpacity>
           </View>
-          <View style={{marginRight: 10}}>
-            <Text style={{fontSize: 14, marginBottom: 5}}>{getQuantity()}</Text>
-            <Text style={{fontSize: 14, marginBottom: 5, color: COLORS.green}}>
-              Free
-            </Text>
-            <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
-              ₹ {getPrice()}
-            </Text>
-          </View>
-        </View>
-        <View style={styles.price}>
-          <Text style={{fontSize: 26, margin: 20}}>₹ {getPrice()}</Text>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => setUpdate(true)}
-            // onPress={() => props.navigation.navigate('Checkout')}
-          >
-            <Text style={styles.btnText}>Continue</Text>
-          </TouchableOpacity>
-        </View>
+        )}
       </View>
     </>
   );
