@@ -15,7 +15,6 @@ import {CartContext} from '../../App';
 
 const CartScreen = props => {
   const {cartProduct, setCartProduct} = useContext(CartContext);
-  console.log(cartProduct, 'cartProduct');
   const [update, setUpdate] = useState(false);
   useEffect(() => {}, [update, cartProduct]);
 
@@ -96,7 +95,6 @@ const CartScreen = props => {
                           }
                         });
                         if (Number(updatedItem.quantity) < 2) {
-                          console.log(newCart, 'aaaaa');
                           setCartProduct(newCart);
                         } else {
                           updatedItem.quantity--;
