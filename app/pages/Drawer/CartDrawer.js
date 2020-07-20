@@ -7,8 +7,8 @@ import {COLORS} from '../../assets/colors';
 import {CartContext} from '../../App';
 
 const CartScreen = props => {
-  const Products = useContext(CartContext);
-
+  const {cartProduct, setCartProduct} = useContext(CartContext);
+  console.log(cartProduct, 'cartProduct');
   const [firstQuantity, setFirstQuantity] = useState(3);
   const [secondQuantity, setsecondQuantity] = useState(3);
   const [thirdQuantity, setthirdQuantity] = useState(3);
@@ -27,17 +27,18 @@ const CartScreen = props => {
       />
       <View style={{backgroundColor: '#fff'}}>
         <ScrollView>
-          {Products
-            ? Products.map(item => (
+          {cartProduct
+            ? cartProduct.map((item,index) => (
                 <CartProduct
-                  product="Green Top"
-                  size="S"
-                  color="Green"
-                  quantity={firstQuantity}
-                  price={price1 * firstQuantity}
-                  img="https://source.unsplash.com/weekly?pink%20girl"
+                  key={index+1}
+                  product={item.title}
+                  size={item.size}
+                  color={item.color}
+                  quantity={item.quantity?item.quantity:1}
+                  price={item.price * item.quantity}
+                  img={item.img}
                   plusPress={() => {
-                    if (firstQuantity > 0) {
+                    if (item.quantity > 0) {
                       setFirstQuantity(firstQuantity + 1);
                     }
                   }}
@@ -49,61 +50,6 @@ const CartScreen = props => {
                 />
               ))
             : null}
-
-          <CartProduct
-            product="Green Top"
-            size="S"
-            color="Green"
-            quantity={firstQuantity}
-            price={price1 * firstQuantity}
-            img="https://source.unsplash.com/weekly?pink%20girl"
-            plusPress={() => {
-              if (firstQuantity > 0) {
-                setFirstQuantity(firstQuantity + 1);
-              }
-            }}
-            minusPress={() => {
-              if (firstQuantity > 0) {
-                setFirstQuantity(firstQuantity - 1);
-              }
-            }}
-          />
-          <CartProduct
-            product="Red Pant"
-            size="L"
-            color="Grey"
-            quantity={secondQuantity}
-            price={price2 * secondQuantity}
-            img="https://source.unsplash.com/weekly?red%20girl"
-            plusPress={() => {
-              if (secondQuantity > 0) {
-                setsecondQuantity(secondQuantity + 1);
-              }
-            }}
-            minusPress={() => {
-              if (secondQuantity > 0) {
-                setsecondQuantity(secondQuantity - 1);
-              }
-            }}
-          />
-          <CartProduct
-            product="Yellow Pant"
-            size="XL"
-            color="Yellow"
-            quantity={thirdQuantity}
-            price={price3 * thirdQuantity}
-            img="https://source.unsplash.com/weekly?yellow%20girl"
-            plusPress={() => {
-              if (thirdQuantity > 0) {
-                setthirdQuantity(thirdQuantity + 1);
-              }
-            }}
-            minusPress={() => {
-              if (thirdQuantity > 0) {
-                setthirdQuantity(thirdQuantity - 1);
-              }
-            }}
-          />
         </ScrollView>
 
         <View style={styles.bar}>
@@ -140,7 +86,11 @@ const CartScreen = props => {
           </Text>
           <TouchableOpacity
             style={styles.btn}
-            onPress={() => props.navigation.navigate('Checkout')}>
+            onPress={() => console.log('asassasassaaaaaa',cartProduct)}
+            // onPress={() => props.navigation.navigate('Checkout')}
+            
+            
+            >
             <Text style={styles.btnText}>Continue</Text>
           </TouchableOpacity>
         </View>

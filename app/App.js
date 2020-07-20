@@ -15,33 +15,25 @@ export default function App() {
       title: 'Realme XT (6gb)',
       img: 'https://source.unsplash.com/weekly?app',
 
-      price: '10,000',
+      price: '10000',
+      quantity: 3,
 
       color: 'green',
       size: '32',
     },
     {
-      title: 'Realme X (8gb)',
+      title: 'Realme X3 (6gb)',
       img: 'https://source.unsplash.com/weekly?app',
 
-      price: '10,000',
-
-      color: 'green',
-      size: '32',
-    },
-    {
-      title: 'Realme XT (6gb)',
-      img: 'https://source.unsplash.com/weekly?app',
-
-      price: '10,000',
-
+      price: '10000',
+      quantity: 1,
       color: 'green',
       size: '32',
     },
   ]);
   return (
     <SafeAreaView style={styles.container}>
-      <CartContext.Provider>
+      <CartContext.Provider value={{cartProduct, setCartProduct}}>
         <MainNavigator />
       </CartContext.Provider>
     </SafeAreaView>

@@ -1,22 +1,29 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {
   StyleSheet,
   ScrollView,
   Text,
   View,
   TouchableOpacity,
- 
 } from 'react-native';
 import Header from '../components/Header';
 import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
+import {CartContext} from '../App';
+import {COLORS} from '../assets/colors';
 const Screen = props => {
+  const {cartProduct, setCartProduct} = useContext(CartContext);
   const navigation = useNavigation();
   const [imgShow, setImgShow] = useState(props.route.params.item.img);
   const [size, setSize] = useState('S');
   const [color, setColor] = useState('green');
-  
+  let updatedItem = props.route.params.item;
+  if (!updatedItem.quantity) {
+    updatedItem.quantity = 1;
+  }
+
+  let newCart = [];
   return (
     <>
       <Header
@@ -186,7 +193,10 @@ const Screen = props => {
               paddingHorizontal: 30,
             }}>
             <Text style={{color: '#696969'}}>Avalibality: </Text>
-            <Text style={{color: 'green'}}> {props.route.params.item.availablity}</Text>
+            <Text style={{color: 'green'}}>
+              {' '}
+              {props.route.params.item.availablity}
+            </Text>
           </View>
           <View
             style={{
@@ -550,11 +560,31 @@ const Screen = props => {
           style={{
             justifyContent: 'center',
             alignItems: 'center',
+            paddingVertical: 10,
+            flex: 1,
+            backgroundColor: COLORS.primary,
+            marginRight: 1,
+          }}
+          onPress={() => {
+            cartProduct.forEach(itemm => {
+              if (itemm.title !== updatedItem.title) {
+                newCart.push(itemm);
+              }
+            });
+            newCart.push(updatedItem);
+            setCartProduct(newCart);
+          }}>
+          <Text style={{fontSize: 17, color: 'white'}}>ADD TO CART</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
             paddingVertical: 17,
             flex: 1,
-            backgroundColor: '#00ACEC',
+            backgroundColor: '#4FAD43',
           }}>
-          <Text style={{fontSize: 20, color: 'white'}}>BUY NOW</Text>
+          <Text style={{fontSize: 17, color: 'white'}}>BUY NOW</Text>
         </TouchableOpacity>
       </View>
     </>
