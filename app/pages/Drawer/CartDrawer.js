@@ -22,16 +22,12 @@ const CartScreen = props => {
   const getPrice = () => {
     let updatedPrice = [];
     cartProduct.forEach(element => {
-      updatedPrice.push({price: element.price, quantity: element.quantity});
+      updatedPrice.push(Number(element.price) * Number(element.quantity));
     });
     return updatedPrice.length > 1
-      ? updatedPrice.reduce(
-          (a, b) =>
-            Number(a.price) * Number(a.quantity) +
-            Number(b.price) * Number(b.quantity),
-        )
+      ? updatedPrice.reduce((a, b) => a + b)
       : updatedPrice[0]
-      ? updatedPrice[0].price * updatedPrice[0].quantity
+      ? Number(updatedPrice[0])
       : 0;
   };
   const getQuantity = () => {
@@ -56,65 +52,63 @@ const CartScreen = props => {
       />
 
       <View style={{backgroundColor: '#fff'}}>
-        {cartProduct.length>0 ? (
+        {cartProduct.length > 0 ? (
           <ScrollView>
-            {cartProduct
-              ? cartProduct.map((item, index) => (
-                  <View key={index}>
-                    {item.quantity && item.title && item.price ? (
-                      <CartProduct
-                        key={index + 1}
-                        product={item.title}
-                        size={item.size}
-                        color={item.color}
-                        quantity={item.quantity}
-                        price={item.price * item.quantity}
-                        img={item.img}
-                        plusPress={() => {
-                          if (item.quantity > 0) {
-                            let newCart = [];
-                            let updatedItem = item;
-                            let index = '';
-                            cartProduct.forEach((itemm, i) => {
-                              if (itemm.title !== item.title) {
-                                newCart.push(itemm);
-                              } else {
-                                index = i;
-                              }
-                            });
-                            updatedItem.quantity++;
-                            newCart.splice(index, 0, updatedItem);
+            {cartProduct.map((item, index) => (
+              <View key={index}>
+                {item.quantity && item.title && item.price ? (
+                  <CartProduct
+                    key={index + 1}
+                    product={item.title}
+                    size={item.size}
+                    color={item.color}
+                    quantity={item.quantity}
+                    price={item.price * item.quantity}
+                    img={item.img}
+                    plusPress={() => {
+                      if (item.quantity > 0) {
+                        let newCart = [];
+                        let updatedItem = item;
+                        let index = '';
+                        cartProduct.forEach((itemm, i) => {
+                          if (itemm.title !== item.title) {
+                            newCart.push(itemm);
+                          } else {
+                            index = i;
+                          }
+                        });
+                        updatedItem.quantity++;
+                        newCart.splice(index, 0, updatedItem);
 
-                            setCartProduct(newCart);
+                        setCartProduct(newCart);
+                      }
+                    }}
+                    minusPress={() => {
+                      if (item.quantity > 0) {
+                        let newCart = [];
+                        let updatedItem = item;
+                        let index = '';
+                        cartProduct.forEach((itemm, i) => {
+                          if (itemm.title !== item.title) {
+                            newCart.push(itemm);
+                          } else {
+                            index = i;
                           }
-                        }}
-                        minusPress={() => {
-                          if (item.quantity > 0) {
-                            let newCart = [];
-                            let updatedItem = item;
-                            let index = '';
-                            cartProduct.forEach((itemm, i) => {
-                              if (itemm.title !== item.title) {
-                                newCart.push(itemm);
-                              } else {
-                                index = i;
-                              }
-                            });
-                            if (Number(updatedItem.quantity) < 2) {
-                              console.log(newCart, 'aaaaa');
-                              setCartProduct(newCart);
-                            } else {
-                              updatedItem.quantity--;
-                              newCart.splice(index, 0, updatedItem);
-                              setCartProduct(newCart);
-                            }
-                          }
-                        }}
-                      />
-                    ) : null}
-                  </View>
-                ))
-              : null}
+                        });
+                        if (Number(updatedItem.quantity) < 2) {
+                          console.log(newCart, 'aaaaa');
+                          setCartProduct(newCart);
+                        } else {
+                          updatedItem.quantity--;
+                          newCart.splice(index, 0, updatedItem);
+                          setCartProduct(newCart);
+                        }
+                      }
+                    }}
+                  />
+                ) : null}
+              </View>
+            ))}
 
             <View style={styles.bar}>
               <View>
