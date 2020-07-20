@@ -15,7 +15,6 @@ const CartScreen = props => {
   const [price1, setprice1] = useState(200);
   const [price2, setprice2] = useState(200);
   const [price3, setprice3] = useState(200);
-  const [totalPrice, setTotalPrice] = useState(600);
   const [update, setUpdate] = useState(false);
   useEffect(() => {}, [update, cartProduct]);
 
@@ -29,6 +28,13 @@ const CartScreen = props => {
         Number(a.price) * Number(a.quantity) +
         Number(b.price) * Number(b.quantity),
     );
+  };
+  const getQuantity = () => {
+    let updatedPrice = [];
+    cartProduct.forEach(element => {
+      updatedPrice.push(element.quantity);
+    });
+    return updatedPrice.reduce((a, b) => Number(a) + Number(b));
   };
 
   return (
@@ -91,16 +97,13 @@ const CartScreen = props => {
           </View>
           <View style={{marginRight: 10}}>
             <Text style={{fontSize: 14, marginBottom: 5}}>
-              ₹ {firstQuantity + secondQuantity + thirdQuantity}
+              {getQuantity()}
             </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: COLORS.green}}>
               Free
             </Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: '#819088'}}>
-              ₹{' '}
-              {price1 * firstQuantity +
-                price2 * secondQuantity +
-                price3 * thirdQuantity}
+              ₹ {getPrice()}
             </Text>
           </View>
         </View>
