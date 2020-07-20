@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
@@ -16,6 +16,20 @@ const CartScreen = props => {
   const [price2, setprice2] = useState(200);
   const [price3, setprice3] = useState(200);
   const [totalPrice, setTotalPrice] = useState(600);
+  const [update, setUpdate] = useState(false);
+  useEffect(() => {}, [update, cartProduct]);
+
+  const getPrice = () => {
+    let updatedPrice = [];
+    cartProduct.forEach(element => {
+      updatedPrice.push({price: element.price, quantity: element.quantity});
+    });
+    return updatedPrice.reduce(
+      (a, b) =>
+        Number(a.price) * Number(a.quantity) +
+        Number(b.price) * Number(b.quantity),
+    );
+  };
 
   return (
     <>
@@ -28,18 +42,31 @@ const CartScreen = props => {
       <View style={{backgroundColor: '#fff'}}>
         <ScrollView>
           {cartProduct
-            ? cartProduct.map((item,index) => (
+            ? cartProduct.map((item, index) => (
                 <CartProduct
-                  key={index+1}
+                  key={index + 1}
                   product={item.title}
                   size={item.size}
                   color={item.color}
-                  quantity={item.quantity?item.quantity:1}
+                  quantity={item.quantity ? item.quantity : 1}
                   price={item.price * item.quantity}
                   img={item.img}
                   plusPress={() => {
                     if (item.quantity > 0) {
-                      setFirstQuantity(firstQuantity + 1);
+                      let newCart = [];
+                      let updatedItem = item;
+                      let index = '';
+                      cartProduct.forEach((itemm, i) => {
+                        if (itemm.title !== item.title) {
+                          newCart.push(itemm);
+                        } else {
+                          index = i;
+                        }
+                      });
+                      updatedItem.quantity++;
+                      newCart.splice(index, 0, updatedItem);
+
+                      setCartProduct(newCart);
                     }
                   }}
                   minusPress={() => {
@@ -78,19 +105,12 @@ const CartScreen = props => {
           </View>
         </View>
         <View style={styles.price}>
-          <Text style={{fontSize: 26, margin: 20}}>
-            ₹{' '}
-            {price1 * firstQuantity +
-              price2 * secondQuantity +
-              price3 * thirdQuantity}
-          </Text>
+          <Text style={{fontSize: 26, margin: 20}}>₹ {getPrice()}</Text>
           <TouchableOpacity
             style={styles.btn}
-            onPress={() => console.log('asassasassaaaaaa',cartProduct)}
+            onPress={() => setUpdate(true)}
             // onPress={() => props.navigation.navigate('Checkout')}
-            
-            
-            >
+          >
             <Text style={styles.btnText}>Continue</Text>
           </TouchableOpacity>
         </View>
