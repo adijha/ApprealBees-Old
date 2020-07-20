@@ -5,6 +5,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+ 
 } from 'react-native';
 import Header from '../components/Header';
 import FastImage from 'react-native-fast-image';
@@ -12,15 +13,16 @@ import {useNavigation} from '@react-navigation/native';
 import FontAwesomeI from 'react-native-vector-icons/FontAwesome';
 const Screen = props => {
   const navigation = useNavigation();
-  const [imgShow, setImgShow] = useState(props.route.params.img);
+  const [imgShow, setImgShow] = useState(props.route.params.item.img);
   const [size, setSize] = useState('S');
   const [color, setColor] = useState('green');
+  
   return (
     <>
       <Header
         route={props.route}
         navigation={props.navigation}
-        title={props.route.params.title}
+        title={props.route.params.item.title}
         leftIcon
         leftAction={() => navigation.goBack()}
         rightAction={() => props.navigation.navigate('CartDrawer')}
@@ -36,58 +38,66 @@ const Screen = props => {
           <FastImage source={{uri: imgShow}} style={styles.image} />
           <View style={styles.imageContainer}>
             <TouchableOpacity
-              onPress={() => setImgShow(props.route.params.img)}
+              onPress={() => setImgShow(props.route.params.item.img)}
               style={[
                 styles.imageClick,
                 {
                   borderColor:
-                    imgShow === props.route.params.img ? '#F14436' : '#000',
+                    imgShow === props.route.params.item.img
+                      ? '#F14436'
+                      : '#000',
                 },
               ]}>
               <FastImage
-                source={{uri: props.route.params.img}}
+                source={{uri: props.route.params.item.img}}
                 style={styles.smallImage}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setImgShow(props.route.params.img1)}
+              onPress={() => setImgShow(props.route.params.item.img1)}
               style={[
                 styles.imageClick,
                 {
                   borderColor:
-                    imgShow === props.route.params.img1 ? '#F14436' : '#000',
+                    imgShow === props.route.params.item.img1
+                      ? '#F14436'
+                      : '#000',
                 },
               ]}>
               <FastImage
-                source={{uri: props.route.params.img1}}
+                source={{uri: props.route.params.item.img1}}
                 style={styles.smallImage}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setImgShow(props.route.params.img2)}
+              onPress={() => setImgShow(props.route.params.item.img2)}
               style={[
                 styles.imageClick,
                 {
                   borderColor:
-                    imgShow === props.route.params.img2 ? '#F14436' : '#000',
+                    imgShow === props.route.params.item.img2
+                      ? '#F14436'
+                      : '#000',
                 },
               ]}>
               <FastImage
-                source={{uri: props.route.params.img2}}
+                source={{uri: props.route.params.item.img2}}
                 style={styles.smallImage}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setImgShow(props.route.params.img3)}
+              onPress={() => setImgShow(props.route.params.item.img3)}
               style={[
                 styles.imageClick,
                 {
                   borderColor:
-                    imgShow === props.route.params.img3 ? '#F14436' : '#000',
+                    imgShow === props.route.params.item.img3
+                      ? '#F14436'
+                      : '#000',
                 },
               ]}>
               <FastImage
-                source={{uri: props.route.params.img3}}
+                source={{uri: props.route.params.item.img3}}
                 style={styles.smallImage}
               />
             </TouchableOpacity>
@@ -99,7 +109,7 @@ const Screen = props => {
             marginTop: 9,
             paddingBottom: 10,
           }}>
-          <Text style={styles.title}>{props.route.params.title}</Text>
+          <Text style={styles.title}>{props.route.params.item.title}</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -114,7 +124,7 @@ const Screen = props => {
                 color: 'red',
                 marginRight: 15,
               }}>
-              ₹ {props.route.params.price}
+              ₹ {props.route.params.item.price}
             </Text>
             <Text
               style={{
@@ -123,7 +133,7 @@ const Screen = props => {
                 marginTop: 7,
                 textDecorationLine: 'line-through',
               }}>
-              ₹ 4999
+              ₹ {props.route.params.item.basePrice}
             </Text>
             <Text
               style={{
@@ -132,7 +142,7 @@ const Screen = props => {
                 marginTop: 7,
                 fontWeight: '100',
               }}>
-              56% off
+              {props.route.params.item.discount} off
             </Text>
           </View>
           <View
@@ -153,7 +163,7 @@ const Screen = props => {
                 marginTop: 5,
               }}>
               <Text style={{color: '#fff', marginRight: 10, fontSize: 13}}>
-                4.3
+                {props.route.params.item.rating}
               </Text>
               <FontAwesomeI name="star" size={10} color="#fff" />
             </View>
@@ -165,7 +175,8 @@ const Screen = props => {
                 fontWeight: '100',
                 marginLeft: 10,
               }}>
-              43 ratings & 7 reviews
+              {props.route.params.item.ratings} ratings &{' '}
+              {props.route.params.item.reviews} reviews
             </Text>
           </View>
           <View
@@ -175,7 +186,7 @@ const Screen = props => {
               paddingHorizontal: 30,
             }}>
             <Text style={{color: '#696969'}}>Avalibality: </Text>
-            <Text style={{color: 'green'}}>In stock</Text>
+            <Text style={{color: 'green'}}> {props.route.params.item.availablity}</Text>
           </View>
           <View
             style={{
@@ -296,9 +307,7 @@ const Screen = props => {
             paddingVertical: 10,
             paddingHorizontal: 30,
           }}>
-          <Text style={{marginBottom: 10, color: '#444'}}>
-            Select Color :
-          </Text>
+          <Text style={{marginBottom: 10, color: '#444'}}>Select Color :</Text>
           <View
             style={{
               flexDirection: 'row',

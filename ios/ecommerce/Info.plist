@@ -4,6 +4,14 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Ionicons.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>MaterialIcons.ttf</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>ecommerce</string>
 	<key>CFBundleExecutable</key>

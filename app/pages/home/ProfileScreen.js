@@ -18,7 +18,7 @@ export default class Profile extends Component {
         <Header
           route={this.props.route}
           navigation={this.props.navigation}
-          title="Profile"
+          title="My Account"
           rightIcon
           rightAction={() => this.props.navigation.navigate('CartDrawer')}
         />
@@ -45,9 +45,7 @@ export default class Profile extends Component {
             <Text style={{fontSize: 18}}>My Wishlists</Text>
             <FeatherI name="chevron-right" size={25} color="#222" />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.card}
-            onPress={() => this.props.navigation.navigate('Product')}>
+          <TouchableOpacity style={styles.card} onPress={() => {}}>
             <Text style={{fontSize: 18}}>My Reviews</Text>
             <FeatherI name="chevron-right" size={25} color="#222" />
           </TouchableOpacity>

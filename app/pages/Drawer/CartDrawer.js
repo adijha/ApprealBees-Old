@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../../components/Header';
 import CartProduct from '../../components/CartProduct';
 import {ScrollView} from 'react-native-gesture-handler';
 import {COLORS} from '../../assets/colors';
+import {CartContext} from '../../App';
 
 const CartScreen = props => {
+  const Products = useContext(CartContext);
+
   const [firstQuantity, setFirstQuantity] = useState(3);
   const [secondQuantity, setsecondQuantity] = useState(3);
   const [thirdQuantity, setthirdQuantity] = useState(3);
@@ -24,6 +27,29 @@ const CartScreen = props => {
       />
       <View style={{backgroundColor: '#fff'}}>
         <ScrollView>
+          {Products
+            ? Products.map(item => (
+                <CartProduct
+                  product="Green Top"
+                  size="S"
+                  color="Green"
+                  quantity={firstQuantity}
+                  price={price1 * firstQuantity}
+                  img="https://source.unsplash.com/weekly?pink%20girl"
+                  plusPress={() => {
+                    if (firstQuantity > 0) {
+                      setFirstQuantity(firstQuantity + 1);
+                    }
+                  }}
+                  minusPress={() => {
+                    if (firstQuantity > 0) {
+                      setFirstQuantity(firstQuantity - 1);
+                    }
+                  }}
+                />
+              ))
+            : null}
+
           <CartProduct
             product="Green Top"
             size="S"

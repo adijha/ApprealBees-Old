@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Hr from './Hr';
 import ProductCard from './ProductCard';
@@ -6,74 +6,195 @@ import ProductCard from './ProductCard';
 import {useNavigation} from '@react-navigation/native';
 const Card = props => {
   const navigation = useNavigation();
+
+  const [Products, setProducts] = useState([
+    {
+      title: 'Realme XT (6gb)',
+      img: 'https://source.unsplash.com/weekly?app',
+      img1: 'https://source.unsplash.com/weekly?phone',
+      img2: 'https://source.unsplash.com/weekly?mobile',
+      img3: 'https://source.unsplash.com/weekly?android',
+      price: '10,000',
+      basePrice: '20,000',
+      discount: '50%',
+      rating: '4.3',
+      ratings: '43',
+      reviews: '7',
+      availablity: 'In stock',
+      color: 'green',
+      size: '32',
+      description: [
+        'Sleeve Type: Half',
+        'Material: Cotton',
+        'Pattern: Striped',
+      ],
+      customerReviews: [
+        {
+          name: 'Jonny',
+          date: '23 may 2020',
+          rating: '5',
+          message: 'I love this product',
+        },
+        {
+          name: 'Mahadev',
+          date: '23 june 2020',
+          rating: '5',
+          message: "Yo, It's lit",
+        },
+        {
+          name: 'Adam',
+          date: '24 may 2020',
+          rating: '2',
+          message: 'I love this thing',
+        },
+      ],
+    },
+    {
+      title: 'Pink Shirt',
+      img: 'https://source.unsplash.com/weekly?pink%20girl',
+      img1: 'https://source.unsplash.com/weekly?pink%20baby',
+      img2: 'https://source.unsplash.com/weekly?pink%20child',
+      img3: 'https://source.unsplash.com/weekly?pink%20lady',
+      price: '10,000',
+      basePrice: '20,000',
+      discount: '50%',
+      rating: '4.3',
+      ratings: '43',
+      reviews: '7',
+      availablity: 'In stock',
+      color: 'green',
+      size: '32',
+      description: [
+        'Sleeve Type: Half',
+        'Material: Cotton',
+        'Pattern: Striped',
+      ],
+      customerReviews: [
+        {
+          name: 'Jonny',
+          date: '23 may 2020',
+          rating: '5',
+          message: 'I love this product',
+        },
+        {
+          name: 'Mahadev',
+          date: '23 june 2020',
+          rating: '5',
+          message: "Yo, It's lit",
+        },
+        {
+          name: 'Adam',
+          date: '24 may 2020',
+          rating: '2',
+          message: 'I love this thing',
+        },
+      ],
+    },
+    {
+      title: 'Canon Hammer',
+      img: 'https://source.unsplash.com/weekly?hammer',
+      img1: 'https://source.unsplash.com/weekly?wood',
+      img2: 'https://source.unsplash.com/weekly?pin',
+      img3: 'https://source.unsplash.com/weekly?axe',
+      price: '10,000',
+      basePrice: '20,000',
+      discount: '50%',
+      rating: '4.3',
+      ratings: '43',
+      reviews: '7',
+      availablity: 'In stock',
+      color: 'green',
+      size: '32',
+      description: [
+        'Sleeve Type: Half',
+        'Material: Cotton',
+        'Pattern: Striped',
+      ],
+      customerReviews: [
+        {
+          name: 'Jonny',
+          date: '23 may 2020',
+          rating: '5',
+          message: 'I love this product',
+        },
+        {
+          name: 'Mahadev',
+          date: '23 june 2020',
+          rating: '5',
+          message: "Yo, It's lit",
+        },
+        {
+          name: 'Adam',
+          date: '24 may 2020',
+          rating: '2',
+          message: 'I love this thing',
+        },
+      ],
+    },
+    {
+      title: 'Mi trimmer',
+      img: 'https://source.unsplash.com/weekly?red%20shirt',
+      img1: 'https://source.unsplash.com/weekly?red%20vest',
+      img2: 'https://source.unsplash.com/weekly?red%20wear',
+      img3: 'https://source.unsplash.com/weekly?red%20dress',
+      price: '10,000',
+      basePrice: '20,000',
+      discount: '50%',
+      rating: '4.3',
+      ratings: '43',
+      reviews: '7',
+      availablity: 'In stock',
+      color: 'green',
+      size: '32',
+      description: [
+        'Sleeve Type: Half',
+        'Material: Cotton',
+        'Pattern: Striped',
+      ],
+      customerReviews: [
+        {
+          name: 'Jonny',
+          date: '23 may 2020',
+          rating: '5',
+          message: 'I love this product',
+        },
+        {
+          name: 'Mahadev',
+          date: '23 june 2020',
+          rating: '5',
+          message: "Yo, It's lit",
+        },
+        {
+          name: 'Adam',
+          date: '24 may 2020',
+          rating: '2',
+          message: 'I love this thing',
+        },
+      ],
+    },
+  ]);
+
   return (
     <View style={styles.container}>
       <Hr />
       <Text style={styles.title}>{props.title}</Text>
       <Hr />
       <View style={[styles.product, {marginTop: 10}]}>
-        <ProductCard
-          img="https://source.unsplash.com/weekly?pink%20girl"
-          text="Pink Shirt"
-          price="49"
-          onPress={() =>
-            navigation.push('Product', {
-              title: 'Pink Shirt',
-              img: 'https://source.unsplash.com/weekly?pink%20girl',
-              img1: 'https://source.unsplash.com/weekly?pink%20baby',
-              img2: 'https://source.unsplash.com/weekly?pink%20child',
-              img3: 'https://source.unsplash.com/weekly?pink%20lady',
-              price: '4900',
-            })
-          }
-        />
-        <ProductCard
-          img="https://source.unsplash.com/weekly?hammer"
-          text="Canon Hammer"
-          price="4900"
-          onPress={() =>
-            navigation.push('Product', {
-              title: 'Canon Hammer',
-              img: 'https://source.unsplash.com/weekly?hammer',
-              img1: 'https://source.unsplash.com/weekly?wood',
-              img2: 'https://source.unsplash.com/weekly?pin',
-              img3: 'https://source.unsplash.com/weekly?axe',
-              price: '4900',
-            })
-          }
-        />
-      </View>
-      <View style={styles.product}>
-        <ProductCard
-          img="https://source.unsplash.com/weekly?app"
-          text="Realme XT (6gb)"
-          price="10,000"
-          onPress={() =>
-            navigation.push('Product', {
-              title: 'Realme XT (6gb)',
-              img: 'https://source.unsplash.com/weekly?app',
-              img1: 'https://source.unsplash.com/weekly?phone',
-              img2: 'https://source.unsplash.com/weekly?mobile',
-              img3: 'https://source.unsplash.com/weekly?android',
-              price: '10,000',
-            })
-          }
-        />
-        <ProductCard
-          img="https://source.unsplash.com/weekly?red%20shirt"
-          text="Mi trimmer"
-          price="900"
-          onPress={() =>
-            navigation.push('Product', {
-              title: 'Mi trimmer',
-              img: 'https://source.unsplash.com/weekly?red%20shirt',
-              img1: 'https://source.unsplash.com/weekly?red%20vest',
-              img2: 'https://source.unsplash.com/weekly?red%20wear',
-              img3: 'https://source.unsplash.com/weekly?red%20dress',
-              price: '900',
-            })
-          }
-        />
+        {Products
+          ? Products.map(item => (
+              <ProductCard
+                img={item.img}
+                text={item.title}
+                key={item.title}
+                price={item.price}
+                onPress={() =>
+                  navigation.push('Product', {
+                    item,
+                  })
+                }
+              />
+            ))
+          : null}
       </View>
     </View>
   );
@@ -113,5 +234,7 @@ const styles = StyleSheet.create({
   product: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
   },
 });

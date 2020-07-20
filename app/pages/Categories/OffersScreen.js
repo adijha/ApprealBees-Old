@@ -36,12 +36,13 @@ const OffersScreen = () => {
     },
   ]);
   const [activeIndex, setActiveIndex] = useState(0);
-
+  
   function _renderItem({item, index}) {
     return <Card img={`https://source.unsplash.com/weekly?${item.text}`} />;
   }
   return (
     <ScrollView style={styles.container}>
+      <BestSeller title="BEST SELLER" />
       <Carousel
         data={carouselItem}
         sliderWidth={Dimensions.get('window').width}
@@ -70,7 +71,6 @@ const OffersScreen = () => {
         text="Summer's 16 Collection"
         btn="Shop Now"
       />
-      <BestSeller title="BEST SELLER" />
       <GenderCard
         align="left"
         text="NEW ARRIVAlS"
