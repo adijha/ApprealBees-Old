@@ -9,12 +9,6 @@ import {CartContext} from '../../App';
 const CartScreen = props => {
   const {cartProduct, setCartProduct} = useContext(CartContext);
   console.log(cartProduct, 'cartProduct');
-  const [firstQuantity, setFirstQuantity] = useState(3);
-  const [secondQuantity, setsecondQuantity] = useState(3);
-  const [thirdQuantity, setthirdQuantity] = useState(3);
-  const [price1, setprice1] = useState(200);
-  const [price2, setprice2] = useState(200);
-  const [price3, setprice3] = useState(200);
   const [update, setUpdate] = useState(false);
   useEffect(() => {}, [update, cartProduct]);
 
@@ -23,8 +17,6 @@ const CartScreen = props => {
     cartProduct.forEach(element => {
       updatedPrice.push({price: element.price, quantity: element.quantity});
     });
-    console.log({updatedPrice});
-    // return 10
     return updatedPrice.length > 1
       ? updatedPrice.reduce(
           (a, b) =>
@@ -40,10 +32,6 @@ const CartScreen = props => {
     cartProduct.forEach(element => {
       updatedPrice.push(element.quantity);
     });
-
-    console.log({updatedPrice});
-    // return 10
-
     return updatedPrice.length > 1
       ? updatedPrice.reduce((a, b) => Number(a) + Number(b))
       : updatedPrice[0]
