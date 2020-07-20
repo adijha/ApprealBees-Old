@@ -23,18 +23,32 @@ const CartScreen = props => {
     cartProduct.forEach(element => {
       updatedPrice.push({price: element.price, quantity: element.quantity});
     });
-    return updatedPrice.reduce(
-      (a, b) =>
-        Number(a.price) * Number(a.quantity) +
-        Number(b.price) * Number(b.quantity),
-    );
+    console.log({updatedPrice});
+    // return 10
+    return updatedPrice.length > 1
+      ? updatedPrice.reduce(
+          (a, b) =>
+            Number(a.price) * Number(a.quantity) +
+            Number(b.price) * Number(b.quantity),
+        )
+      : updatedPrice[0]
+      ? updatedPrice[0].price * updatedPrice[0].quantity
+      : 0;
   };
   const getQuantity = () => {
     let updatedPrice = [];
     cartProduct.forEach(element => {
       updatedPrice.push(element.quantity);
     });
-    return updatedPrice.reduce((a, b) => Number(a) + Number(b));
+
+    console.log({updatedPrice});
+    // return 10
+
+    return updatedPrice.length > 1
+      ? updatedPrice.reduce((a, b) => Number(a) + Number(b))
+      : updatedPrice[0]
+      ? updatedPrice[0]
+      : 0;
   };
 
   return (
@@ -49,38 +63,59 @@ const CartScreen = props => {
         <ScrollView>
           {cartProduct
             ? cartProduct.map((item, index) => (
-                <CartProduct
-                  key={index + 1}
-                  product={item.title}
-                  size={item.size}
-                  color={item.color}
-                  quantity={item.quantity ? item.quantity : 1}
-                  price={item.price * item.quantity}
-                  img={item.img}
-                  plusPress={() => {
-                    if (item.quantity > 0) {
-                      let newCart = [];
-                      let updatedItem = item;
-                      let index = '';
-                      cartProduct.forEach((itemm, i) => {
-                        if (itemm.title !== item.title) {
-                          newCart.push(itemm);
-                        } else {
-                          index = i;
-                        }
-                      });
-                      updatedItem.quantity++;
-                      newCart.splice(index, 0, updatedItem);
+                <View key={index}>
+                  {item.quantity && item.title && item.price ? (
+                    <CartProduct
+                      key={index + 1}
+                      product={item.title}
+                      size={item.size}
+                      color={item.color}
+                      quantity={item.quantity}
+                      price={item.price * item.quantity}
+                      img={item.img}
+                      plusPress={() => {
+                        if (item.quantity > 0) {
+                          let newCart = [];
+                          let updatedItem = item;
+                          let index = '';
+                          cartProduct.forEach((itemm, i) => {
+                            if (itemm.title !== item.title) {
+                              newCart.push(itemm);
+                            } else {
+                              index = i;
+                            }
+                          });
+                          updatedItem.quantity++;
+                          newCart.splice(index, 0, updatedItem);
 
-                      setCartProduct(newCart);
-                    }
-                  }}
-                  minusPress={() => {
-                    if (firstQuantity > 0) {
-                      setFirstQuantity(firstQuantity - 1);
-                    }
-                  }}
-                />
+                          setCartProduct(newCart);
+                        }
+                      }}
+                      minusPress={() => {
+                        if (item.quantity > 0) {
+                          let newCart = [];
+                          let updatedItem = item;
+                          let index = '';
+                          cartProduct.forEach((itemm, i) => {
+                            if (itemm.title !== item.title) {
+                              newCart.push(itemm);
+                            } else {
+                              index = i;
+                            }
+                          });
+                          if (Number(updatedItem.quantity) < 2) {
+                            console.log(newCart, 'aaaaa');
+                            setCartProduct(newCart);
+                          } else {
+                            updatedItem.quantity--;
+                            newCart.splice(index, 0, updatedItem);
+                            setCartProduct(newCart);
+                          }
+                        }
+                      }}
+                    />
+                  ) : null}
+                </View>
               ))
             : null}
         </ScrollView>
@@ -96,9 +131,7 @@ const CartScreen = props => {
             </Text>
           </View>
           <View style={{marginRight: 10}}>
-            <Text style={{fontSize: 14, marginBottom: 5}}>
-              {getQuantity()}
-            </Text>
+            <Text style={{fontSize: 14, marginBottom: 5}}>{getQuantity()}</Text>
             <Text style={{fontSize: 14, marginBottom: 5, color: COLORS.green}}>
               Free
             </Text>
