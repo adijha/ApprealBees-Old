@@ -7,8 +7,26 @@ import {
   ScrollView,
 } from 'react-native';
 import {COLORS} from '../../assets/colors';
+// import Radio from '../../components/Radio';
 const CartScreen = props => {
   const [addressType, setAddressType] = useState('old');
+  const [address, setAddress] = useState([
+    {
+      name: 'Urjit Patel',
+      line1: '1121 Blob, localhost UK',
+      line2: 'Uttrakhand, India',
+    },
+    {
+      name: 'Raghuram Rajan',
+      line1: '1121 Blob, localhost UK',
+      line2: 'Uttrakhand, India',
+    },
+    {
+      name: 'Brajeh Patel',
+      line1: '1121 Blob, localhost UK',
+      line2: 'Uttrakhand, India',
+    },
+  ]);
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -55,7 +73,7 @@ const CartScreen = props => {
               }}>
               Saved address
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity>           
         </View>
         <View
           style={{
