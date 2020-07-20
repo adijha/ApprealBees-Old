@@ -8,35 +8,53 @@ import {
 } from 'react-native';
 import {COLORS} from '../../assets/colors';
 const CartScreen = props => {
+  const [addressType, setAddressType] = useState('old');
   return (
     <View style={styles.container}>
       <ScrollView>
         <View
           style={{
-            borderWidth: 1,
+            borderWidth: 0.8,
             margin: 30,
             flexDirection: 'row',
             justifyContent: 'space-between',
             borderColor: COLORS.primary,
             borderRadius: 4,
+            marginHorizontal: 40,
           }}>
           <TouchableOpacity
+            onPress={() => setAddressType('new')}
             style={{
               alignItems: 'center',
               // borderRightWidth: 1,
-              padding: 15,
+              padding: 10,
               flex: 1,
+              backgroundColor: addressType == 'new' ? COLORS.primary : '#fff',
             }}>
-            <Text style={{color: '#BEB7B8', fontSize: 15}}>New address</Text>
+            <Text
+              style={{
+                color: addressType == 'new' ? '#fff' : '#BEB7B8',
+
+                fontSize: 15,
+              }}>
+              New address
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => setAddressType('old')}
             style={{
               alignItems: 'center',
-              padding: 15,
+              padding: 10,
               flex: 1,
-              backgroundColor: COLORS.primary,
+              backgroundColor: addressType == 'old' ? COLORS.primary : '#fff',
             }}>
-            <Text style={{color: '#fff', fontSize: 15}}>Saved address</Text>
+            <Text
+              style={{
+                color: addressType == 'old' ? '#fff' : '#BEB7B8',
+                fontSize: 15,
+              }}>
+              Saved address
+            </Text>
           </TouchableOpacity>
         </View>
         <View
@@ -89,8 +107,8 @@ const CartScreen = props => {
               justifyContent: 'center',
               marginTop: 10,
             }}>
-            <Text style={{color:COLORS.green, fontSize: 17}}>Free</Text>
-            <Text style={{color:COLORS.primary, fontSize: 14}}>Standard</Text>
+            <Text style={{color: COLORS.green, fontSize: 17}}>Free</Text>
+            <Text style={{color: COLORS.primary, fontSize: 14}}>Standard</Text>
           </View>
         </View>
       </ScrollView>
@@ -117,7 +135,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     height: 50,
-    backgroundColor:COLORS.primary,
+    backgroundColor: COLORS.primary,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',

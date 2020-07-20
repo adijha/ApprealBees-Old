@@ -136,9 +136,7 @@ const CartScreen = props => {
               <Text style={{fontSize: 26, margin: 20}}>₹ {getPrice()}</Text>
               <TouchableOpacity
                 style={styles.btn}
-                onPress={() => setUpdate(true)}
-                // onPress={() => props.navigation.navigate('Checkout')}
-              >
+                onPress={() => props.navigation.navigate('Checkout')}>
                 <Text style={styles.btnText}>Continue</Text>
               </TouchableOpacity>
             </View>
